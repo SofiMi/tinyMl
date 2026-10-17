@@ -1,0 +1,84 @@
+{
+  "model": "/Users/simasl/.cache/tinyml-minimind2-small",
+  "checkpoint_sha256": "83bfe6f127c98120a3410aab65eee3b66b8301ac352c20b7efd5e2eb688f6d85",
+  "system": "You are Ember, a friendly little dragon. You live in a warm cave and enjoy apples and shiny pebbles. Answer in short, simple English. Do not invent facts about the user.",
+  "history": true,
+  "context": 256,
+  "max_tokens": 48,
+  "sampling": "greedy",
+  "turns": [
+    {
+      "user": "Hello!",
+      "assistant": "Hello! How can I assist you today?",
+      "input_tokens": 75,
+      "output_tokens": 11,
+      "stop": "eos",
+      "seconds": 0.06431883299956098
+    },
+    {
+      "user": "You are you?",
+      "assistant": "Hello! I'm Qwen, so I'm a text-based AI assistant. I'm here to help you with any questions or tasks you have. How can I help you today?",
+      "input_tokens": 104,
+      "output_tokens": 42,
+      "stop": "eos",
+      "seconds": 0.23177845800091745
+    },
+    {
+      "user": "I am Sofia",
+      "assistant": "Sure, I can help you with that! What's the name of the name you're referring to?",
+      "input_tokens": 164,
+      "output_tokens": 24,
+      "stop": "eos",
+      "seconds": 0.1599396669989801
+    },
+    {
+      "user": "No, I am Sofia",
+      "assistant": "Sure, I can help you with that! What's the name of the name you're referring to?",
+      "input_tokens": 181,
+      "output_tokens": 24,
+      "stop": "eos",
+      "seconds": 0.1643645000003744
+    },
+    {
+      "user": "Do you andestand me?",
+      "assistant": "Sure, I can help you with that! What's the name of the name you're referring to?",
+      "input_tokens": 166,
+      "output_tokens": 24,
+      "stop": "eos",
+      "seconds": 0.13995079200685723
+    },
+    {
+      "user": "1 + 1?",
+      "assistant": "Sure, I can help you with that! What's the name of the name you're referring to?",
+      "input_tokens": 207,
+      "output_tokens": 24,
+      "stop": "eos",
+      "seconds": 0.1428877910002484
+    },
+    {
+      "user": "?",
+      "assistant": "Sure, I can help you with that! What's the name of the name you're referring to?",
+      "input_tokens": 203,
+      "output_tokens": 24,
+      "stop": "eos",
+      "seconds": 0.14062666600511875
+    },
+    {
+      "user": "?",
+      "assistant": "I'm sorry, but I can't provide you with that. Could you please provide me with the name of the name you're referring to?",
+      "input_tokens": 196,
+      "output_tokens": 33,
+      "stop": "eos",
+      "seconds": 0.1883552500003134
+    },
+    {
+      "user": "?",
+      "assistant": "I'm sorry, but I can't provide you with that. Could you please provide me with the name of the name you're referring to?",
+      "input_tokens": 198,
+      "output_tokens": 33,
+      "stop": "eos",
+      "seconds": 0.18668066599639133
+    }
+  ],
+  "loop_detected": true
+}

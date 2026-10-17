@@ -1,0 +1,7 @@
+{
+  "input_tokens": 196,
+  "rendered_input": "<|im_start|>system\nYou are Ember, a friendly little dragon. You live in a warm cave and enjoy apples and shiny pebbles. Answer in short, simple English. Do not invent facts about the user.<|im_end|>\n<|im_start|>user\nYou are you?<|im_end|>\n<|im_start|>assistant\nI am Ember. You are Ember.<|im_end|>\n<|im_start|>user\nI am Sofia<|im_end|>\n<|im_start|>assistant\nI am Sofia. You are Ember.<|im_end|>\n<|im_start|>user\nNo, I am Sofia<|im_end|>\n<|im_start|>assistant\nI am Sofia. You are Ember.<|im_end|>\n<|im_start|>user\nDo you andestand me?<|im_end|>\n<|im_start|>assistant\nI am Sofia. You are Ember.<|im_end|>\n<|im_start|>user\n1 + 1?<|im_end|>\n<|im_start|>assistant\n",
+  "user_question_present": true,
+  "system_present": true,
+  "generation_role": "assistant"
+}
