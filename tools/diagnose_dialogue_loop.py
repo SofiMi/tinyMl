@@ -8,14 +8,14 @@ import torch
 from dragon_hf import COMPACT_PERSONA, load, reply, sha
 
 
-def replay(model, tokenizer, prompts, history=True):
+def replay(model, tokenizer, prompts, history=True, generation_options=None, template_options=None):
     messages = [{"role": "system", "content": COMPACT_PERSONA}]
     turns = []
     for question in prompts:
         if not history:
             messages = messages[:1]
         messages.append({"role": "user", "content": question})
-        answer, stats = reply(model, tokenizer, messages, "cpu", 48, 256)
+        answer, stats = reply(model, tokenizer, messages, "cpu", 48, 256, generation_options, template_options)
         turns.append({"user": question, "assistant": answer, **stats})
         messages.append({"role": "assistant", "content": answer})
     return turns
@@ -36,15 +36,31 @@ def main():
     p.add_argument("--output", type=Path, default=Path("build/dragon/sofia-loop.json"))
     p.add_argument("--minimize", action="store_true")
     p.add_argument("--fresh", action="store_true", help="Diagnostic only: reset history before each question")
+    p.add_argument("--temperature", type=float, default=0.)
+    p.add_argument("--top-p", type=float, default=.9)
+    p.add_argument("--top-k", type=int, default=50)
+    p.add_argument("--repetition-penalty", type=float, default=1.)
+    p.add_argument("--seed", type=int, default=42)
+    p.add_argument("--no-thinking", action="store_true")
     a = p.parse_args()
+    if a.minimize and a.temperature:
+        p.error("Minimization requires greedy generation")
+    if not 0 <= a.temperature <= 2 or not 0 < a.top_p <= 1 or a.top_k < 0 or a.repetition_penalty <= 0:
+        p.error("Invalid sampling settings")
+    options = {"do_sample": a.temperature > 0, "repetition_penalty": a.repetition_penalty}
+    if a.temperature:
+        options.update(temperature=a.temperature, top_p=a.top_p, top_k=a.top_k)
+    template = {"enable_thinking": False} if a.no_thinking else {}
     torch.set_num_threads(4)
-    torch.manual_seed(42)
+    torch.manual_seed(a.seed)
     model, tokenizer = load(a.model, "cpu")
     prompts = json.loads(a.prompts.read_text())
-    turns = replay(model, tokenizer, prompts, not a.fresh)
+    turns = replay(model, tokenizer, prompts, not a.fresh, options, template)
     report = {"model": str(a.model), "checkpoint_sha256": sha(a.model/"model.safetensors"),
               "system": COMPACT_PERSONA, "history": not a.fresh, "context": 256, "max_tokens": 48,
-              "sampling": "greedy", "turns": turns, "loop_detected": loops(turns)}
+              "sampling": options, "template_options": template, "seed": a.seed,
+              "parameters": sum(p.numel() for p in model.parameters()),
+              "turns": turns, "loop_detected": loops(turns)}
     for t in turns:
         print(f"You: {t['user']}\nBot: {t['assistant']}", flush=True)
     if a.minimize and loops(turns):
@@ -56,13 +72,13 @@ def main():
                 candidate = current[:i]+current[i+1:]
                 if len(candidate) < 3:
                     continue
-                trial = replay(model, tokenizer, candidate, not a.fresh)
+                trial = replay(model, tokenizer, candidate, not a.fresh, options, template)
                 if loops(trial):
                     current = candidate
                     changed = True
                     break
         report["minimal_prompts"] = current
-        report["minimal_turns"] = replay(model, tokenizer, current, not a.fresh)
+        report["minimal_turns"] = replay(model, tokenizer, current, not a.fresh, options, template)
         print("Minimal:", json.dumps(report["minimal_turns"], ensure_ascii=False), flush=True)
     a.output.parent.mkdir(parents=True, exist_ok=True)
     a.output.write_text(json.dumps(report, indent=2)+"\n")

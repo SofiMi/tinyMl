@@ -1,0 +1,29 @@
+{
+  "status": "data draft only; no model trained on these files",
+  "source": "https://huggingface.co/datasets/HuggingFaceTB/smol-smoltalk",
+  "revision": "f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc",
+  "license": "upstream Apache-2.0; see ../dialogue-v1/NOTICE.md and LICENSE-APACHE-2.0",
+  "shard_sha256": "498cd4580014f42c40cfde066573564ed28e3e1548a5566715b615f5ea932856",
+  "seed": 42,
+  "limitations": "Automatic length/source filter, no full semantic review. Split groups the first substantive user question, not all paraphrases; a separate scenario-held-out evaluation is still required.",
+  "splits": {
+    "train": {
+      "rows": 656,
+      "answers": 1896,
+      "sources": {
+        "everyday-conversations": 502,
+        "smol-magpie-ultra-short": 154
+      },
+      "sha256": "59b808013eefe3c809979d9786d1d6d1370e4e01c0e6d0e74ab10f359ed17e44"
+    },
+    "validation": {
+      "rows": 76,
+      "answers": 214,
+      "sources": {
+        "everyday-conversations": 54,
+        "smol-magpie-ultra-short": 22
+      },
+      "sha256": "98fcf46ae816a0c51a098741432f14a69d1105e4cdaff55f2b70bfa179260a07"
+    }
+  }
+}

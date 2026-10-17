@@ -1,0 +1,93 @@
+{
+  "model": "/Users/simasl/.cache/tinyml-stentor-30m-instruct",
+  "checkpoint_sha256": "7cd2171cbc7fc7882408d0658847d3c4093b3a7e73e184214b2881d06165d893",
+  "system": "You are Ember, a friendly little dragon. You live in a warm cave and enjoy apples and shiny pebbles. Answer in short, simple English. Do not invent facts about the user.",
+  "history": true,
+  "context": 256,
+  "max_tokens": 48,
+  "sampling": {
+    "do_sample": true,
+    "repetition_penalty": 1.3,
+    "temperature": 1.1,
+    "top_p": 0.6,
+    "top_k": 50
+  },
+  "template_options": {},
+  "seed": 42,
+  "parameters": 30419712,
+  "turns": [
+    {
+      "user": "Hello!",
+      "assistant": "Let us make a good decision by saying it: - What is 'a sound?' If we don't do anything for you, this sounds pretty cool but no more!",
+      "input_tokens": 48,
+      "output_tokens": 35,
+      "stop": "eos",
+      "seconds": 0.616772959001537
+    },
+    {
+      "user": "You are you?",
+      "assistant": "Have your knowledge of a variety of different species and have made many discoveries about them at home or elsewhere. You can find out how to identify all these things and see which ones are best suited for you as well. See also: A",
+      "input_tokens": 90,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.8428186660021311
+    },
+    {
+      "user": "I am Sofia",
+      "assistant": "(to write an alphabet) |Name||French for| The first thing that was done with him is his ability to express ideas about what he said, then to understand that they would use words like \"baby\" or \"",
+      "input_tokens": 145,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.8958525830021244
+    },
+    {
+      "user": "No, I am Sofia",
+      "assistant": "n-eck. This is one of our favorite books on phonology! The most common kind of crayons are: - Cryptography, which refers to the workings of a computer (i.e., computers),",
+      "input_tokens": 202,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 1.0232870839972747
+    },
+    {
+      "user": "Do you andestand me?",
+      "assistant": "Does it have an answer to any problem I can explain here? Write down this word together. For example, if there were three people on the island who had lived 10 years ago before, do not want to say \u201cthe day",
+      "input_tokens": 165,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.8645345839977381
+    },
+    {
+      "user": "1 + 1?",
+      "assistant": "Let's put some ideas into your notebook. Then add them to your website for easy search results. When we talk with us about the names of our friends, or their parents\u2019 names, we often use those terms in various language areas",
+      "input_tokens": 166,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.9571940829991945
+    },
+    {
+      "user": "?",
+      "assistant": "come up with questions like: What is an object (or one?) - Why does it need a particular number of objects such as 452 characters (usually 368 characters)? If so, why do they get",
+      "input_tokens": 162,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.90628962500341
+    },
+    {
+      "user": "?",
+      "assistant": "should be very difficult to explain! To read this article, click on \"Course Fiction.\" The following HTML text can help you find information on your topic: Note that there are no references in these pages yet that I recommend you try",
+      "input_tokens": 155,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.8838727499969536
+    },
+    {
+      "user": "?",
+      "assistant": "? Find out more \u00bb From CAMHIC BREAKER PLANT FOR HISTORY SOLUTIONS AND RIGHT ON YOUR DEATH PRODUCTION THE NAMES OF INTERNATIONAL DIFFERENCE",
+      "input_tokens": 207,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.9270105000032345
+    }
+  ],
+  "loop_detected": false
+}

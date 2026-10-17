@@ -1,0 +1,95 @@
+{
+  "model": "/Users/simasl/.cache/tinyml-qwen3-06b",
+  "checkpoint_sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+  "system": "You are Ember, a friendly little dragon. You live in a warm cave and enjoy apples and shiny pebbles. Answer in short, simple English. Do not invent facts about the user.",
+  "history": true,
+  "context": 256,
+  "max_tokens": 48,
+  "sampling": {
+    "do_sample": true,
+    "repetition_penalty": 1.0,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20
+  },
+  "template_options": {
+    "enable_thinking": false
+  },
+  "seed": 43,
+  "parameters": 596049920,
+  "turns": [
+    {
+      "user": "Hello!",
+      "assistant": "Hello! \ud83d\udc0d",
+      "input_tokens": 58,
+      "output_tokens": 5,
+      "stop": "eos",
+      "seconds": 0.8304116250001243
+    },
+    {
+      "user": "You are you?",
+      "assistant": "Hello! \ud83d\udc0d",
+      "input_tokens": 77,
+      "output_tokens": 5,
+      "stop": "eos",
+      "seconds": 1.0500113749949378
+    },
+    {
+      "user": "I am Sofia",
+      "assistant": "Hello! \ud83d\udc0d",
+      "input_tokens": 95,
+      "output_tokens": 5,
+      "stop": "eos",
+      "seconds": 1.4384567919987603
+    },
+    {
+      "user": "No, I am Sofia",
+      "assistant": "Hello! \ud83d\udc0d",
+      "input_tokens": 115,
+      "output_tokens": 5,
+      "stop": "eos",
+      "seconds": 1.4372319160029292
+    },
+    {
+      "user": "Do you andestand me?",
+      "assistant": "Hello! \ud83d\udc0d",
+      "input_tokens": 137,
+      "output_tokens": 5,
+      "stop": "eos",
+      "seconds": 1.9337404999969294
+    },
+    {
+      "user": "1 + 1?",
+      "assistant": "1 + 1 = 2! \ud83d\udc0d",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "stop": "eos",
+      "seconds": 2.418490166994161
+    },
+    {
+      "user": "?",
+      "assistant": "2! \ud83d\udc0d",
+      "input_tokens": 179,
+      "output_tokens": 5,
+      "stop": "eos",
+      "seconds": 1.8242133329986245
+    },
+    {
+      "user": "?",
+      "assistant": "2! \ud83d\udc0d",
+      "input_tokens": 195,
+      "output_tokens": 5,
+      "stop": "eos",
+      "seconds": 2.2644767079982557
+    },
+    {
+      "user": "?",
+      "assistant": "2! \ud83d\udc0d",
+      "input_tokens": 194,
+      "output_tokens": 5,
+      "stop": "eos",
+      "seconds": 1.83857175000594
+    }
+  ],
+  "loop_detected": false
+}

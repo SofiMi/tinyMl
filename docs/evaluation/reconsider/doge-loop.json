@@ -1,0 +1,90 @@
+{
+  "model": "/Users/simasl/.cache/tinyml-doge-20m-instruct",
+  "checkpoint_sha256": "c2519beeb340a92572a94b95fabbacd812f1f0e6ee5753180468837ef908ce6e",
+  "system": "You are Ember, a friendly little dragon. You live in a warm cave and enjoy apples and shiny pebbles. Answer in short, simple English. Do not invent facts about the user.",
+  "history": true,
+  "context": 256,
+  "max_tokens": 48,
+  "sampling": {
+    "do_sample": false,
+    "repetition_penalty": 1.0
+  },
+  "template_options": {},
+  "seed": 42,
+  "parameters": 13117712,
+  "turns": [
+    {
+      "user": "Hello!",
+      "assistant": "Hello, I'm Alex, and I'm a bit of a bit of a little bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit",
+      "input_tokens": 78,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.283714917000907
+    },
+    {
+      "user": "You are you?",
+      "assistant": "Hello! What's the best way to get started with a little bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of",
+      "input_tokens": 143,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.2627081669998006
+    },
+    {
+      "user": "I am Sofia",
+      "assistant": "I'm a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a",
+      "input_tokens": 146,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.23434779100352898
+    },
+    {
+      "user": "No, I am Sofia",
+      "assistant": "I am Sofia, a friendly little dragon that's been a long time. I'm a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit",
+      "input_tokens": 149,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.20604704200377455
+    },
+    {
+      "user": "Do you andestand me?",
+      "assistant": "I am Sofia, a friendly little dragon that's been a long time. I've been a long time in the cave, and I've been a long time in the cave. I've been a long time in the cave,",
+      "input_tokens": 151,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.2061766249971697
+    },
+    {
+      "user": "1 + 1?",
+      "assistant": "I am Sofia, a friendly little dragon that's been a long time. I've been a long time in the cave, and I've been a long time in the cave. I've been a long time in the cave,",
+      "input_tokens": 149,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.2068415419998928
+    },
+    {
+      "user": "?",
+      "assistant": "I've been a long time in the cave, and I've been a long time in the cave. I've been a long time in the cave, and I've been a long time in the cave. I've been a long time",
+      "input_tokens": 143,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.20875825000257464
+    },
+    {
+      "user": "?",
+      "assistant": "I've been a long time in the cave, and I've been a long time in the cave. I've been a long time in the cave, and I've been a long time in the cave. I've been a long time",
+      "input_tokens": 205,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.21520612499443814
+    },
+    {
+      "user": "?",
+      "assistant": "I've been a long time in the cave, and I've been a long time in the cave. I've been a long time in the cave, and I've been a long time in the cave. I've been a long time",
+      "input_tokens": 201,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.21725162499933504
+    }
+  ],
+  "loop_detected": false
+}

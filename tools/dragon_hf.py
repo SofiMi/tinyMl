@@ -44,11 +44,12 @@ def load(path, device):
     return model, tokenizer
 
 
-def fit_messages(tokenizer, messages, limit):
+def fit_messages(tokenizer, messages, limit, template_options=None):
     messages = list(messages)
     while True:
         ids = tokenizer.apply_chat_template(
             messages, add_generation_prompt=True, tokenize=True, return_dict=False,
+            **(template_options or {}),
         )
         if len(ids) <= limit:
             return ids
@@ -59,14 +60,17 @@ def fit_messages(tokenizer, messages, limit):
 
 
 @torch.inference_mode()
-def reply(model, tokenizer, messages, device, max_tokens=48, context=1024):
-    ids = fit_messages(tokenizer, messages, context - max_tokens)
+def reply(model, tokenizer, messages, device, max_tokens=48, context=1024,
+          generation_options=None, template_options=None):
+    ids = fit_messages(tokenizer, messages, context - max_tokens, template_options)
     inputs = torch.tensor([ids], dtype=torch.long, device=device)
     started = time.monotonic()
+    options = {"do_sample": False, **(generation_options or {})}
     output = model.generate(
         inputs, attention_mask=torch.ones_like(inputs), max_new_tokens=max_tokens,
-        do_sample=False, use_cache=True, pad_token_id=tokenizer.eos_token_id,
+        use_cache=True, pad_token_id=tokenizer.eos_token_id,
         eos_token_id=tokenizer.eos_token_id,
+        **options,
     )[0, len(ids):].tolist()
     stopped = bool(output and output[-1] == tokenizer.eos_token_id)
     if stopped:
@@ -87,7 +91,7 @@ def evaluate(args, model, tokenizer, persona):
         "parameters": sum(p.numel() for p in model.parameters()),
         "torch": torch.__version__, "transformers": transformers.__version__,
         "device": args.device, "weights": "FP32 runtime, original checkpoint precision recorded in source_config",
-        "persona": persona, "sampling": "greedy", "max_tokens": args.max_tokens,
+        "persona": persona, "sampling": args.generation_options, "template_options": args.template_options, "seed": args.seed, "max_tokens": args.max_tokens,
         "context": args.context, "cases_source": str(args.cases), "cases_sha256": sha(args.cases),
         "note": "Keyword checks are smoke checks, not semantic accuracy. Model uses its own generated history.",
         "cases": [],
@@ -98,7 +102,7 @@ def evaluate(args, model, tokenizer, persona):
         turns = []
         for question in prompts:
             messages.append({"role": "user", "content": question})
-            answer, details = reply(model, tokenizer, messages, args.device, args.max_tokens, args.context)
+            answer, details = reply(model, tokenizer, messages, args.device, args.max_tokens, args.context, args.generation_options, args.template_options)
             messages.append({"role": "assistant", "content": answer})
             turns.append(dict(user=question, assistant=answer, **details))
             print(f"{name}: {question}\nDragon: {answer}", flush=True)
@@ -118,12 +122,24 @@ def main():
     parser.add_argument("--output", type=Path, default=Path("build/dragon/smollm2-eval.json"))
     parser.add_argument("--max-tokens", type=int, default=48)
     parser.add_argument("--context", type=int, default=1024)
+    parser.add_argument("--temperature", type=float, default=0.)
+    parser.add_argument("--top-p", type=float, default=0.9)
+    parser.add_argument("--top-k", type=int, default=50)
+    parser.add_argument("--repetition-penalty", type=float, default=1.)
+    parser.add_argument("--no-thinking", action="store_true")
+    parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
     if args.source_revision is None and args.model == Path.home()/".cache/tinyml-smollm2-135m-instruct":
         args.source_revision = SMOL_REVISION
     if not 0 < args.max_tokens < args.context:
         parser.error("Require 0 < max-tokens < context")
-    torch.manual_seed(42)
+    if not 0 <= args.temperature <= 2 or not 0 < args.top_p <= 1 or args.top_k < 0 or args.repetition_penalty <= 0:
+        parser.error("Invalid sampling settings")
+    args.generation_options = {"do_sample": args.temperature > 0, "repetition_penalty": args.repetition_penalty}
+    if args.temperature:
+        args.generation_options.update(temperature=args.temperature, top_p=args.top_p, top_k=args.top_k)
+    args.template_options = {"enable_thinking": False} if args.no_thinking else {}
+    torch.manual_seed(args.seed)
     torch.set_num_threads(4)
     model, tokenizer = load(args.model, args.device)
     if args.context > model.config.max_position_embeddings:
@@ -149,7 +165,7 @@ def main():
         if not question:
             continue
         messages.append({"role": "user", "content": question})
-        answer, _ = reply(model, tokenizer, messages, args.device, args.max_tokens, args.context)
+        answer, _ = reply(model, tokenizer, messages, args.device, args.max_tokens, args.context, args.generation_options, args.template_options)
         messages.append({"role": "assistant", "content": answer})
         print("Ember:", answer)
 

@@ -1,0 +1,93 @@
+{
+  "model": "/Users/simasl/.cache/tinyml-doge-20m-instruct",
+  "checkpoint_sha256": "c2519beeb340a92572a94b95fabbacd812f1f0e6ee5753180468837ef908ce6e",
+  "system": "You are Ember, a friendly little dragon. You live in a warm cave and enjoy apples and shiny pebbles. Answer in short, simple English. Do not invent facts about the user.",
+  "history": true,
+  "context": 256,
+  "max_tokens": 48,
+  "sampling": {
+    "do_sample": true,
+    "repetition_penalty": 1.0,
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 50
+  },
+  "template_options": {},
+  "seed": 42,
+  "parameters": 13117712,
+  "turns": [
+    {
+      "user": "Hello!",
+      "assistant": "Hello! I'm looking for a new blog to share a fascinating story about a mysterious alien named \"The Catcher of Fire.\" This idea is really interesting and it's a fascinating exploration of the natural world. It's a fascinating concept,",
+      "input_tokens": 78,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.35823050000180956
+    },
+    {
+      "user": "You are you?",
+      "assistant": "Hello! As a friendly feline friend, I've always been fascinated by the strange creatures found in the forest. We've been observing and learning from this enchanted creature, but we're not sure if this is an ancient creature that's being",
+      "input_tokens": 143,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.3108656250042259
+    },
+    {
+      "user": "I am Sofia",
+      "assistant": "Hi Emily,\n\nI hope you're doing well. I am a good buddy of your own, and I want to share some insights and suggestions that we could explore further. I wanted to reach out to you if you're interested in collaborating",
+      "input_tokens": 146,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.32446429099945817
+    },
+    {
+      "user": "No, I am Sofia",
+      "assistant": "Hi Emily,\n\nI hope you're well. I am so proud to share our unique insights and suggestions on how we can work together to make our planet a better place. I wanted to share some insights and suggestions on how we can work together",
+      "input_tokens": 149,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.314330291999795
+    },
+    {
+      "user": "Do you andestand me?",
+      "assistant": "Let me tell you, I'll be working on a new program, so we can do that. We'll focus on the user's preferences and the user's preferences. I'll start by explaining what type of preferences are they for. Then",
+      "input_tokens": 151,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.31031070800236193
+    },
+    {
+      "user": "1 + 1?",
+      "assistant": "Let's start by explaining the user's preferences. \n\nWe can set up a program that includes a list of all preferences, such as \"food,\" \"food,\" \"sugar,\" and \"food.\" \n\nThe program should then calculate the",
+      "input_tokens": 149,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.3081219579980825
+    },
+    {
+      "user": "?",
+      "assistant": "Here is an example of a program that uses a list of all preferences to create a list of all preferences.",
+      "input_tokens": 143,
+      "output_tokens": 22,
+      "stop": "eos",
+      "seconds": 0.15178083299542777
+    },
+    {
+      "user": "?",
+      "assistant": "Here is a Python program that uses a list of all preferences to create a list of all preferences:\n\n1. **Choose a list**: Start with the list of all preferences you want to create. For example:\n\t* I have 4",
+      "input_tokens": 179,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.3328598750013043
+    },
+    {
+      "user": "?",
+      "assistant": "Here is a Python program that can create a list of all preferences:\n\n1. **FROM a list**: Create a list of all preferences that you want to create. This is a list that can be created by adding a list to a",
+      "input_tokens": 175,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.3426805420021992
+    }
+  ],
+  "loop_detected": false
+}

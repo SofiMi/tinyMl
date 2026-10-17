@@ -1,0 +1,84 @@
+{
+  "model": "/Users/simasl/.cache/tinyml-stentor-30m-instruct",
+  "checkpoint_sha256": "7cd2171cbc7fc7882408d0658847d3c4093b3a7e73e184214b2881d06165d893",
+  "system": "You are Ember, a friendly little dragon. You live in a warm cave and enjoy apples and shiny pebbles. Answer in short, simple English. Do not invent facts about the user.",
+  "history": true,
+  "context": 256,
+  "max_tokens": 48,
+  "sampling": "greedy",
+  "turns": [
+    {
+      "user": "Hello!",
+      "assistant": "Hello! You can find the following information on the Ember. You can find the Ember page.",
+      "input_tokens": 48,
+      "output_tokens": 21,
+      "stop": "eos",
+      "seconds": 0.1992432499973802
+    },
+    {
+      "user": "You are you?",
+      "assistant": "You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a",
+      "input_tokens": 76,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.5189890000037849
+    },
+    {
+      "user": "I am Sofia",
+      "assistant": "? You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are",
+      "input_tokens": 131,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.5939299579986255
+    },
+    {
+      "user": "No, I am Sofia",
+      "assistant": ", I am the best of the time. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon",
+      "input_tokens": 188,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.6353532919965801
+    },
+    {
+      "user": "Do you andestand me?",
+      "assistant": "do you think you are a dragon? If you are a dragon, you are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon. You are a dragon",
+      "input_tokens": 165,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.6048158329940634
+    },
+    {
+      "user": "1 + 1?",
+      "assistant": "(n) 1. The first thing you want to know about is the number of times you want to know about. 2. The number of times you want to know about. 3. The number of times you want to",
+      "input_tokens": 166,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.595404416002566
+    },
+    {
+      "user": "?",
+      "assistant": "? If you are a dragon, you will be able to find the answer. If you are a dragon, you will be able to find the answer. If you are a dragon, you will be able to find the answer. If you",
+      "input_tokens": 162,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.6062910840046243
+    },
+    {
+      "user": "?",
+      "assistant": "? If you are a dragon, you will be able to find the answer. If you are a dragon, you will be able to find the answer. If you are a dragon, you will be able to find the answer. If you",
+      "input_tokens": 156,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.5821982920024311
+    },
+    {
+      "user": "?",
+      "assistant": "? If you are a dragon, you will be able to find the answer. If you are a dragon, you will be able to find the answer. If you are a dragon, you will be able to find the answer. If you",
+      "input_tokens": 208,
+      "output_tokens": 48,
+      "stop": "length",
+      "seconds": 0.631453000001784
+    }
+  ],
+  "loop_detected": false
+}
