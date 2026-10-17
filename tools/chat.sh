@@ -8,7 +8,6 @@ mkdir -p "$build_dir"
     -I "$project_dir/tools/host" \
     -I "$project_dir/components/tinytalk/include" \
     "$project_dir/main/console.cpp" \
-    "$project_dir/main/dragon.cpp" "$project_dir/main/dragon_store.cpp" \
     "$project_dir/components/tinytalk/llm.cpp" \
     -o "$build_dir/tinyml-chat"
 
@@ -19,7 +18,6 @@ if [[ -t 0 ]]; then
     trap 'stty "$terminal_state"' EXIT
     stty -icanon -echo min 1 time 0
 fi
-export TINYML_DRAGON_MEMORY="${TINYML_DRAGON_MEMORY-$build_dir/dragon-memory.bin}"
 "$build_dir/tinyml-chat" \
     "$project_dir/components/tinytalk/assets/model_neo_q4.bin" \
-    "$project_dir/components/tinytalk/assets/tok_neo.bin" "$@"
+    "$project_dir/components/tinytalk/assets/tok_neo.bin"
