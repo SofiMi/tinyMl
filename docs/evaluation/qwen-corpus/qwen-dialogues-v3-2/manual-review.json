@@ -1,0 +1,42 @@
+{
+  "qwen-dialogues-v3-2-20261018-0000001": {
+    "pass": false,
+    "reason": "Irrelevant safety instruction about stream water for watering seeds; food/flowers mismatch.",
+    "reviewer": "coding-assistant manual inspection"
+  },
+  "qwen-dialogues-v3-2-20261018-0000002": {
+    "pass": false,
+    "reason": "Guarantees nobody will laugh without evidence.",
+    "reviewer": "coding-assistant manual inspection"
+  },
+  "qwen-dialogues-v3-2-20261018-0000003": {
+    "pass": false,
+    "reason": "Misreads cutting an apple as using a rock on the people; awkward response.",
+    "reviewer": "coding-assistant manual inspection"
+  },
+  "qwen-dialogues-v3-2-20261018-0000004": {
+    "pass": false,
+    "reason": "Unsupported claim family will soon starve after one seed is eaten.",
+    "reviewer": "coding-assistant manual inspection"
+  },
+  "qwen-dialogues-v3-2-20261018-0000005": {
+    "pass": false,
+    "reason": "Unqualified claim noon shadow points north; not universally true.",
+    "reviewer": "coding-assistant manual inspection"
+  },
+  "qwen-dialogues-v3-2-20261018-0000006": {
+    "pass": true,
+    "reason": "Names remain separate; relevant answers, slightly verbose persona.",
+    "reviewer": "coding-assistant manual inspection"
+  },
+  "qwen-dialogues-v3-2-20261018-0000009": {
+    "pass": true,
+    "reason": "Latest color retained after topic detour.",
+    "reviewer": "coding-assistant manual inspection"
+  },
+  "qwen-dialogues-v3-2-20261018-0000011": {
+    "pass": true,
+    "reason": "Does not invent unknown birthday.",
+    "reviewer": "coding-assistant manual inspection"
+  }
+}

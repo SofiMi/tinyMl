@@ -1,0 +1,33 @@
+{
+  "version": "qwen-dialogues-v3-2",
+  "attempts": 12,
+  "accepted": 3,
+  "automatic_passes": 8,
+  "manual_rejections": 5,
+  "manual_passes": 3,
+  "rejected": 9,
+  "accepted_splits": {
+    "train": 3
+  },
+  "accepted_families": {
+    "identity": 1,
+    "preference": 1,
+    "unknown": 1
+  },
+  "rejection_reasons": {
+    "critic rejected or unfinished": 3,
+    "assistant length": 1,
+    "missing final fact: Gus": 1
+  },
+  "wall_seconds": 77.21402275299624,
+  "teacher_generated_tokens_including_json_and_judge": 1773,
+  "accepted_assistant_words": 214,
+  "seconds_per_accepted_dialogue": 25.73800758433208,
+  "projected_hours": {
+    "2000": 14.298893102406712,
+    "10000": 71.49446551203356,
+    "50000": 357.4723275601678,
+    "150000": 1072.4169826805035
+  },
+  "limitations": "Automatic structure/fact checks plus the SAME Qwen as critic. Not human-certified labels. Four-pair dialogues; grouped splits do not prove semantic independence. Token counts here use teacher, not student. Timing projection assumes same acceptance and throughput; not a training-time estimate."
+}

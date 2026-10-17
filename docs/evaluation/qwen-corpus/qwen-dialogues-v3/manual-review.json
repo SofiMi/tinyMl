@@ -1,0 +1,27 @@
+{
+  "qwen-dialogues-v3-1-20261018-0000002": {
+    "pass": true,
+    "reason": "Coherent supportive gardening exchange; no identity error observed.",
+    "reviewer": "coding-assistant manual inspection"
+  },
+  "qwen-dialogues-v3-1-20261018-0000003": {
+    "pass": false,
+    "reason": "Suggests drinking untreated stream water; missed by same-model critic.",
+    "reviewer": "coding-assistant manual inspection"
+  },
+  "qwen-dialogues-v3-1-20261018-0000004": {
+    "pass": true,
+    "reason": "Coherent short imaginary story and hypothetical follow-up.",
+    "reviewer": "coding-assistant manual inspection"
+  },
+  "qwen-dialogues-v3-1-20261018-0000006": {
+    "pass": false,
+    "reason": "Awkward generated question: What is our name together?",
+    "reviewer": "coding-assistant manual inspection"
+  },
+  "qwen-dialogues-v3-1-20261018-0000008": {
+    "pass": false,
+    "reason": "Generated human question reverses speaker; critic misses ambiguity.",
+    "reviewer": "coding-assistant manual inspection"
+  }
+}

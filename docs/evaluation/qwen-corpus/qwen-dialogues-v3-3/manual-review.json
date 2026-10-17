@@ -1,0 +1,202 @@
+{
+  "qwen-dialogues-v3-3-20261018-0000001": {
+    "pass": false,
+    "reason": "Low relevance: switches from choosing activities to unsolicited stones-versus-shells distinction.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000002": {
+    "pass": false,
+    "reason": "Claims no one can hear the user without evidence; weak support and invented environment.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000003": {
+    "pass": true,
+    "reason": "Acceptable short pretend picnic plan; leaf substitute and sharing are coherent.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000004": {
+    "pass": false,
+    "reason": "Calls apples and shiny stones treats to eat; persona only collects stones.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000007": {
+    "pass": true,
+    "reason": "Correctly updates Dina to Gus and retains it after a detour. Some excessive persona repetition.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000008": {
+    "pass": true,
+    "reason": "Keeps Bea distinct from friend Jude. Persona references are excessive but roles remain correct.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000014": {
+    "pass": false,
+    "reason": "Ignores pocket preference and suggests holding the button in hand; weak emotional relevance.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000015": {
+    "pass": true,
+    "reason": "Coherent fictional picnic with dragon wings as substitute carrier.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000017": {
+    "pass": true,
+    "reason": "Relevant simple melting explanation; minor fictional cave detail.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000020": {
+    "pass": true,
+    "reason": "Correctly separates Kian from Jude through a topic detour.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000021": {
+    "pass": false,
+    "reason": "Excessive unsolicited shiny-stone questions; returns to obsolete purple preference instead of cleanly acknowledging update.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000024": {
+    "pass": false,
+    "reason": "Accepts incorrect quote of prior analogy and treats dry as opposite of soft; claims touching clouds without setup.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000026": {
+    "pass": true,
+    "reason": "Simple gardening exchange stays coherent; initial comfort is weak and self-focused, not exemplary empathy.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000027": {
+    "pass": false,
+    "reason": "Does not answer reasonable request to find one more shell; invents impossibility from missing object.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000028": {
+    "pass": true,
+    "reason": "Coherent brief fictional story and accepts requested alternate character.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000029": {
+    "pass": false,
+    "reason": "Ferns do not bloom; final water/light explanation is inaccurate and ungrammatical.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000030": {
+    "pass": true,
+    "reason": "Both names remain correct. Toy-quality conversation with some unnecessary persona references.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000031": {
+    "pass": true,
+    "reason": "Natural name correction Jude to Hana and recall after playing-ball detour.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000032": {
+    "pass": true,
+    "reason": "Dina and Gus correctly separated. Puzzle reply is shallow, but coherent.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000033": {
+    "pass": false,
+    "reason": "Explains reading as finding shiny stones inside books without establishing a picture or fantasy context.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000035": {
+    "pass": true,
+    "reason": "Does not invent birthday; weak opening redirects to stones, so not exemplary topic following.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000036": {
+    "pass": false,
+    "reason": "Names unseen object as paper boat before user establishes what they made; text-only task needs grounding.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000037": {
+    "pass": true,
+    "reason": "Responds to leaf correction with coherent choice of dry bedding.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000038": {
+    "pass": true,
+    "reason": "Simple supportive drawing conversation and response to user progress.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000039": {
+    "pass": false,
+    "reason": "Treats arbitrary shiny red stone as red crayon without establishing a marking material.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000040": {
+    "pass": false,
+    "reason": "Requested puzzle story contains no recognizable puzzle; seeds-as-home then food drifts in motive.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000041": {
+    "pass": true,
+    "reason": "Correct simple explanation of wings and steering tail; English articles are imperfect.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000042": {
+    "pass": true,
+    "reason": "Keeps Dina and Ember separate after fictional dragon discussion.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000044": {
+    "pass": true,
+    "reason": "Keeps Kian separate from Ada; some unsolicited persona questions.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000045": {
+    "pass": true,
+    "reason": "Updates red to purple and recalls it after a detour.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000047": {
+    "pass": false,
+    "reason": "Scripted user thanks a clarification question as if it contained new information; assistant reinforces incoherent exchange.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000048": {
+    "pass": true,
+    "reason": "Coherent correction from ten shells to eleven and goodbye.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000049": {
+    "pass": false,
+    "reason": "Final instruction to keep paper boat dry while floating in stream does not address soaking/sinking coherently.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000050": {
+    "pass": true,
+    "reason": "Supportive exchange with relevant rest suggestion and appropriate persona answer.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000051": {
+    "pass": false,
+    "reason": "Invents human favorite red shell before the user supplies that personal fact.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000052": {
+    "pass": true,
+    "reason": "Short hiding-game story with coherent motive and alternative sharing ending.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000053": {
+    "pass": false,
+    "reason": "Confuses gliding through air with sliding down grass; questionable absolute statement that planes need engines.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000054": {
+    "pass": true,
+    "reason": "Lena/Ember identities stay separate; counting-shell response is shallow.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000056": {
+    "pass": true,
+    "reason": "Correct speaker identification after detour; some persona repetition.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  },
+  "qwen-dialogues-v3-3-20261018-0000059": {
+    "pass": true,
+    "reason": "Simple puzzle exchange and honest unknown birthday.",
+    "reviewer": "Codex qualitative audit, not user/human certification"
+  }
+}

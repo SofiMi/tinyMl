@@ -1,0 +1,52 @@
+{
+  "tokenizer": "/Users/simasl/.cache/tinyml-llama2c/tokenizer.model",
+  "tokenizer_sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+  "protocol": "stories15M: BOS, User/Dragon, assistant EOS; fixed persona omitted from prompt",
+  "warning": "Sizing only, not a selected/trained student or proof of ESP compatibility. Export contains a system message; the legacy trainer needs an explicit fixed-persona conversion. Actual pruned TinyTalk tokenizer differs.",
+  "splits": {
+    "train": {
+      "conversations": 23,
+      "answers": 92,
+      "supervised_tokens_per_epoch": 1598,
+      "mean_target_tokens_per_answer": 17.369565217391305,
+      "mean_target_tokens_per_conversation": 69.47826086956522,
+      "all_history_context_max": 170,
+      "answers_exceeding_256_with_full_history": 0,
+      "answers_exceeding_512_with_full_history": 0,
+      "last_prompts_exceeding_72_minus_8_runtime_budget": 23,
+      "projected_supervised_tokens_for_n_conversations": {
+        "10000": 694783,
+        "50000": 3473913,
+        "150000": 10421739
+      }
+    },
+    "validation": {
+      "conversations": 1,
+      "answers": 4,
+      "supervised_tokens_per_epoch": 93,
+      "mean_target_tokens_per_answer": 23.25,
+      "mean_target_tokens_per_conversation": 93,
+      "all_history_context_max": 159,
+      "answers_exceeding_256_with_full_history": 0,
+      "answers_exceeding_512_with_full_history": 0,
+      "last_prompts_exceeding_72_minus_8_runtime_budget": 1,
+      "projected_supervised_tokens_for_n_conversations": {
+        "10000": 930000,
+        "50000": 4650000,
+        "150000": 13950000
+      }
+    },
+    "test": {
+      "conversations": 0,
+      "answers": 0,
+      "supervised_tokens_per_epoch": 0,
+      "mean_target_tokens_per_answer": null,
+      "mean_target_tokens_per_conversation": null,
+      "all_history_context_max": 0,
+      "answers_exceeding_256_with_full_history": 0,
+      "answers_exceeding_512_with_full_history": 0,
+      "last_prompts_exceeding_72_minus_8_runtime_budget": 0,
+      "projected_supervised_tokens_for_n_conversations": {}
+    }
+  }
+}
