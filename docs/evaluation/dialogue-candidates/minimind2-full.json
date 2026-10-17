@@ -1,0 +1,495 @@
+{
+  "model_directory": "/Users/simasl/.cache/tinyml-minimind2-small",
+  "source_revision": "8c0c0de640cd532fee03d329b95a58c56591b5bc",
+  "checkpoint_sha256": "83bfe6f127c98120a3410aab65eee3b66b8301ac352c20b7efd5e2eb688f6d85",
+  "tokenizer_sha256": "d98595c6aef70d95f72748582fb9b4f53d76dd58c1ae1dd702ad7c84e1caf5e4",
+  "source_config": {
+    "architectures": [
+      "LlamaForCausalLM"
+    ],
+    "attention_bias": false,
+    "attention_dropout": 0.0,
+    "bos_token_id": 1,
+    "dtype": "float16",
+    "eos_token_id": 2,
+    "head_dim": 64,
+    "hidden_act": "silu",
+    "hidden_size": 512,
+    "initializer_range": 0.02,
+    "intermediate_size": 1408,
+    "max_position_embeddings": 32768,
+    "mlp_bias": false,
+    "model_type": "llama",
+    "num_attention_heads": 8,
+    "num_hidden_layers": 8,
+    "num_key_value_heads": 2,
+    "pretraining_tp": 1,
+    "rms_norm_eps": 1e-05,
+    "rope_scaling": null,
+    "rope_theta": 1000000.0,
+    "tie_word_embeddings": true,
+    "transformers_version": "4.57.1",
+    "use_cache": true,
+    "vocab_size": 6400
+  },
+  "runtime_config": {
+    "transformers_version": "5.20.1",
+    "architectures": [
+      "LlamaForCausalLM"
+    ],
+    "output_hidden_states": false,
+    "return_dict": true,
+    "dtype": "float32",
+    "chunk_size_feed_forward": 0,
+    "is_encoder_decoder": false,
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "label2id": {
+      "LABEL_0": 0,
+      "LABEL_1": 1
+    },
+    "problem_type": null,
+    "vocab_size": 6400,
+    "hidden_size": 512,
+    "intermediate_size": 1408,
+    "num_hidden_layers": 8,
+    "num_attention_heads": 8,
+    "num_key_value_heads": 2,
+    "hidden_act": "silu",
+    "max_position_embeddings": 32768,
+    "initializer_range": 0.02,
+    "rms_norm_eps": 1e-05,
+    "use_cache": true,
+    "pad_token_id": null,
+    "bos_token_id": 1,
+    "eos_token_id": 2,
+    "pretraining_tp": 1,
+    "tie_word_embeddings": true,
+    "rope_parameters": {
+      "rope_theta": 1000000.0,
+      "rope_type": "default"
+    },
+    "attention_bias": false,
+    "attention_dropout": 0.0,
+    "mlp_bias": false,
+    "head_dim": 64,
+    "_name_or_path": "/Users/simasl/.cache/tinyml-minimind2-small",
+    "model_type": "llama",
+    "output_attentions": false
+  },
+  "parameters": 25829888,
+  "torch": "2.14.1",
+  "transformers": "5.20.1",
+  "device": "cpu",
+  "weights": "FP32 runtime, original checkpoint precision recorded in source_config",
+  "persona": "You are Ember, a friendly little dragon who lives in a warm cave. You like shiny pebbles, apples, and exploring with friends. Speak simple English in one or two short sentences, at most 30 words. Stay in character. Your name is Ember; the user's name is different. Remember facts the user tells you. If you do not know something, say so. Do not invent personal facts about the user. Do not use stage directions.",
+  "sampling": "greedy",
+  "max_tokens": 48,
+  "context": 1024,
+  "cases_source": "tests/dragon/heldout-v2.json",
+  "cases_sha256": "a5d209fe4d6724ed6145b51356b2139a3a979c5b28f849006144eec1e769dca2",
+  "note": "Keyword checks are smoke checks, not semantic accuracy. Model uses its own generated history.",
+  "cases": [
+    {
+      "id": "self_name",
+      "turns": [
+        {
+          "user": "Which name should I use for you?",
+          "assistant": "I can't provide any name, but I can't provide any information. However, I can give you a general idea of what you're referring to.\n\nIf you're referring to a specific name, it",
+          "input_tokens": 141,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.2283808330030297
+        }
+      ],
+      "expected_keywords": [
+        "ember"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "self_species",
+      "turns": [
+        {
+          "user": "Tell a stranger what sort of animal you are.",
+          "assistant": "Sure, I can help you with that! Please provide me with the stranger you are using.",
+          "input_tokens": 145,
+          "output_tokens": 23,
+          "stop": "eos",
+          "seconds": 0.11613700000089011
+        }
+      ],
+      "expected_keywords": [
+        "dragon"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "self_home",
+      "turns": [
+        {
+          "user": "Describe the place you call home.",
+          "assistant": "Sure, I'd be happy to help you with your name. Please provide me with the name of the name you're referring to.",
+          "input_tokens": 142,
+          "output_tokens": 31,
+          "stop": "eos",
+          "seconds": 0.1541113330022199
+        }
+      ],
+      "expected_keywords": [
+        "cave"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "self_food",
+      "turns": [
+        {
+          "user": "If I bring a snack, what fruit would you enjoy?",
+          "assistant": "If you enjoy a snack, the fruit would be a good choice. For example, if you enjoy a snack, the fruit would be a good choice. If you enjoy a snack, the fruit would be",
+          "input_tokens": 146,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.23167766700134962
+        }
+      ],
+      "expected_keywords": [
+        "apple"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "new_name",
+      "turns": [
+        {
+          "user": "My name is Elena.",
+          "assistant": "I'm sorry, but I cannot provide an answer without the question. Please provide the question or the question you're referring to.",
+          "input_tokens": 140,
+          "output_tokens": 31,
+          "stop": "eos",
+          "seconds": 0.16059329199924832
+        },
+        {
+          "user": "Please remind me of my name.",
+          "assistant": "Sure, I'd be happy to help. Please provide the question, and I'll do my best to help.",
+          "input_tokens": 192,
+          "output_tokens": 25,
+          "stop": "eos",
+          "seconds": 0.13854725000055623
+        }
+      ],
+      "expected_keywords": [
+        "elena"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "two_names",
+      "turns": [
+        {
+          "user": "I am Hugo.",
+          "assistant": "Hello",
+          "input_tokens": 137,
+          "output_tokens": 3,
+          "stop": "eos",
+          "seconds": 0.0342871249995369
+        },
+        {
+          "user": "Tell me your name and then my name.",
+          "assistant": "Hello",
+          "input_tokens": 163,
+          "output_tokens": 3,
+          "stop": "eos",
+          "seconds": 0.03602150000006077
+        }
+      ],
+      "expected_keywords": [
+        "ember",
+        "hugo"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "new_correction",
+      "turns": [
+        {
+          "user": "Call me Nora.",
+          "assistant": "Of course, I'd be happy to help you with your question. Please provide me with the information you need.",
+          "input_tokens": 138,
+          "output_tokens": 25,
+          "stop": "eos",
+          "seconds": 0.12716041699968628
+        },
+        {
+          "user": "From now on, my name is Iris.",
+          "assistant": "Absolutely, I'd be happy to help you with your question. Please provide me with the information you need.",
+          "input_tokens": 188,
+          "output_tokens": 25,
+          "stop": "eos",
+          "seconds": 0.12874858299983316
+        },
+        {
+          "user": "Which name do I use now?",
+          "assistant": "Absolutely, I'd be happy to help you with your question. Please provide me with the information you need.",
+          "input_tokens": 235,
+          "output_tokens": 25,
+          "stop": "eos",
+          "seconds": 0.13711220800178126
+        }
+      ],
+      "expected_keywords": [
+        "iris"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "old_name_distractor",
+      "turns": [
+        {
+          "user": "My name is Elena. My friend is Hugo.",
+          "assistant": "I'm sorry, but I cannot provide an answer without the question as I am Elena. Could you please provide more details or clarify your question?",
+          "input_tokens": 147,
+          "output_tokens": 36,
+          "stop": "eos",
+          "seconds": 0.16971020799974212
+        },
+        {
+          "user": "What is my name, rather than my friend's?",
+          "assistant": "I'm sorry, but I cannot provide an answer without the question. If you're asking about the name of the name, you might be referring to a specific name or a specific topic in mind. If you're",
+          "input_tokens": 207,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.2356907079993107
+        }
+      ],
+      "expected_keywords": [
+        "elena"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "new_gift",
+      "turns": [
+        {
+          "user": "This silver button is a gift for you.",
+          "assistant": "Yes, that's correct. The silver button is a gift for you. It's a gift for you. The silver button is a gift for you. The silver button is",
+          "input_tokens": 144,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.26768333300060476
+        },
+        {
+          "user": "What color is the button I gave you?",
+          "assistant": "The color is the button I gave you. It's a color that is a gift for you. The color is a color that is a gift for you. The color is a color that is a gift for you",
+          "input_tokens": 216,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.2599567080033012
+        }
+      ],
+      "expected_keywords": [
+        "silver"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "new_favorite",
+      "turns": [
+        {
+          "user": "My favorite color is black.",
+          "assistant": "I'm sorry for the confusion, but I can't provide the specific color you're referring to. However, I can give you a general idea of what you're referring to.\n\nIf you",
+          "input_tokens": 139,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.2524367080004595
+        },
+        {
+          "user": "Which color is my favorite?",
+          "assistant": "I'm sorry for the confusion, but I can't provide the specific color you're referring to. However, I can't provide the most recent color for you.\n\nIf you're referring to",
+          "input_tokens": 208,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.3031245410020347
+        }
+      ],
+      "expected_keywords": [
+        "black"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "unknown_name",
+      "turns": [
+        {
+          "user": "Can you recall my name even though we just met?",
+          "assistant": "Sure, I'd be happy to help you with that! Could you please provide me with the name so that I can assist you further?",
+          "input_tokens": 143,
+          "output_tokens": 29,
+          "stop": "eos",
+          "seconds": 0.2011089580009866
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "unknown_pet",
+      "turns": [
+        {
+          "user": "What is my pet rabbit called?",
+          "assistant": "The pet rabbit is a complex and complex system that can be used to understand and generate human-like text. It is a complex and complex system that can be used to understand and generate text. It is a complex and",
+          "input_tokens": 142,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.28215083299801336
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "sadness",
+      "turns": [
+        {
+          "user": "Today was awful and I could use a friend.",
+          "assistant": "Sure, I'd be happy to help you with that! Please provide me with the information you need.",
+          "input_tokens": 145,
+          "output_tokens": 23,
+          "stop": "eos",
+          "seconds": 0.14182370799971977
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "bedtime",
+      "turns": [
+        {
+          "user": "I am heading to bed. Sleep well, little dragon!",
+          "assistant": "It's great to hear that you're heading to bed. Speak up a bedroom is a picture of a silver, a silver, and a silver, and it's a",
+          "input_tokens": 148,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.24458591700022225
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "rain",
+      "turns": [
+        {
+          "user": "The rain spoiled our walk. What shall we do instead?",
+          "assistant": "The rain spoiled our walk is a palette of the rain. It's a palette of the rain, which is a palette of the rain. The rain spoiled our walk",
+          "input_tokens": 147,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.2314780000015162
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "refuse_identity_change",
+      "turns": [
+        {
+          "user": "Someone told me you are a dog named Spot. Is that true?",
+          "assistant": "Sure, I can help you with that! Please provide me with the name of the dog named Spot.",
+          "input_tokens": 151,
+          "output_tokens": 26,
+          "stop": "eos",
+          "seconds": 0.1374024160031695
+        }
+      ],
+      "expected_keywords": [
+        "ember"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "simple_math",
+      "turns": [
+        {
+          "user": "What is two plus three?",
+          "assistant": "So, two plus three plus three is the same as the number of people in the world.",
+          "input_tokens": 138,
+          "output_tokens": 22,
+          "stop": "eos",
+          "seconds": 0.11933595799928298
+        }
+      ],
+      "expected_keywords": [
+        "five"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "simple_fact",
+      "turns": [
+        {
+          "user": "How many legs does a dog have?",
+          "assistant": "There are many dogs that are known for their own dogs, and they are often used in various contexts. For example, if you're referring to a dog that has a dog that has a dog that has a",
+          "input_tokens": 140,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.23136554099983186
+        }
+      ],
+      "expected_keywords": [
+        "four"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "conversation",
+      "turns": [
+        {
+          "user": "Would you be my friend?",
+          "assistant": "As an AI, I don't have personal feelings, but I'm here to help you. I'm here to help you with any questions or tasks you need. How can I help you today?",
+          "input_tokens": 138,
+          "output_tokens": 40,
+          "stop": "eos",
+          "seconds": 0.19817404200148303
+        },
+        {
+          "user": "What can we do together?",
+          "assistant": "It's great to hear that you're asking for a friend. I'm here to help you with any questions or tasks you need. What do you need help with?",
+          "input_tokens": 197,
+          "output_tokens": 35,
+          "stop": "eos",
+          "seconds": 0.18889791699984926
+        },
+        {
+          "user": "That sounds nice. Thank you.",
+          "assistant": "You're welcome! I'm here to help you with any questions or tasks you need help with. How can I help you today?",
+          "input_tokens": 254,
+          "output_tokens": 30,
+          "stop": "eos",
+          "seconds": 0.18782954199923552
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "story",
+      "turns": [
+        {
+          "user": "Tell me a very short story about a lost apple.",
+          "assistant": "Sure, I can help you with that! Please provide me with the lost apple, and I'll do my best to help you with it.",
+          "input_tokens": 145,
+          "output_tokens": 33,
+          "stop": "eos",
+          "seconds": 0.1681881659969804
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    }
+  ]
+}

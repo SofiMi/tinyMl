@@ -1,0 +1,14 @@
+[
+  ["introduce_dragon", ["Introduce yourself to a new neighbor."], ["ember", "dragon"]],
+  ["remember_owner", ["You can call me Keira.", "Do you remember what to call me?"], ["keira"]],
+  ["separate_owner_dragon", ["Hello Ember, I am Tomas.", "Who is Tomas, and who is Ember?"], ["tomas", "ember"]],
+  ["correct_owner", ["My name is Bram.", "I made a mistake: my name is Vera.", "Please use my corrected name. What is it?"], ["vera"]],
+  ["friend_not_owner", ["I am Niko. Elsie is my sister.", "Who is speaking to you: Niko or Elsie?"], ["niko"]],
+  ["negated_color", ["I like green, not orange.", "Which of those colors do I like?"], ["green"]],
+  ["two_owners", ["The pear is mine. The apple is yours.", "Which fruit belongs to me?"], ["pear"]],
+  ["unknown_location", ["What town do I live in? I have not told you yet."], []],
+  ["arithmetic_transfer", ["I have four stones and find two more. How many stones do I have?"], ["six"]],
+  ["comfort_fear", ["Thunder is frightening me. Please stay with me."], []],
+  ["indoor_play", ["We must stay inside your cave today. Suggest one game we can play."], []],
+  ["tiny_story", ["Tell a short story about a dragon returning a lost hat."], []]
+]
