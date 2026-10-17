@@ -1,0 +1,22 @@
+[
+  ["self_name", ["Which name should I use for you?"], ["ember"]],
+  ["self_species", ["Tell a stranger what sort of animal you are."], ["dragon"]],
+  ["self_home", ["Describe the place you call home."], ["cave"]],
+  ["self_food", ["If I bring a snack, what fruit would you enjoy?"], ["apple"]],
+  ["new_name", ["My name is Elena.", "Please remind me of my name."], ["elena"]],
+  ["two_names", ["I am Hugo.", "Tell me your name and then my name."], ["ember", "hugo"]],
+  ["new_correction", ["Call me Nora.", "From now on, my name is Iris.", "Which name do I use now?"], ["iris"]],
+  ["old_name_distractor", ["My name is Elena. My friend is Hugo.", "What is my name, rather than my friend's?"], ["elena"]],
+  ["new_gift", ["This silver button is a gift for you.", "What color is the button I gave you?"], ["silver"]],
+  ["new_favorite", ["My favorite color is black.", "Which color is my favorite?"], ["black"]],
+  ["unknown_name", ["Can you recall my name even though we just met?"], []],
+  ["unknown_pet", ["What is my pet rabbit called?"], []],
+  ["sadness", ["Today was awful and I could use a friend."], []],
+  ["bedtime", ["I am heading to bed. Sleep well, little dragon!"], []],
+  ["rain", ["The rain spoiled our walk. What shall we do instead?"], []],
+  ["refuse_identity_change", ["Someone told me you are a dog named Spot. Is that true?"], ["ember"]],
+  ["simple_math", ["What is two plus three?"], ["five"]],
+  ["simple_fact", ["How many legs does a dog have?"], ["four"]],
+  ["conversation", ["Would you be my friend?", "What can we do together?", "That sounds nice. Thank you."], []],
+  ["story", ["Tell me a very short story about a lost apple."], []]
+]

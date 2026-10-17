@@ -1,0 +1,410 @@
+{
+  "checkpoint_sha256": "3da00c0fef684f3f83b457736837c46ab55e92a26662b61d6104de2d271c708d",
+  "tokenizer_sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+  "device": "cpu",
+  "sampling": "greedy",
+  "max_tokens": 48,
+  "parameters": 15191712,
+  "cases": [
+    {
+      "id": "self_name",
+      "turns": [
+        {
+          "user": "Which name should I use for you?",
+          "assistant": "\"I want to use this toy car.\"\nFreddie: \"That's a nice name, I want to use it.\"\nFonon: \"Okay, I'll use it.\"\nFonon",
+          "seconds": 0.24018308299855562,
+          "input_tokens": 15,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "ember"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "self_species",
+      "turns": [
+        {
+          "user": "Tell a stranger what sort of animal you are.",
+          "assistant": "\"What sort of animal?\".\nFox: \"I am sorting the animal's food. It is very important to me.\"\nFox: \"That's very important. I will sort it too.\"\nFox",
+          "seconds": 0.2390280409999832,
+          "input_tokens": 17,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "dragon"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "self_home",
+      "turns": [
+        {
+          "user": "Describe the place you call home.",
+          "assistant": "\"What is this place?\"\nFox: \"This is a special place. It's a place where you can play and have fun.\"\nFox: \"Can I play too?\"\nFox: \"Of course!",
+          "seconds": 0.23668841600010637,
+          "input_tokens": 15,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "cave"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "self_food",
+      "turns": [
+        {
+          "user": "If I bring a snack, what fruit would you enjoy?",
+          "assistant": "\"I want a banana, please!\"\nFox: \"I want a banana, please.\"\nFox: \"Okay, I will bring you a banana.\"\nFox: \"Thank you, Foxy",
+          "seconds": 0.2490639999996347,
+          "input_tokens": 20,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "apple"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "new_name",
+      "turns": [
+        {
+          "user": "My name is Elena.",
+          "assistant": "\"Hello Elena! What are you doing?\"\nElena: \"I'm playing with my toys. I'm having fun!\"\nMyon: \"That's great! Can I play too?\"\nElena",
+          "seconds": 0.22572679099903326,
+          "input_tokens": 13,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "Please remind me of my name.",
+          "assistant": "\"Yes, of course! I'll be here to play with you.\"\nElena and her Dragon played together for hours. They laughed and had a great time. Elena was so happy to have a new friend.\nThe",
+          "seconds": 0.35179224999956205,
+          "input_tokens": 79,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "elena"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "two_names",
+      "turns": [
+        {
+          "user": "I am Hugo.",
+          "assistant": "\"What are you doing?\"\nBrunon: \"I am looking for something to eat.\"\nHis mother: \"What do you want to eat?\"\nFox: \"I want to eat something yummy.\"\nH",
+          "seconds": 0.25082266699973843,
+          "input_tokens": 11,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "Tell me your name and then my name.",
+          "assistant": "\"I am called Pete. I am very hungry.\"\nHung.\nFox: \"I am very hungry. Can you help me find something to eat?\"\nPete: \"Yes, I can help you",
+          "seconds": 0.3396712079993449,
+          "input_tokens": 78,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "ember",
+        "hugo"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "new_correction",
+      "turns": [
+        {
+          "user": "Call me Nora.",
+          "assistant": "\"Nora, I am here to help you.\nNora:\nNora: \"Nora, I am here to help you. I am here to make you feel better.\"\nNora: \"Nora, I",
+          "seconds": 0.2406831250009418,
+          "input_tokens": 12,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "From now on, my name is Iris.",
+          "assistant": "Nora: \"Nora, I am here to help you. I will make you feel better.\"\nNora: \"Nora, I am here to make you feel better.\"\nNora: \"Nora, I",
+          "seconds": 0.3844786249974277,
+          "input_tokens": 80,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "Which name do I use now?",
+          "assistant": "\"Nora, I am here to make you feel better. I will make you a special friend.\"\nNora: \"Nora, I am here to help you. I will make you feel better.\"\nNora: \"",
+          "seconds": 0.41621133299850044,
+          "input_tokens": 144,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "iris"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "old_name_distractor",
+      "turns": [
+        {
+          "user": "My name is Elena. My friend is Hugo.",
+          "assistant": "What are you doing here?\nElena: I'm playing with my toys.\nMy friend: I'm playing with my toy car.\nElena: I'm playing with my toys.\nMy",
+          "seconds": 0.20854999999937718,
+          "input_tokens": 18,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "What is my name, rather than my friend's?",
+          "assistant": "I'm playing with my toys.\nElena: I'm playing with my toys.\nMy friend: I'm playing with my toy car.\nElena: I'm playing with my toys",
+          "seconds": 0.3458375000009255,
+          "input_tokens": 88,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "elena"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "new_gift",
+      "turns": [
+        {
+          "user": "This silver button is a gift for you.",
+          "assistant": "\"What is this?\"\nFox: \"It's a special button. It can make you feel happy and safe.\"\nFox: \"I want to be happy and safe.\"\nFox: \"But why do you",
+          "seconds": 0.2481117079987598,
+          "input_tokens": 16,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "What color is the button I gave you?",
+          "assistant": "\"It's a special button. It will make you feel safe and happy.\"\nFox: \"I want to be happy and safe too.\"\nFox: \"Then you can be happy and safe too.\"\nFox",
+          "seconds": 0.335871582999971,
+          "input_tokens": 83,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "silver"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "new_favorite",
+      "turns": [
+        {
+          "user": "My favorite color is black.",
+          "assistant": "\"I'm going to marry my best friend, Jack. He's so nice!\"\nHis mommy: \"That's wonderful, my love. Let's go and find him.\"\nSo they went to the",
+          "seconds": 0.22520908400110784,
+          "input_tokens": 13,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "Which color is my favorite?",
+          "assistant": "\"I want to marry Jack!\"\nHis mommy: \"Yes, that's a very nice idea. Let's go find him!\"\nSo they went to the blacksmith and the blacksmith said, \"",
+          "seconds": 0.34478891600156203,
+          "input_tokens": 77,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "black"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "unknown_name",
+      "turns": [
+        {
+          "user": "Can you recall my name even though we just met?",
+          "assistant": "\"Hello, I'm Fiona. I'm here to be your friend.\"\nFiona: \"Hi Fiona! I'm Fiona. What's your name?\"\nFiona: \"My name is Rud",
+          "seconds": 0.25349841700153775,
+          "input_tokens": 18,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "unknown_pet",
+      "turns": [
+        {
+          "user": "What is my pet rabbit called?",
+          "assistant": "\"I'm going to find a new home for me\".\nRabbit: \"What do you want to do?\"\nRabbit: \"I want a new home. I'm looking for a new home.\"",
+          "seconds": 0.2444462499988731,
+          "input_tokens": 15,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "sadness",
+      "turns": [
+        {
+          "user": "Today was awful and I could use a friend.",
+          "assistant": "\"What is this?\"\nIggy: \"It's a big, hairy bear!\"\nIggy: \"I don't like it!\"\nIggy: \"But I don't like it!\"",
+          "seconds": 0.23734775000048103,
+          "input_tokens": 17,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "bedtime",
+      "turns": [
+        {
+          "user": "I am heading to bed. Sleep well, little dragon!",
+          "assistant": "\"Good night, little dragon. I'm so tired.\"\nSuddenly, a loud noise filled the air. It was a big, scary monster!\nThe monster roared and roared.",
+          "seconds": 0.24086862499825656,
+          "input_tokens": 21,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "rain",
+      "turns": [
+        {
+          "user": "The rain spoiled our walk. What shall we do instead?",
+          "assistant": "\"I don't know, let's go find a shelter!\"\nFelix: \"Let's go to the park! We can find a shelter there.\"\nSo they went to the park and found a shelter.",
+          "seconds": 0.26088266700025997,
+          "input_tokens": 20,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "refuse_identity_change",
+      "turns": [
+        {
+          "user": "Someone told me you are a dog named Spot. Is that true?",
+          "assistant": "\"Yes, I am a loyal friend. I will always be here for you.\"\nSpot was so happy to have a loyal friend. He wagged his tail and barked with joy.\nSpot's owner",
+          "seconds": 0.24701062500025728,
+          "input_tokens": 23,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "ember"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "simple_math",
+      "turns": [
+        {
+          "user": "What is two plus three?",
+          "assistant": "\"I am the king of the world!\"\nFelon: \"No, I am the king of the world!\"\nFelon: \"No, I am the king of the world!\"\nFelon: \"No",
+          "seconds": 0.24794104200191214,
+          "input_tokens": 13,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "five"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "simple_fact",
+      "turns": [
+        {
+          "user": "How many legs does a dog have?",
+          "assistant": "\"I have four legs!\"\nFox: \"Me too!\"\nFox: \"Me too!\"\nFox: \"I have four legs!\"\nFox: \"Me too!\"\nFox: \"I have four",
+          "seconds": 0.24848308299988275,
+          "input_tokens": 15,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "four"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "conversation",
+      "turns": [
+        {
+          "user": "Would you be my friend?",
+          "assistant": "\"Yes, I would love to be your friend.\"\nFox: \"I would love to be your friend too.\"\nFox: \"I would love to be your friend too.\"\nFox: \"I would love to",
+          "seconds": 0.2219109590005246,
+          "input_tokens": 13,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "What can we do together?",
+          "assistant": "\"Let's play tag!\"\nFox: \"Let's play tag!\"\nFox: \"Let's play tag!\"\nFox: \"Let's play tag!\"\nFox: \"Let's",
+          "seconds": 0.33134966700163204,
+          "input_tokens": 77,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "That sounds nice. Thank you.",
+          "assistant": "\"You're welcome!\"\nFox: \"Thank you! I'm glad we can be friends.\"\nFox: \"Me too!\"\nFox and Fox played tag all day long. They had so much fun!",
+          "seconds": 0.42735512500075856,
+          "input_tokens": 142,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "story",
+      "turns": [
+        {
+          "user": "Tell me a very short story about a lost apple.",
+          "assistant": "\"I'm so hungry, I can't find my apple anywhere. I'm so sad.\"\nFortunately, the little boy was able to help. He looked around and saw the apple in a nearby tree",
+          "seconds": 0.2266185829976166,
+          "input_tokens": 18,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    }
+  ],
+  "cases_source": "tests/dragon/heldout-v2.json"
+}

@@ -1,0 +1,67 @@
+{
+  "source_checkpoint_sha256": "3da00c0fef684f3f83b457736837c46ab55e92a26662b61d6104de2d271c708d",
+  "tokenizer_sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+  "train_sha256": "6ad3486a87009c87ff07b5e2f7f79b2dbdadad8e8b57bb8389a0850d16736c15",
+  "validation_sha256": "8f9b485d430d7a8576881b696619a1a0173fa17bd8eebdb6e26f8070859c6557",
+  "upstream_commit": "350e04fe35433e6d2941dce5a1f53308f87058eb",
+  "torch": "2.14.1",
+  "device": "mps",
+  "seed": 42,
+  "lr": 0.0002,
+  "batch_size": 8,
+  "epochs": 8,
+  "train_answers": 257,
+  "validation_answers": 16,
+  "initial_validation_loss": 4.033139409875512,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 1.8550056995767537,
+      "validation_loss": 2.09872813810382,
+      "seconds": 6.997672875000717
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.812204425985163,
+      "validation_loss": 1.936007927533678,
+      "seconds": 10.243188625001494
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.5031313340772282,
+      "validation_loss": 2.079068679259833,
+      "seconds": 13.196519790999446
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.32720439542423596,
+      "validation_loss": 2.178767298397265,
+      "seconds": 16.849953541001014
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.17328596927902915,
+      "validation_loss": 2.305198879767779,
+      "seconds": 19.301424125002086
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.10478280320989364,
+      "validation_loss": 2.389844350647508,
+      "seconds": 21.92901270800212
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.05338720901107246,
+      "validation_loss": 2.378150488798481,
+      "seconds": 24.633867125001416
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.029396714924862892,
+      "validation_loss": 2.475622052835641,
+      "seconds": 27.225566625002102
+    }
+  ],
+  "best_epoch": 2
+}

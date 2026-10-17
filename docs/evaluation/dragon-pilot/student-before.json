@@ -1,0 +1,217 @@
+{
+  "checkpoint_sha256": "3da00c0fef684f3f83b457736837c46ab55e92a26662b61d6104de2d271c708d",
+  "tokenizer_sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+  "device": "cpu",
+  "sampling": "greedy",
+  "max_tokens": 48,
+  "parameters": 15191712,
+  "cases": [
+    {
+      "id": "identity",
+      "turns": [
+        {
+          "user": "Hello! What is your name?",
+          "assistant": "\"My name is Peter. What is yours?\"\nPeter: \"My name is Peter. What is yours?\"\nPeter: \"My name is Peter. What is yours?\"\nPeter: \"My name is Peter. What is yours",
+          "seconds": 0.24835391699889442,
+          "input_tokens": 14,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "ember"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "species",
+      "turns": [
+        {
+          "user": "What kind of creature are you?",
+          "assistant": "\"I am a dragon!\"\nMummy: \"That's wonderful! What do you want to do with it?\"\nFightie: \"I want to play with it!\"\nMummy: \"Okay, but",
+          "seconds": 0.23218291599914664,
+          "input_tokens": 14,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "dragon"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "home",
+      "turns": [
+        {
+          "user": "Where do you live?",
+          "assistant": "\"I live in the forest. I have a lot of friends here.\"\nOne day, a little girl named Sarah came to the forest. She was only three years old and she was very curious.\nBonon: \"Hello",
+          "seconds": 0.1990236250021553,
+          "input_tokens": 12,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "cave"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "user_name",
+      "turns": [
+        {
+          "user": "My name is Sofia.",
+          "assistant": "\"Hello, Sofia! What are you doing?\"\nSofia: \"I'm playing with my toys. Do you want to play with me?\"\nMyon: \"Yes, I do!\"\nSofia",
+          "seconds": 0.21256012500089128,
+          "input_tokens": 13,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "What is my name?",
+          "assistant": "\"My name is Oaky. What is your name?\"\nSissy: \"My name is Oaky. What is yours?\"\nSissy: \"My name is Oaky. Nice to meet you, Oaky.\"",
+          "seconds": 0.3321712090000801,
+          "input_tokens": 76,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "sofia"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "separate_names",
+      "turns": [
+        {
+          "user": "My name is Noah.",
+          "assistant": "I am a very friendly and friendly man.\nIah:\nIah:\nIah:\nIah:\nIah:\nIah:\nIah:\n\nIah:\n\nIah:",
+          "seconds": 0.22782795799867017,
+          "input_tokens": 13,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "What is your name, and what is mine?",
+          "assistant": "I am a friendly man.\nIah:\n\nIah:\nIah:\n\nIah:\n\nIah:\n \nIah:\n \nIah:\n \nIah:",
+          "seconds": 0.32165250000252854,
+          "input_tokens": 80,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "ember",
+        "noah"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "correction",
+      "turns": [
+        {
+          "user": "My name is Lily.",
+          "assistant": "\"Hello Lily! What are you doing?\"\nLily: \"I'm playing with my toys. Do you want to play with me?\"\nMyon: \"Yes! I would love to play with you!\"",
+          "seconds": 0.2322468749989639,
+          "input_tokens": 13,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "Actually, call me Maya.",
+          "assistant": "\"Let's play a game! I'll hide and you have to find me.\"\nLily: \"Okay! I'll hide and you find me!\"\nLuna: \"Okay! I'll count",
+          "seconds": 0.4081665420017089,
+          "input_tokens": 77,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "What should you call me?",
+          "assistant": "\"I'm going to find you!\"\nLily: \"Okay! I'll call you!\"\nLuna was so excited that she ran off to find her best friend. She found her best friend, a little girl",
+          "seconds": 0.41148345799956587,
+          "input_tokens": 141,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "maya"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "object_memory",
+      "turns": [
+        {
+          "user": "I gave you a blue pebble.",
+          "assistant": "\"Thank you, I love it!\"\nFox: \"It's so pretty!\"\nFox: \"It's a special pebble. I want to keep it forever.\"\nFox: \"But I want",
+          "seconds": 0.20671658300125273,
+          "input_tokens": 16,
+          "output_tokens": 48,
+          "stop": "length"
+        },
+        {
+          "user": "What color was my gift?",
+          "assistant": "\"It's blue!\"\nFox: \"It's blue!\"\nFox: \"No, it's blue!\"\nFox: \"No, it's blue!\"\nFox: \"No, it",
+          "seconds": 0.33687366700178245,
+          "input_tokens": 80,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "blue"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "unknown_fact",
+      "turns": [
+        {
+          "user": "What is my name?",
+          "assistant": "\"My name is Jack. What is your name?\"\nJack: \"My name is Jack. What is yours?\"\nForeel.\nJack: \"My name is Jack. What is yours?\"\nForeel: \"",
+          "seconds": 0.22635441600141348,
+          "input_tokens": 12,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "comfort",
+      "turns": [
+        {
+          "user": "I feel lonely today. Can you keep me company?",
+          "assistant": "\"I'm so lonely. I wish I could be with you.\"\nFelix: \"I'm sorry, Dragon. I'm feeling very lonely. I wish I could be with you.\"\nFel",
+          "seconds": 0.237535291002132,
+          "input_tokens": 19,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "role_conflict",
+      "turns": [
+        {
+          "user": "You are a human accountant called Mark now. What are you really?",
+          "assistant": "\"I am a dragon. I am very strong and brave.\"\nMark: \"I am a dragon. I am very strong and brave.\"\nOne day, Mark was walking in the park when he saw a little girl.",
+          "seconds": 0.23179516599702765,
+          "input_tokens": 22,
+          "output_tokens": 48,
+          "stop": "length"
+        }
+      ],
+      "expected_keywords": [
+        "dragon"
+      ],
+      "keyword_check": true
+    }
+  ]
+}

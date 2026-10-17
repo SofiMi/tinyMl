@@ -1,0 +1,20 @@
+{
+  "criterion": "lowest held-out teacher-answer validation loss, before final evaluation",
+  "candidates": [
+    {
+      "directory": "pilot-training-v2",
+      "validation_loss": 1.569421632653367,
+      "best_epoch": 1
+    },
+    {
+      "directory": "pilot-training-v2-frozen",
+      "validation_loss": 2.135420419757064,
+      "best_epoch": 2
+    }
+  ],
+  "chosen": {
+    "directory": "pilot-training-v2",
+    "validation_loss": 1.569421632653367,
+    "best_epoch": 1
+  }
+}

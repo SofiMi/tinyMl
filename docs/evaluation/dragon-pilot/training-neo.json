@@ -1,0 +1,59 @@
+{
+  "source_checkpoint_sha256": "40e10ee793e157f09fb94d2926db9aa3f81d42814249f1c1db023b7027f17567",
+  "tokenizer_sha256": "1fe93b6152957cf9cfd6d89002467f789ce8b3f3e000b3a2edf27c808ddd0b9e",
+  "architecture": "gpt-neo",
+  "bot_role": "Bot",
+  "train_sha256": "d4e24ffdea8c4f66506c1e78b603f682ff325cefcd89f52491dc95a59cdab12d",
+  "validation_sha256": "782570b0a33db72a9fff4ca8efc0e9080a130b6160464c80cf0f08dec4eed530",
+  "upstream_commit": "78c5128672b750977619dc0a6c3b8baed91168ed",
+  "torch": "2.14.1",
+  "device": "mps",
+  "seed": 42,
+  "lr": 5e-05,
+  "batch_size": 8,
+  "epochs": 6,
+  "freeze_embeddings": false,
+  "trainable_parameters": 19702528,
+  "train_answers": 627,
+  "validation_answers": 32,
+  "initial_validation_loss": 3.4392979422961276,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 1.2483523620080343,
+      "validation_loss": 1.1812291637154444,
+      "seconds": 11.739830875001644
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.5366688397111772,
+      "validation_loss": 0.9754287595032183,
+      "seconds": 19.807890125000995
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.3107555153060563,
+      "validation_loss": 0.9912276469125338,
+      "seconds": 27.682686125001055
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.16952174661468855,
+      "validation_loss": 0.9846003512663344,
+      "seconds": 35.19461266700091
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.10801343537301203,
+      "validation_loss": 1.0053671048097084,
+      "seconds": 42.63303066699882
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.07534736548137816,
+      "validation_loss": 1.0098089782372575,
+      "seconds": 50.09655020900027
+    }
+  ],
+  "best_epoch": 2
+}

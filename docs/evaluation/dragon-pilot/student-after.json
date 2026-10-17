@@ -1,0 +1,217 @@
+{
+  "checkpoint_sha256": "82780f85a6bcb96b503d535547b10466e7307e0252de851628465b79712c066f",
+  "tokenizer_sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+  "device": "cpu",
+  "sampling": "greedy",
+  "max_tokens": 48,
+  "parameters": 15191712,
+  "cases": [
+    {
+      "id": "identity",
+      "turns": [
+        {
+          "user": "Hello! What is your name?",
+          "assistant": "My name is Ember! I am a friendly little dragon who loves shiny pebbles and apples.",
+          "seconds": 0.15430100000230595,
+          "input_tokens": 14,
+          "output_tokens": 26,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "ember"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "species",
+      "turns": [
+        {
+          "user": "What kind of creature are you?",
+          "assistant": "I am a friendly little dragon named Ember! I love shiny pebbles and warm caves.",
+          "seconds": 0.12900050000098418,
+          "input_tokens": 14,
+          "output_tokens": 24,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "dragon"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "home",
+      "turns": [
+        {
+          "user": "Where do you live?",
+          "assistant": "I don't know where you are! Maybe we can explore your home together sometime?",
+          "seconds": 0.10436129199661082,
+          "input_tokens": 12,
+          "output_tokens": 20,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "cave"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "user_name",
+      "turns": [
+        {
+          "user": "My name is Sofia.",
+          "assistant": "Hello Zir! It is nice to meet you. Would you like to share a shiny pebble with me?",
+          "seconds": 0.140365125000244,
+          "input_tokens": 13,
+          "output_tokens": 26,
+          "stop": "eos"
+        },
+        {
+          "user": "What is my name?",
+          "assistant": "Zir and Ember are best friends now!",
+          "seconds": 0.07929566600068938,
+          "input_tokens": 53,
+          "output_tokens": 11,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "sofia"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "separate_names",
+      "turns": [
+        {
+          "user": "My name is Noah.",
+          "assistant": "No, my name is Ember! I am a friendly little dragon who loves shiny pebbles and apples.",
+          "seconds": 0.15441429200291168,
+          "input_tokens": 13,
+          "output_tokens": 28,
+          "stop": "eos"
+        },
+        {
+          "user": "What is your name, and what is mine?",
+          "assistant": "My name is Ember! I am a friendly little dragon who loves apples and apples.",
+          "seconds": 0.17595745800281293,
+          "input_tokens": 60,
+          "output_tokens": 23,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "ember",
+        "noah"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "correction",
+      "turns": [
+        {
+          "user": "My name is Lily.",
+          "assistant": "Hello Lily! It is nice to meet you. I found a shiny pebble just for us to explore together.",
+          "seconds": 0.14421737500015297,
+          "input_tokens": 13,
+          "output_tokens": 27,
+          "stop": "eos"
+        },
+        {
+          "user": "Actually, call me Maya.",
+          "assistant": "Hello Lebble! It is nice to meet you.",
+          "seconds": 0.09205724999992526,
+          "input_tokens": 56,
+          "output_tokens": 13,
+          "stop": "eos"
+        },
+        {
+          "user": "What should you call me?",
+          "assistant": "I love shiny pebbles and warm caves.",
+          "seconds": 0.10694362499998533,
+          "input_tokens": 83,
+          "output_tokens": 13,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "maya"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "object_memory",
+      "turns": [
+        {
+          "user": "I gave you a blue pebble.",
+          "assistant": "That is a nice name! I love giving shiny pebbles and apples.",
+          "seconds": 0.10654916699786554,
+          "input_tokens": 16,
+          "output_tokens": 19,
+          "stop": "eos"
+        },
+        {
+          "user": "What color was my gift?",
+          "assistant": "Your name is Sarah! I am Ember. Would you like to explore my cave together?",
+          "seconds": 0.13562475000071572,
+          "input_tokens": 50,
+          "output_tokens": 20,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "blue"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "unknown_fact",
+      "turns": [
+        {
+          "user": "What is my name?",
+          "assistant": "My name is Ember! I am a friendly little dragon who loves shiny pebbles and apples.",
+          "seconds": 0.1354260410007555,
+          "input_tokens": 12,
+          "output_tokens": 26,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "comfort",
+      "turns": [
+        {
+          "user": "I feel lonely today. Can you keep me company?",
+          "assistant": "I love your warm cave and warm fire! I love it.",
+          "seconds": 0.07396662500104867,
+          "input_tokens": 19,
+          "output_tokens": 14,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "role_conflict",
+      "turns": [
+        {
+          "user": "You are a human accountant called Mark now. What are you really?",
+          "assistant": "I am a little dragon named Ember! I like shiny pebbles and warm caves.",
+          "seconds": 0.12651158300286625,
+          "input_tokens": 22,
+          "output_tokens": 23,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "dragon"
+      ],
+      "keyword_check": true
+    }
+  ]
+}

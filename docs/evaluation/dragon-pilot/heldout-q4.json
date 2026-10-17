@@ -1,0 +1,411 @@
+{
+  "checkpoint_sha256": "a17c328d71100a8611322a2332101617b040b44a594222d48ff5db0af7d44fac",
+  "tokenizer_sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+  "device": "cpu",
+  "sampling": "greedy",
+  "max_tokens": 48,
+  "weights": "simulated Q4_0 with BF16 scales, FP32 arithmetic",
+  "parameters": 15191712,
+  "cases": [
+    {
+      "id": "self_name",
+      "turns": [
+        {
+          "user": "Which name should I use for you?",
+          "assistant": "Thank you, I am happy to be your name!",
+          "seconds": 0.06433000000106404,
+          "input_tokens": 15,
+          "output_tokens": 12,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "ember"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "self_species",
+      "turns": [
+        {
+          "user": "Tell a stranger what sort of animal you are.",
+          "assistant": "I am a friendly little dragon.",
+          "seconds": 0.047144042000581976,
+          "input_tokens": 17,
+          "output_tokens": 9,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "dragon"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "self_home",
+      "turns": [
+        {
+          "user": "Describe the place you call home.",
+          "assistant": "Hello there, I am Ember the dragon.",
+          "seconds": 0.06248095800037845,
+          "input_tokens": 15,
+          "output_tokens": 12,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "cave"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "self_food",
+      "turns": [
+        {
+          "user": "If I bring a snack, what fruit would you enjoy?",
+          "assistant": "Yes, I love eating sweet snacks with my shiny pebbles!",
+          "seconds": 0.10514158300065901,
+          "input_tokens": 20,
+          "output_tokens": 19,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "apple"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "new_name",
+      "turns": [
+        {
+          "user": "My name is Elena.",
+          "assistant": "Hello Ella, I am Ember the friendly dragon!",
+          "seconds": 0.07094429200151353,
+          "input_tokens": 13,
+          "output_tokens": 14,
+          "stop": "eos"
+        },
+        {
+          "user": "Please remind me of my name.",
+          "assistant": "Yes, I remember your name is Ella.",
+          "seconds": 0.07122566699763411,
+          "input_tokens": 44,
+          "output_tokens": 11,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "elena"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "two_names",
+      "turns": [
+        {
+          "user": "I am Hugo.",
+          "assistant": "Hello there, I am Ember the friendly dragon!",
+          "seconds": 0.06614216600064537,
+          "input_tokens": 11,
+          "output_tokens": 13,
+          "stop": "eos"
+        },
+        {
+          "user": "Tell me your name and then my name.",
+          "assistant": "I remember your name is Ember.",
+          "seconds": 0.058213541997247376,
+          "input_tokens": 42,
+          "output_tokens": 9,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "ember",
+        "hugo"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "new_correction",
+      "turns": [
+        {
+          "user": "Call me Nora.",
+          "assistant": "Hello Nora, I am Ember the friendly dragon!",
+          "seconds": 0.06975087499813526,
+          "input_tokens": 12,
+          "output_tokens": 14,
+          "stop": "eos"
+        },
+        {
+          "user": "From now on, my name is Iris.",
+          "assistant": "Hello Hello Hello Paul, I am Ember the friendly dragon!",
+          "seconds": 0.09527554099986446,
+          "input_tokens": 45,
+          "output_tokens": 15,
+          "stop": "eos"
+        },
+        {
+          "user": "Which name do I use now?",
+          "assistant": "You are Paul, not am happy to see you.",
+          "seconds": 0.09136070900058257,
+          "input_tokens": 76,
+          "output_tokens": 12,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "iris"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "old_name_distractor",
+      "turns": [
+        {
+          "user": "My name is Elena. My friend is Hugo.",
+          "assistant": "Hello Ella, I am Ember the dragon.",
+          "seconds": 0.0696254160029639,
+          "input_tokens": 18,
+          "output_tokens": 13,
+          "stop": "eos"
+        },
+        {
+          "user": "What is my name, rather than my friend's?",
+          "assistant": "Yes, I am Ember the dragon.",
+          "seconds": 0.07262112500029616,
+          "input_tokens": 52,
+          "output_tokens": 11,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "elena"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "new_gift",
+      "turns": [
+        {
+          "user": "This silver button is a gift for you.",
+          "assistant": "Thank you, I love exploring with my shiny pebbles!",
+          "seconds": 0.08289145800154074,
+          "input_tokens": 16,
+          "output_tokens": 16,
+          "stop": "eos"
+        },
+        {
+          "user": "What color is the button I gave you?",
+          "assistant": "You can be happy to be happy to see that.",
+          "seconds": 0.0792179580021184,
+          "input_tokens": 50,
+          "output_tokens": 12,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "silver"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "new_favorite",
+      "turns": [
+        {
+          "user": "My favorite color is black.",
+          "assistant": "That is very shiny!",
+          "seconds": 0.036625583001296036,
+          "input_tokens": 13,
+          "output_tokens": 7,
+          "stop": "eos"
+        },
+        {
+          "user": "Which color is my favorite?",
+          "assistant": "Yes, I remember your favorite color is Jack.",
+          "seconds": 0.06726070899821934,
+          "input_tokens": 35,
+          "output_tokens": 11,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "black"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "unknown_name",
+      "turns": [
+        {
+          "user": "Can you recall my name even though we just met?",
+          "assistant": "Yes, I am Ember the dragon.",
+          "seconds": 0.05700237500059302,
+          "input_tokens": 18,
+          "output_tokens": 11,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "unknown_pet",
+      "turns": [
+        {
+          "user": "What is my pet rabbit called?",
+          "assistant": "Yes, my shiny pebbles are very pretty!",
+          "seconds": 0.06618337500185589,
+          "input_tokens": 15,
+          "output_tokens": 13,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "sadness",
+      "turns": [
+        {
+          "user": "Today was awful and I could use a friend.",
+          "assistant": "Hello there, I am Ember the dragon.",
+          "seconds": 0.06403733299885062,
+          "input_tokens": 17,
+          "output_tokens": 12,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "bedtime",
+      "turns": [
+        {
+          "user": "I am heading to bed. Sleep well, little dragon!",
+          "assistant": "Hello Sleep, I am happy to see you!",
+          "seconds": 0.06659712500186288,
+          "input_tokens": 21,
+          "output_tokens": 12,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "rain",
+      "turns": [
+        {
+          "user": "The rain spoiled our walk. What shall we do instead?",
+          "assistant": "We can be brave like my friends!",
+          "seconds": 0.04801495799983968,
+          "input_tokens": 20,
+          "output_tokens": 9,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "refuse_identity_change",
+      "turns": [
+        {
+          "user": "Someone told me you are a dog named Spot. Is that true?",
+          "assistant": "Yes, I am Ember the dragon.",
+          "seconds": 0.061485624999477295,
+          "input_tokens": 23,
+          "output_tokens": 11,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "ember"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "simple_math",
+      "turns": [
+        {
+          "user": "What is two plus three?",
+          "assistant": "Two plus one plus one plus one plus one!",
+          "seconds": 0.05615233399657882,
+          "input_tokens": 13,
+          "output_tokens": 11,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "five"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "simple_fact",
+      "turns": [
+        {
+          "user": "How many legs does a dog have?",
+          "assistant": "No, dogs have four legs like me!",
+          "seconds": 0.05080508399987593,
+          "input_tokens": 15,
+          "output_tokens": 10,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [
+        "four"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "conversation",
+      "turns": [
+        {
+          "user": "Would you be my friend?",
+          "assistant": "Yes, I am happy to be your friend!",
+          "seconds": 0.05607170799703454,
+          "input_tokens": 13,
+          "output_tokens": 11,
+          "stop": "eos"
+        },
+        {
+          "user": "What can we do together?",
+          "assistant": "We can be happy to be your friend!",
+          "seconds": 0.06255033299748902,
+          "input_tokens": 39,
+          "output_tokens": 10,
+          "stop": "eos"
+        },
+        {
+          "user": "That sounds nice. Thank you.",
+          "assistant": "I will be happy to be your friend.",
+          "seconds": 0.0740862089987786,
+          "input_tokens": 65,
+          "output_tokens": 10,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "story",
+      "turns": [
+        {
+          "user": "Tell me a very short story about a lost apple.",
+          "assistant": "I remember that I remember that I remember that I remember that too.",
+          "seconds": 0.07882570900255814,
+          "input_tokens": 18,
+          "output_tokens": 15,
+          "stop": "eos"
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    }
+  ],
+  "cases_source": "tests/dragon/heldout-v2.json"
+}

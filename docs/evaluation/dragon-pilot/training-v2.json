@@ -1,0 +1,69 @@
+{
+  "source_checkpoint_sha256": "3da00c0fef684f3f83b457736837c46ab55e92a26662b61d6104de2d271c708d",
+  "tokenizer_sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+  "train_sha256": "d4e24ffdea8c4f66506c1e78b603f682ff325cefcd89f52491dc95a59cdab12d",
+  "validation_sha256": "782570b0a33db72a9fff4ca8efc0e9080a130b6160464c80cf0f08dec4eed530",
+  "upstream_commit": "350e04fe35433e6d2941dce5a1f53308f87058eb",
+  "torch": "2.14.1",
+  "device": "mps",
+  "seed": 42,
+  "lr": 0.0002,
+  "batch_size": 8,
+  "epochs": 8,
+  "freeze_embeddings": false,
+  "trainable_parameters": 15191712,
+  "train_answers": 627,
+  "validation_answers": 32,
+  "initial_validation_loss": 4.847697032514469,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 1.429471242276928,
+      "validation_loss": 1.569421632653367,
+      "seconds": 6.597182541998336
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.6004281170383284,
+      "validation_loss": 1.7147930420030304,
+      "seconds": 12.386170207999385
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.41190197243343424,
+      "validation_loss": 1.8308563090726078,
+      "seconds": 17.923200957997324
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.2620049380237543,
+      "validation_loss": 1.7912624572290623,
+      "seconds": 23.82793487500021
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.16077969178463083,
+      "validation_loss": 1.7353813099922752,
+      "seconds": 29.268854707999708
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.09355450721009623,
+      "validation_loss": 1.6450999741098369,
+      "seconds": 34.54830312499689
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.045633378388548765,
+      "validation_loss": 1.7378671317137488,
+      "seconds": 39.99627224999858
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.022422605110155536,
+      "validation_loss": 1.8066348059232844,
+      "seconds": 45.41218220799783
+    }
+  ],
+  "best_epoch": 1
+}
