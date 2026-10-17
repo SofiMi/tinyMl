@@ -1,0 +1,16 @@
+[
+  {"id":"sky","system":"You are a helpful assistant. Answer briefly in English.","prompts":["What color is a clear daytime sky? Answer with one word."],"answers":["blue"]},
+  {"id":"grass","system":"You are a helpful assistant. Answer briefly in English.","prompts":["What color is grass? Answer with one word."],"answers":["green"]},
+  {"id":"dog","system":"You are a helpful assistant. Answer briefly in English.","prompts":["How many legs does a dog have? Give only the number."],"answers":["4","four"]},
+  {"id":"cat","system":"You are a helpful assistant. Answer briefly in English.","prompts":["Which animal says meow? Give only the animal name."],"answers":["cat","a cat","cats"]},
+  {"id":"addition","system":"You are a helpful assistant. Answer briefly in English.","prompts":["What is 1 + 1? Give only the number."],"answers":["2","two"]},
+  {"id":"subtraction","system":"You are a helpful assistant. Answer briefly in English.","prompts":["What is 3 - 1? Give only the number."],"answers":["2","two"]},
+  {"id":"days","system":"You are a helpful assistant. Answer briefly in English.","prompts":["How many days are in a week? Give only the number."],"answers":["7","seven"]},
+  {"id":"france","system":"You are a helpful assistant. Answer briefly in English.","prompts":["What is the capital of France? Give only its name."],"answers":["paris"]},
+  {"id":"opposite","system":"You are a helpful assistant. Answer briefly in English.","prompts":["What is the opposite of hot? Give one word."],"answers":["cold"]},
+  {"id":"ice","system":"You are a helpful assistant. Answer briefly in English.","prompts":["Does ice feel hot or cold? Give one word."],"answers":["cold"]},
+  {"id":"greeting","system":"You are a helpful assistant. Answer briefly in English.","prompts":["Hello! How are you?"],"answers":[]},
+  {"id":"gravity","system":"You are a helpful assistant. Answer briefly in English.","prompts":["Why do things fall to the ground?"],"answers":[]},
+  {"id":"sad","system":"You are a helpful assistant. Answer briefly in English.","prompts":["I feel sad today. Can you say something kind?"],"answers":[]},
+  {"id":"water","system":"You are a helpful assistant. Answer briefly in English.","prompts":["Why do plants need water?"],"answers":[]}
+]

@@ -1,0 +1,249 @@
+{
+  "base_model": "/Users/simasl/.cache/tinyml-minimind2-small",
+  "base_sha256": "83bfe6f127c98120a3410aab65eee3b66b8301ac352c20b7efd5e2eb688f6d85",
+  "train_sha256": "9bd6a3eef0a893ab2eba3658f5322c5715095c5ffa3931c90ba8f91c8ed68d1e",
+  "validation_sha256": "9ee5114ae6e4516fde5f63431ea14108585ce41c985551bad3178fddc712f19f",
+  "tokenizer_sha256": "d98595c6aef70d95f72748582fb9b4f53d76dd58c1ae1dd702ad7c84e1caf5e4",
+  "seed": 42,
+  "device": "mps",
+  "torch": "2.14.1",
+  "parameters": 25829888,
+  "learning_rate": 5e-05,
+  "epochs": 3,
+  "batch_size": 8,
+  "context": 256,
+  "optimizer": "AdamW, weight_decay=0.01, clip=1, cosine to 10%",
+  "objective": "assistant-only cross entropy including EOS; no persona-specific fixed identity",
+  "answers": 4160,
+  "validation_answers": 493,
+  "family_answers": {
+    "general": 1440,
+    "two_names": 320,
+    "system_fact": 160,
+    "correction": 480,
+    "unknown": 160,
+    "negation": 320,
+    "assistant_name": 160,
+    "species": 160,
+    "user_name": 320,
+    "ownership": 320,
+    "friend": 320
+  },
+  "supervised_tokens_per_epoch": 81606,
+  "skipped": 7,
+  "validation_skipped": 1,
+  "initial_validation": {
+    "loss": 2.5336529400731607,
+    "families": {
+      "assistant_name": {
+        "loss": 2.3267361669257136,
+        "tokens": 101
+      },
+      "correction": {
+        "loss": 2.5541952980889215,
+        "tokens": 477
+      },
+      "friend": {
+        "loss": 1.916791400629959,
+        "tokens": 273
+      },
+      "general": {
+        "loss": 2.5705700519373598,
+        "tokens": 6467
+      },
+      "negation": {
+        "loss": 2.075025258556245,
+        "tokens": 252
+      },
+      "ownership": {
+        "loss": 2.5560615553034607,
+        "tokens": 389
+      },
+      "species": {
+        "loss": 2.36209421266209,
+        "tokens": 132
+      },
+      "system_fact": {
+        "loss": 4.243190535183611,
+        "tokens": 87
+      },
+      "two_names": {
+        "loss": 2.2770442395440993,
+        "tokens": 496
+      },
+      "unknown": {
+        "loss": 3.5039780139923096,
+        "tokens": 260
+      },
+      "user_name": {
+        "loss": 1.774424317167766,
+        "tokens": 268
+      }
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 2.4469086164537557,
+      "validation": {
+        "loss": 2.2527508917236303,
+        "families": {
+          "assistant_name": {
+            "loss": 0.04609863271955216,
+            "tokens": 101
+          },
+          "correction": {
+            "loss": 0.055131618780878605,
+            "tokens": 477
+          },
+          "friend": {
+            "loss": 0.0928954168772086,
+            "tokens": 273
+          },
+          "general": {
+            "loss": 3.1870472736809896,
+            "tokens": 6467
+          },
+          "negation": {
+            "loss": 0.011509458227674402,
+            "tokens": 252
+          },
+          "ownership": {
+            "loss": 0.024303960226054824,
+            "tokens": 389
+          },
+          "species": {
+            "loss": 0.013457495909692212,
+            "tokens": 132
+          },
+          "system_fact": {
+            "loss": 0.108856326418704,
+            "tokens": 87
+          },
+          "two_names": {
+            "loss": 0.02951057555694734,
+            "tokens": 496
+          },
+          "unknown": {
+            "loss": 0.013496880792081356,
+            "tokens": 260
+          },
+          "user_name": {
+            "loss": 0.07879419975093942,
+            "tokens": 268
+          }
+        }
+      },
+      "seconds": 87.12688404199434
+    },
+    {
+      "epoch": 2,
+      "training_loss": 1.663882551473291,
+      "validation": {
+        "loss": 2.043122274379006,
+        "families": {
+          "assistant_name": {
+            "loss": 0.03070872664304063,
+            "tokens": 101
+          },
+          "correction": {
+            "loss": 0.026511190162358544,
+            "tokens": 477
+          },
+          "friend": {
+            "loss": 0.024455253062121596,
+            "tokens": 273
+          },
+          "general": {
+            "loss": 2.899629847277477,
+            "tokens": 6467
+          },
+          "negation": {
+            "loss": 0.0013774114343086405,
+            "tokens": 252
+          },
+          "ownership": {
+            "loss": 0.0013178605143373454,
+            "tokens": 389
+          },
+          "species": {
+            "loss": 0.0027622643339617007,
+            "tokens": 132
+          },
+          "system_fact": {
+            "loss": 0.004626615196412921,
+            "tokens": 87
+          },
+          "two_names": {
+            "loss": 0.038526243950811126,
+            "tokens": 496
+          },
+          "unknown": {
+            "loss": 0.001575482147745788,
+            "tokens": 260
+          },
+          "user_name": {
+            "loss": 0.019909369828763294,
+            "tokens": 268
+          }
+        }
+      },
+      "seconds": 170.6463085419964
+    },
+    {
+      "epoch": 3,
+      "training_loss": 1.0378062563239192,
+      "validation": {
+        "loss": 2.0094256101130434,
+        "families": {
+          "assistant_name": {
+            "loss": 0.028913512069842603,
+            "tokens": 101
+          },
+          "correction": {
+            "loss": 0.01751593385375958,
+            "tokens": 477
+          },
+          "friend": {
+            "loss": 0.021855185401963663,
+            "tokens": 273
+          },
+          "general": {
+            "loss": 2.8536438524253,
+            "tokens": 6467
+          },
+          "negation": {
+            "loss": 0.0008502487575502268,
+            "tokens": 252
+          },
+          "ownership": {
+            "loss": 0.0010242108801789198,
+            "tokens": 389
+          },
+          "species": {
+            "loss": 0.0012572873225012286,
+            "tokens": 132
+          },
+          "system_fact": {
+            "loss": 0.003013218802549801,
+            "tokens": 87
+          },
+          "two_names": {
+            "loss": 0.02674555765735286,
+            "tokens": 496
+          },
+          "unknown": {
+            "loss": 0.0006304942537099123,
+            "tokens": 260
+          },
+          "user_name": {
+            "loss": 0.01681836588836428,
+            "tokens": 268
+          }
+        }
+      },
+      "seconds": 254.39516575000016
+    }
+  ],
+  "best_epoch": 3
+}

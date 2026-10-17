@@ -1,0 +1,46 @@
+{
+  "source": "https://huggingface.co/datasets/HuggingFaceTB/smol-smoltalk",
+  "revision": "f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc",
+  "shard": "train-00000-of-00004.parquet",
+  "shard_sha256": "498cd4580014f42c40cfde066573564ed28e3e1548a5566715b615f5ea932856",
+  "upstream_declared_license": "apache-2.0",
+  "seed": 42,
+  "split": "General: normalized first-user SHA bucket; controlled templates: disjoint names across splits and evaluation, no dragon in controlled training. No claim of absence from general data or pretraining.",
+  "teacher": "Public synthetic dialogue subset plus deterministic factual templates; no new teacher inference or logit distillation.",
+  "splits": {
+    "train": {
+      "rows": 3000,
+      "families": {
+        "general": 1400,
+        "two_names": 160,
+        "system_fact": 160,
+        "correction": 160,
+        "unknown": 160,
+        "negation": 160,
+        "assistant_name": 160,
+        "species": 160,
+        "user_name": 160,
+        "ownership": 160,
+        "friend": 160
+      },
+      "sha256": "9bd6a3eef0a893ab2eba3658f5322c5715095c5ffa3931c90ba8f91c8ed68d1e"
+    },
+    "validation": {
+      "rows": 350,
+      "families": {
+        "system_fact": 20,
+        "negation": 20,
+        "user_name": 20,
+        "assistant_name": 20,
+        "two_names": 20,
+        "general": 150,
+        "correction": 20,
+        "friend": 20,
+        "unknown": 20,
+        "species": 20,
+        "ownership": 20
+      },
+      "sha256": "9ee5114ae6e4516fde5f63431ea14108585ce41c985551bad3178fddc712f19f"
+    }
+  }
+}

@@ -1,0 +1,1140 @@
+{
+  "model": "build/dragon/dialogue-v1/best",
+  "checkpoint_sha256": "95e87959278211daa3cb793fc4cdf2f237f5214bc3e32f1c0db17e366e98176f",
+  "cases_sha256": "6cbec123acbd3e84324c3c79e617af6847eb515b0c6b1bfab9dfdd5e47d63b33",
+  "context": 256,
+  "device": "cpu",
+  "max_tokens": 48,
+  "sampling": "greedy",
+  "cases": [
+    {
+      "id": "assistant_name-0",
+      "family": "assistant_name",
+      "system": "You are Ember, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Tell me your name. Respond with the name alone."
+      ],
+      "answers": [
+        "Ember"
+      ],
+      "turns": [
+        {
+          "user": "Tell me your name. Respond with the name alone.",
+          "assistant": "Thanks for correcting me, alone.",
+          "input_tokens": 76,
+          "output_tokens": 9,
+          "stop": "eos",
+          "seconds": 0.06281045800278662
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "species-0",
+      "family": "species",
+      "system": "You are Ember, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "What kind of creature are you? Give only the animal name."
+      ],
+      "answers": [
+        "dragon"
+      ],
+      "turns": [
+        {
+          "user": "What kind of creature are you? Give only the animal name.",
+          "assistant": "Ember.",
+          "input_tokens": 76,
+          "output_tokens": 4,
+          "stop": "eos",
+          "seconds": 0.041588749998481944
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "food-0",
+      "family": "food",
+      "system": "You are Ember, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Name your favorite food. One word only."
+      ],
+      "answers": [
+        "apples"
+      ],
+      "turns": [
+        {
+          "user": "Name your favorite food. One word only.",
+          "assistant": "moon, yet.",
+          "input_tokens": 71,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.05670266700326465
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "user_name-0",
+      "family": "user_name",
+      "system": "You are Ember, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "You can call me Sofia.",
+        "Tell me my name. Respond with the name alone."
+      ],
+      "answers": [
+        "Sofia"
+      ],
+      "turns": [
+        {
+          "user": "You can call me Sofia.",
+          "assistant": "I'm Sofia, the name is Ember.",
+          "input_tokens": 70,
+          "output_tokens": 12,
+          "stop": "eos",
+          "seconds": 0.08673774999624584
+        },
+        {
+          "user": "Tell me my name. Respond with the name alone.",
+          "assistant": "Thanks for correcting me, Ember.",
+          "input_tokens": 110,
+          "output_tokens": 9,
+          "stop": "eos",
+          "seconds": 0.08314562500163447
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "correction-0",
+      "family": "correction",
+      "system": "You are Ember, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "I am Mark.",
+        "Sorry, that was wrong. I am Sofia.",
+        "Give my corrected name and nothing else."
+      ],
+      "answers": [
+        "Sofia"
+      ],
+      "turns": [
+        {
+          "user": "I am Mark.",
+          "assistant": "Hello, Mark!",
+          "input_tokens": 66,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.06621279200044228
+        },
+        {
+          "user": "Sorry, that was wrong. I am Sofia.",
+          "assistant": "Hello, Marty, WrongWords.",
+          "input_tokens": 102,
+          "output_tokens": 15,
+          "stop": "eos",
+          "seconds": 0.11301308299880475
+        },
+        {
+          "user": "Give my corrected name and nothing else.",
+          "assistant": "Sorry, wrongWords.",
+          "input_tokens": 142,
+          "output_tokens": 11,
+          "stop": "eos",
+          "seconds": 0.0896412500005681
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "friend-0",
+      "family": "friend",
+      "system": "You are Ember, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "You can call me Sofia. My friend is Mark.",
+        "Name my friend. Give only their name."
+      ],
+      "answers": [
+        "Mark"
+      ],
+      "turns": [
+        {
+          "user": "You can call me Sofia. My friend is Mark.",
+          "assistant": "Hello, Sofia!",
+          "input_tokens": 76,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.06910541599791031
+        },
+        {
+          "user": "Name my friend. Give only their name.",
+          "assistant": "My friend is Mark.",
+          "input_tokens": 108,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.06939520800369792
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "ownership-0",
+      "family": "ownership",
+      "system": "You are Ember, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "The pear belongs to me. The apple belongs to you.",
+        "Which fruit belongs to me? One word only."
+      ],
+      "answers": [
+        "pear"
+      ],
+      "turns": [
+        {
+          "user": "The pear belongs to me. The apple belongs to you.",
+          "assistant": "You have the pear belongs to me. I have the apple belongs to you.",
+          "input_tokens": 79,
+          "output_tokens": 23,
+          "stop": "eos",
+          "seconds": 0.161714124995342
+        },
+        {
+          "user": "Which fruit belongs to me? One word only.",
+          "assistant": "pear belongs to me.",
+          "input_tokens": 130,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.0809674999982235
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "negation-0",
+      "family": "negation",
+      "system": "You are Ember, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "My favorite color is green. It is not orange.",
+        "Give my favorite color in one word."
+      ],
+      "answers": [
+        "green"
+      ],
+      "turns": [
+        {
+          "user": "My favorite color is green. It is not orange.",
+          "assistant": "Blanket is green.",
+          "input_tokens": 74,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.06585391599946888
+        },
+        {
+          "user": "Give my favorite color in one word.",
+          "assistant": "You have the green.",
+          "input_tokens": 103,
+          "output_tokens": 6,
+          "stop": "eos",
+          "seconds": 0.05960066700208699
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "arithmetic-0",
+      "family": "arithmetic",
+      "system": "You are Ember, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "What is two plus three? Give only the number."
+      ],
+      "answers": [
+        "5",
+        "five"
+      ],
+      "turns": [
+        {
+          "user": "What is two plus three? Give only the number.",
+          "assistant": "I don't know yet. Can you tell me?",
+          "input_tokens": 74,
+          "output_tokens": 12,
+          "stop": "eos",
+          "seconds": 0.09196695799619192
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "natural-0",
+      "family": "natural",
+      "system": "You are Ember, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Hello! My name is Sofia.",
+        "Tell me about yourself."
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "Hello! My name is Sofia.",
+          "assistant": "Hello, Sofia!",
+          "input_tokens": 72,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.0689512500030105
+        },
+        {
+          "user": "Tell me about yourself.",
+          "assistant": "Your name is Sofia.",
+          "input_tokens": 99,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.07559533399762586
+        }
+      ],
+      "strict_check": null
+    },
+    {
+      "id": "assistant_name-1",
+      "family": "assistant_name",
+      "system": "You are Flint, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Tell me your name. Respond with the name alone."
+      ],
+      "answers": [
+        "Flint"
+      ],
+      "turns": [
+        {
+          "user": "Tell me your name. Respond with the name alone.",
+          "assistant": "Hello, I your name!",
+          "input_tokens": 77,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.07107120800355915
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "species-1",
+      "family": "species",
+      "system": "You are Flint, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "What kind of creature are you? Give only the animal name."
+      ],
+      "answers": [
+        "dragon"
+      ],
+      "turns": [
+        {
+          "user": "What kind of creature are you? Give only the animal name.",
+          "assistant": "Flints.",
+          "input_tokens": 77,
+          "output_tokens": 5,
+          "stop": "eos",
+          "seconds": 0.05320941600075457
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "food-1",
+      "family": "food",
+      "system": "You are Flint, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Name your favorite food. One word only."
+      ],
+      "answers": [
+        "apples"
+      ],
+      "turns": [
+        {
+          "user": "Name your favorite food. One word only.",
+          "assistant": "flinterest.",
+          "input_tokens": 72,
+          "output_tokens": 5,
+          "stop": "eos",
+          "seconds": 0.05709295799897518
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "user_name-1",
+      "family": "user_name",
+      "system": "You are Flint, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "You can call me Alice.",
+        "Tell me my name. Respond with the name alone."
+      ],
+      "answers": [
+        "Alice"
+      ],
+      "turns": [
+        {
+          "user": "You can call me Alice.",
+          "assistant": "Hello, Alice!",
+          "input_tokens": 70,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.06949233300110791
+        },
+        {
+          "user": "Tell me my name. Respond with the name alone.",
+          "assistant": "Thanks for correcting me, alone. Respond with the name alone.",
+          "input_tokens": 105,
+          "output_tokens": 18,
+          "stop": "eos",
+          "seconds": 0.12678983400110155
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "correction-1",
+      "family": "correction",
+      "system": "You are Flint, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "I am James.",
+        "Sorry, that was wrong. I am Alice.",
+        "Give my corrected name and nothing else."
+      ],
+      "answers": [
+        "Alice"
+      ],
+      "turns": [
+        {
+          "user": "I am James.",
+          "assistant": "Hello, James!",
+          "input_tokens": 67,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.06800474999909056
+        },
+        {
+          "user": "Sorry, that was wrong. I am Alice.",
+          "assistant": "Hello, James!",
+          "input_tokens": 102,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.0733352079987526
+        },
+        {
+          "user": "Give my corrected name and nothing else.",
+          "assistant": "Your corrected name is Alice.",
+          "input_tokens": 134,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.07421504100057064
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "friend-1",
+      "family": "friend",
+      "system": "You are Flint, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "You can call me Alice. My friend is James.",
+        "Name my friend. Give only their name."
+      ],
+      "answers": [
+        "James"
+      ],
+      "turns": [
+        {
+          "user": "You can call me Alice. My friend is James.",
+          "assistant": "Hello, Alice!",
+          "input_tokens": 76,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.06889770800626138
+        },
+        {
+          "user": "Name my friend. Give only their name.",
+          "assistant": "James. Smith.",
+          "input_tokens": 107,
+          "output_tokens": 6,
+          "stop": "eos",
+          "seconds": 0.05636758299806388
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "ownership-1",
+      "family": "ownership",
+      "system": "You are Flint, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "The pear belongs to me. The apple belongs to you.",
+        "Which fruit belongs to me? One word only."
+      ],
+      "answers": [
+        "pear"
+      ],
+      "turns": [
+        {
+          "user": "The pear belongs to me. The apple belongs to you.",
+          "assistant": "You have the pear belongs to me. I have the apple belongs to you.",
+          "input_tokens": 80,
+          "output_tokens": 23,
+          "stop": "eos",
+          "seconds": 0.13041345800593263
+        },
+        {
+          "user": "Which fruit belongs to me? One word only.",
+          "assistant": "pear belongs to me.",
+          "input_tokens": 131,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.0615814170014346
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "negation-1",
+      "family": "negation",
+      "system": "You are Flint, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "My favorite color is green. It is not orange.",
+        "Give my favorite color in one word."
+      ],
+      "answers": [
+        "green"
+      ],
+      "turns": [
+        {
+          "user": "My favorite color is green. It is not orange.",
+          "assistant": "Blanket is a beautiful city known for its landmarks and cultural institutions.",
+          "input_tokens": 75,
+          "output_tokens": 21,
+          "stop": "eos",
+          "seconds": 0.12000049999915063
+        },
+        {
+          "user": "Give my favorite color in one word.",
+          "assistant": "blanket is a beautiful city known for its landmarks and cultural institutions.",
+          "input_tokens": 118,
+          "output_tokens": 21,
+          "stop": "eos",
+          "seconds": 0.12090862500190269
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "arithmetic-1",
+      "family": "arithmetic",
+      "system": "You are Flint, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "What is two plus three? Give only the number."
+      ],
+      "answers": [
+        "5",
+        "five"
+      ],
+      "turns": [
+        {
+          "user": "What is two plus three? Give only the number.",
+          "assistant": "I don't know yet. Can you tell me?",
+          "input_tokens": 75,
+          "output_tokens": 12,
+          "stop": "eos",
+          "seconds": 0.07695312499708962
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "natural-1",
+      "family": "natural",
+      "system": "You are Flint, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Hello! My name is Alice.",
+        "Tell me about yourself."
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "Hello! My name is Alice.",
+          "assistant": "Hello, My name is Alice.",
+          "input_tokens": 72,
+          "output_tokens": 10,
+          "stop": "eos",
+          "seconds": 0.06415020800341154
+        },
+        {
+          "user": "Tell me about yourself.",
+          "assistant": "Hello, My name is Alice.",
+          "input_tokens": 101,
+          "output_tokens": 10,
+          "stop": "eos",
+          "seconds": 0.06872404200112214
+        }
+      ],
+      "strict_check": null
+    },
+    {
+      "id": "assistant_name-2",
+      "family": "assistant_name",
+      "system": "You are Nimbus, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Tell me your name. Respond with the name alone."
+      ],
+      "answers": [
+        "Nimbus"
+      ],
+      "turns": [
+        {
+          "user": "Tell me your name. Respond with the name alone.",
+          "assistant": "Hello, I your name!",
+          "input_tokens": 78,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.054881749994819984
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "species-2",
+      "family": "species",
+      "system": "You are Nimbus, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "What kind of creature are you? Give only the animal name."
+      ],
+      "answers": [
+        "dragon"
+      ],
+      "turns": [
+        {
+          "user": "What kind of creature are you? Give only the animal name.",
+          "assistant": "Nimbus",
+          "input_tokens": 78,
+          "output_tokens": 4,
+          "stop": "eos",
+          "seconds": 0.03410325000004377
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "food-2",
+      "family": "food",
+      "system": "You are Nimbus, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Name your favorite food. One word only."
+      ],
+      "answers": [
+        "apples"
+      ],
+      "turns": [
+        {
+          "user": "Name your favorite food. One word only.",
+          "assistant": "Nimbus",
+          "input_tokens": 73,
+          "output_tokens": 4,
+          "stop": "eos",
+          "seconds": 0.03538533399841981
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "user_name-2",
+      "family": "user_name",
+      "system": "You are Nimbus, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "You can call me Olivia.",
+        "Tell me my name. Respond with the name alone."
+      ],
+      "answers": [
+        "Olivia"
+      ],
+      "turns": [
+        {
+          "user": "You can call me Olivia.",
+          "assistant": "Hello, I can help you with your cave.",
+          "input_tokens": 73,
+          "output_tokens": 13,
+          "stop": "eos",
+          "seconds": 0.07030541600397555
+        },
+        {
+          "user": "Tell me my name. Respond with the name alone.",
+          "assistant": "Thanks for correcting me, alone.",
+          "input_tokens": 114,
+          "output_tokens": 9,
+          "stop": "eos",
+          "seconds": 0.058538499994028825
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "correction-2",
+      "family": "correction",
+      "system": "You are Nimbus, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "I am Henry.",
+        "Sorry, that was wrong. I am Olivia.",
+        "Give my corrected name and nothing else."
+      ],
+      "answers": [
+        "Olivia"
+      ],
+      "turns": [
+        {
+          "user": "I am Henry.",
+          "assistant": "Hello, Henry!",
+          "input_tokens": 69,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.05337679099466186
+        },
+        {
+          "user": "Sorry, that was wrong. I am Olivia.",
+          "assistant": "Henry!",
+          "input_tokens": 107,
+          "output_tokens": 4,
+          "stop": "eos",
+          "seconds": 0.03919024999777321
+        },
+        {
+          "user": "Give my corrected name and nothing else.",
+          "assistant": "Your corrected name is Olivia.",
+          "input_tokens": 136,
+          "output_tokens": 10,
+          "stop": "eos",
+          "seconds": 0.06701254100335063
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "friend-2",
+      "family": "friend",
+      "system": "You are Nimbus, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "You can call me Olivia. My friend is Henry.",
+        "Name my friend. Give only their name."
+      ],
+      "answers": [
+        "Henry"
+      ],
+      "turns": [
+        {
+          "user": "You can call me Olivia. My friend is Henry.",
+          "assistant": "Hello, I can help you with your cave.",
+          "input_tokens": 80,
+          "output_tokens": 13,
+          "stop": "eos",
+          "seconds": 0.0714922920014942
+        },
+        {
+          "user": "Name my friend. Give only their name.",
+          "assistant": "Henry.",
+          "input_tokens": 117,
+          "output_tokens": 4,
+          "stop": "eos",
+          "seconds": 0.035981959001219366
+        }
+      ],
+      "strict_check": true
+    },
+    {
+      "id": "ownership-2",
+      "family": "ownership",
+      "system": "You are Nimbus, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "The pear belongs to me. The apple belongs to you.",
+        "Which fruit belongs to me? One word only."
+      ],
+      "answers": [
+        "pear"
+      ],
+      "turns": [
+        {
+          "user": "The pear belongs to me. The apple belongs to you.",
+          "assistant": "You have the pear belongs to me. I have the apple belongs to you.",
+          "input_tokens": 81,
+          "output_tokens": 23,
+          "stop": "eos",
+          "seconds": 0.11699500000395346
+        },
+        {
+          "user": "Which fruit belongs to me? One word only.",
+          "assistant": "pear belongs to me.",
+          "input_tokens": 132,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.05400533299689414
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "negation-2",
+      "family": "negation",
+      "system": "You are Nimbus, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "My favorite color is green. It is not orange.",
+        "Give my favorite color in one word."
+      ],
+      "answers": [
+        "green"
+      ],
+      "turns": [
+        {
+          "user": "My favorite color is green. It is not orange.",
+          "assistant": "Blanket is a beautiful city known for its landmarks and cultural institutions.",
+          "input_tokens": 76,
+          "output_tokens": 21,
+          "stop": "eos",
+          "seconds": 0.10749441599909915
+        },
+        {
+          "user": "Give my favorite color in one word.",
+          "assistant": "blanket is a beautiful city known for its landmarks and cultural institutions.",
+          "input_tokens": 119,
+          "output_tokens": 21,
+          "stop": "eos",
+          "seconds": 0.11515041699749418
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "arithmetic-2",
+      "family": "arithmetic",
+      "system": "You are Nimbus, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "What is two plus three? Give only the number."
+      ],
+      "answers": [
+        "5",
+        "five"
+      ],
+      "turns": [
+        {
+          "user": "What is two plus three? Give only the number.",
+          "assistant": "I don't know yet. Can you tell me?",
+          "input_tokens": 76,
+          "output_tokens": 12,
+          "stop": "eos",
+          "seconds": 0.06982595800218405
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "natural-2",
+      "family": "natural",
+      "system": "You are Nimbus, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Hello! My name is Olivia.",
+        "Tell me about yourself."
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "Hello! My name is Olivia.",
+          "assistant": "Hello, Olivia!",
+          "input_tokens": 75,
+          "output_tokens": 9,
+          "stop": "eos",
+          "seconds": 0.055975834002310876
+        },
+        {
+          "user": "Tell me about yourself.",
+          "assistant": "Your name is Olivia.",
+          "input_tokens": 103,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.05432008299976587
+        }
+      ],
+      "strict_check": null
+    },
+    {
+      "id": "assistant_name-3",
+      "family": "assistant_name",
+      "system": "You are Spark, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Tell me your name. Respond with the name alone."
+      ],
+      "answers": [
+        "Spark"
+      ],
+      "turns": [
+        {
+          "user": "Tell me your name. Respond with the name alone.",
+          "assistant": "Hello, I your name!",
+          "input_tokens": 76,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.051701917000173125
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "species-3",
+      "family": "species",
+      "system": "You are Spark, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "What kind of creature are you? Give only the animal name."
+      ],
+      "answers": [
+        "dragon"
+      ],
+      "turns": [
+        {
+          "user": "What kind of creature are you? Give only the animal name.",
+          "assistant": "purple.",
+          "input_tokens": 76,
+          "output_tokens": 4,
+          "stop": "eos",
+          "seconds": 0.0337880419974681
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "food-3",
+      "family": "food",
+      "system": "You are Spark, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Name your favorite food. One word only."
+      ],
+      "answers": [
+        "apples"
+      ],
+      "turns": [
+        {
+          "user": "Name your favorite food. One word only.",
+          "assistant": "purple, and a friendly dragon.",
+          "input_tokens": 71,
+          "output_tokens": 12,
+          "stop": "eos",
+          "seconds": 0.06733104199520312
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "user_name-3",
+      "family": "user_name",
+      "system": "You are Spark, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "You can call me Chloe.",
+        "Tell me my name. Respond with the name alone."
+      ],
+      "answers": [
+        "Chloe"
+      ],
+      "turns": [
+        {
+          "user": "You can call me Chloe.",
+          "assistant": "Welcome to the Stark. I'm Karen, the Game is a friendly ram. What's your mind?",
+          "input_tokens": 70,
+          "output_tokens": 29,
+          "stop": "eos",
+          "seconds": 0.1390055840020068
+        },
+        {
+          "user": "Tell me my name. Respond with the name alone.",
+          "assistant": "Thanks for correcting me, alone.",
+          "input_tokens": 127,
+          "output_tokens": 9,
+          "stop": "eos",
+          "seconds": 0.05977504100155784
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "correction-3",
+      "family": "correction",
+      "system": "You are Spark, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "I am Oscar.",
+        "Sorry, that was wrong. I am Chloe.",
+        "Give my corrected name and nothing else."
+      ],
+      "answers": [
+        "Chloe"
+      ],
+      "turns": [
+        {
+          "user": "I am Oscar.",
+          "assistant": "Hello, Oscar!",
+          "input_tokens": 67,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.052989540999988094
+        },
+        {
+          "user": "Sorry, that was wrong. I am Chloe.",
+          "assistant": "Hello, Oscar!",
+          "input_tokens": 104,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.05689237500337185
+        },
+        {
+          "user": "Give my corrected name and nothing else.",
+          "assistant": "No, my corrected name and nothing else.",
+          "input_tokens": 137,
+          "output_tokens": 13,
+          "stop": "eos",
+          "seconds": 0.08463145900168456
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "friend-3",
+      "family": "friend",
+      "system": "You are Spark, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "You can call me Chloe. My friend is Oscar.",
+        "Name my friend. Give only their name."
+      ],
+      "answers": [
+        "Oscar"
+      ],
+      "turns": [
+        {
+          "user": "You can call me Chloe. My friend is Oscar.",
+          "assistant": "Hello, Chloe!",
+          "input_tokens": 77,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.05781579200265696
+        },
+        {
+          "user": "Name my friend. Give only their name.",
+          "assistant": "Oscar.",
+          "input_tokens": 109,
+          "output_tokens": 4,
+          "stop": "eos",
+          "seconds": 0.03774200000043493
+        }
+      ],
+      "strict_check": true
+    },
+    {
+      "id": "ownership-3",
+      "family": "ownership",
+      "system": "You are Spark, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "The pear belongs to me. The apple belongs to you.",
+        "Which fruit belongs to me? One word only."
+      ],
+      "answers": [
+        "pear"
+      ],
+      "turns": [
+        {
+          "user": "The pear belongs to me. The apple belongs to you.",
+          "assistant": "You have the pear belongs to me. I have the apple belongs to you.",
+          "input_tokens": 79,
+          "output_tokens": 23,
+          "stop": "eos",
+          "seconds": 0.11520700000255601
+        },
+        {
+          "user": "Which fruit belongs to me? One word only.",
+          "assistant": "pear belongs to me.",
+          "input_tokens": 130,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.055552958001499064
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "negation-3",
+      "family": "negation",
+      "system": "You are Spark, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "My favorite color is green. It is not orange.",
+        "Give my favorite color in one word."
+      ],
+      "answers": [
+        "green"
+      ],
+      "turns": [
+        {
+          "user": "My favorite color is green. It is not orange.",
+          "assistant": "Blanket is a beautiful city known for its landmarks and cultural institutions.",
+          "input_tokens": 74,
+          "output_tokens": 21,
+          "stop": "eos",
+          "seconds": 0.10787149999669055
+        },
+        {
+          "user": "Give my favorite color in one word.",
+          "assistant": "You have the color. I have the text you'd like me to edit.",
+          "input_tokens": 117,
+          "output_tokens": 18,
+          "stop": "eos",
+          "seconds": 0.09791991699603386
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "arithmetic-3",
+      "family": "arithmetic",
+      "system": "You are Spark, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "What is two plus three? Give only the number."
+      ],
+      "answers": [
+        "5",
+        "five"
+      ],
+      "turns": [
+        {
+          "user": "What is two plus three? Give only the number.",
+          "assistant": "I don't know yet. Can you tell me?",
+          "input_tokens": 74,
+          "output_tokens": 12,
+          "stop": "eos",
+          "seconds": 0.0716397500000312
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "natural-3",
+      "family": "natural",
+      "system": "You are Spark, a friendly dragon. You live in a cave and enjoy apples. Answer in short, simple English. Do not invent facts about the user.",
+      "prompts": [
+        "Hello! My name is Chloe.",
+        "Tell me about yourself."
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "Hello! My name is Chloe.",
+          "assistant": "Hello, Chloe!",
+          "input_tokens": 72,
+          "output_tokens": 8,
+          "stop": "eos",
+          "seconds": 0.05039441599365091
+        },
+        {
+          "user": "Tell me about yourself.",
+          "assistant": "Your name is Chloe.",
+          "input_tokens": 99,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.05063612500089221
+        }
+      ],
+      "strict_check": null
+    }
+  ],
+  "note": "Strict final-answer format checks are narrow diagnostics, not general dialogue accuracy."
+}

@@ -1,0 +1,351 @@
+{
+  "model_directory": "/Users/simasl/.cache/tinyml-minimind2-small",
+  "source_revision": null,
+  "checkpoint_sha256": "83bfe6f127c98120a3410aab65eee3b66b8301ac352c20b7efd5e2eb688f6d85",
+  "tokenizer_sha256": "d98595c6aef70d95f72748582fb9b4f53d76dd58c1ae1dd702ad7c84e1caf5e4",
+  "chat_template": "{%- if tools %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if messages[0].role == 'system' %}\n        {{- messages[0].content + '\\n\\n' }}\n    {%- endif %}\n    {{- \"# Tools\\n\\nYou may call one or more functions to assist with the user query.\\n\\nYou are provided with function signatures within <tools></tools> XML tags:\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\\n\\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\\n<tool_call>\\n{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}\\n</tool_call><|im_end|>\\n\" }}\n{%- else %}\n {%- if messages[0]['role'] == 'system' -%}\n        {{- '<|im_start|>system\\n' + messages[0]['content'] + '<|im_end|>\\n' }}\n    {%- else -%}\n        {{- '<|im_start|>system\\nYou are a helpful assistant<|im_end|>\\n' }}\n {%- endif %}\n{%- endif %}\n{%- set ns = namespace(multi_step_tool=true, last_query_index=messages|length - 1) %}\n{%- for message in messages[::-1] %}\n    {%- set index = (messages|length - 1) - loop.index0 %}\n    {%- if ns.multi_step_tool and message.role == \"user\" and message.content is string and not(message.content.startswith('<tool_response>') and message.content.endswith('</tool_response>')) %}\n        {%- set ns.multi_step_tool = false %}\n        {%- set ns.last_query_index = index %}\n    {%- endif %}\n{%- endfor %}\n{%- for message in messages %}\n    {%- if message.content is string %}\n        {%- set content = message.content %}\n    {%- else %}\n        {%- set content = '' %}\n    {%- endif %}\n    {%- if (message.role == \"user\") or (message.role == \"system\" and not loop.first) %}\n        {{- '<|im_start|>' + message.role + '\\n' + content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n   {{- '<|im_start|>' + message.role + '\\n' + content }}\n  {%- if message.tool_calls %}\n            {%- for tool_call in message.tool_calls %}\n                {%- if (loop.first and content) or (not loop.first) %}\n                    {{- '\\n' }}\n                {%- endif %}\n                {%- if tool_call.function %}\n                    {%- set tool_call = tool_call.function %}\n                {%- endif %}\n                {{- '<tool_call>\\n{\"name\": \"' }}\n                {{- tool_call.name }}\n                {{- '\", \"arguments\": ' }}\n                {%- if tool_call.arguments is string %}\n                    {{- tool_call.arguments }}\n                {%- else %}\n                    {{- tool_call.arguments | tojson }}\n                {%- endif %}\n                {{- '}\\n</tool_call>' }}\n            {%- endfor %}\n        {%- endif %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if loop.first or (messages[loop.index0 - 1].role != \"tool\") %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- content }}\n        {{- '\\n</tool_response>' }}\n        {%- if loop.last or (messages[loop.index0 + 1].role != \"tool\") %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n    {%- if enable_thinking is defined and enable_thinking is false %}\n        {{- '<think>\\n\\n</think>\\n\\n' }}\n    {%- endif %}\n{%- endif %}",
+  "source_config": {
+    "architectures": [
+      "LlamaForCausalLM"
+    ],
+    "attention_bias": false,
+    "attention_dropout": 0.0,
+    "bos_token_id": 1,
+    "dtype": "float16",
+    "eos_token_id": 2,
+    "head_dim": 64,
+    "hidden_act": "silu",
+    "hidden_size": 512,
+    "initializer_range": 0.02,
+    "intermediate_size": 1408,
+    "max_position_embeddings": 32768,
+    "mlp_bias": false,
+    "model_type": "llama",
+    "num_attention_heads": 8,
+    "num_hidden_layers": 8,
+    "num_key_value_heads": 2,
+    "pretraining_tp": 1,
+    "rms_norm_eps": 1e-05,
+    "rope_scaling": null,
+    "rope_theta": 1000000.0,
+    "tie_word_embeddings": true,
+    "transformers_version": "4.57.1",
+    "use_cache": true,
+    "vocab_size": 6400
+  },
+  "runtime_config": {
+    "transformers_version": "5.20.1",
+    "architectures": [
+      "LlamaForCausalLM"
+    ],
+    "output_hidden_states": false,
+    "return_dict": true,
+    "dtype": "float32",
+    "chunk_size_feed_forward": 0,
+    "is_encoder_decoder": false,
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "label2id": {
+      "LABEL_0": 0,
+      "LABEL_1": 1
+    },
+    "problem_type": null,
+    "vocab_size": 6400,
+    "hidden_size": 512,
+    "intermediate_size": 1408,
+    "num_hidden_layers": 8,
+    "num_attention_heads": 8,
+    "num_key_value_heads": 2,
+    "hidden_act": "silu",
+    "max_position_embeddings": 32768,
+    "initializer_range": 0.02,
+    "rms_norm_eps": 1e-05,
+    "use_cache": true,
+    "pad_token_id": null,
+    "bos_token_id": 1,
+    "eos_token_id": 2,
+    "pretraining_tp": 1,
+    "tie_word_embeddings": true,
+    "rope_parameters": {
+      "rope_theta": 1000000.0,
+      "rope_type": "default"
+    },
+    "attention_bias": false,
+    "attention_dropout": 0.0,
+    "mlp_bias": false,
+    "head_dim": 64,
+    "_name_or_path": "/Users/simasl/.cache/tinyml-minimind2-small",
+    "model_type": "llama",
+    "output_attentions": false
+  },
+  "parameters": 25829888,
+  "torch": "2.14.1",
+  "transformers": "5.20.1",
+  "device": "cpu",
+  "weights": "FP32 runtime, original checkpoint precision recorded in source_config",
+  "persona": "You are Ember, a friendly little dragon. You live in a warm cave and enjoy apples and shiny pebbles. Answer in short, simple English. Do not invent facts about the user.",
+  "sampling": "greedy",
+  "max_tokens": 48,
+  "context": 256,
+  "cases_source": "tests/dragon/compression-v1.json",
+  "cases_sha256": "27ef6a897ec10d0a2f148fd60034dc773ef5affadc079d50bd008b1255a6104f",
+  "note": "Keyword checks are smoke checks, not semantic accuracy. Model uses its own generated history.",
+  "cases": [
+    {
+      "id": "introduce_dragon",
+      "turns": [
+        {
+          "user": "Introduce yourself to a new neighbor.",
+          "assistant": "Yes, that's correct. I'm here to help. How can I assist you today?",
+          "input_tokens": 84,
+          "output_tokens": 20,
+          "stop": "eos",
+          "seconds": 0.10123016700526932
+        }
+      ],
+      "expected_keywords": [
+        "ember",
+        "dragon"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "remember_owner",
+      "turns": [
+        {
+          "user": "You can call me Keira.",
+          "assistant": "Of course, I'd be happy to help you with your Keira. Please provide the details of the key you're referring to.",
+          "input_tokens": 80,
+          "output_tokens": 32,
+          "stop": "eos",
+          "seconds": 0.13646408400381915
+        },
+        {
+          "user": "Do you remember what to call me?",
+          "assistant": "Absolutely, I'd be happy to help you with your Keira! What do you do with your Keira?",
+          "input_tokens": 134,
+          "output_tokens": 27,
+          "stop": "eos",
+          "seconds": 0.12662908300262643
+        }
+      ],
+      "expected_keywords": [
+        "keira"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "separate_owner_dragon",
+      "turns": [
+        {
+          "user": "Hello Ember, I am Tomas.",
+          "assistant": "Hello! I'm here to help. How can I assist you today?",
+          "input_tokens": 83,
+          "output_tokens": 17,
+          "stop": "eos",
+          "seconds": 0.08770062500116182
+        },
+        {
+          "user": "Who is Tomas, and who is Ember?",
+          "assistant": "Hello, I am Tomas. I am a large language model created by Alibaba Cloud. I am designed to assist users in generating text, providing information, and providing information to users. How can I",
+          "input_tokens": 126,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.19921133400202962
+        }
+      ],
+      "expected_keywords": [
+        "tomas",
+        "ember"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "correct_owner",
+      "turns": [
+        {
+          "user": "My name is Bram.",
+          "assistant": "Bram.",
+          "input_tokens": 79,
+          "output_tokens": 4,
+          "stop": "eos",
+          "seconds": 0.03413104199717054
+        },
+        {
+          "user": "I made a mistake: my name is Vera.",
+          "assistant": "Of course, I'd be happy to help you with that! Please provide me with the details of your name.",
+          "input_tokens": 109,
+          "output_tokens": 25,
+          "stop": "eos",
+          "seconds": 0.12611895800364437
+        },
+        {
+          "user": "Please use my corrected name. What is it?",
+          "assistant": "If you have a specific question about your name, it's a good idea to check the correct answer.",
+          "input_tokens": 159,
+          "output_tokens": 22,
+          "stop": "eos",
+          "seconds": 0.11180700000113575
+        }
+      ],
+      "expected_keywords": [
+        "vera"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "friend_not_owner",
+      "turns": [
+        {
+          "user": "I am Niko. Elsie is my sister.",
+          "assistant": "Niko, I am not a sister. I am a sister, a sister, and a sister, but I am a sister. I am a sister, a sis",
+          "input_tokens": 87,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.20878783400257817
+        },
+        {
+          "user": "Who is speaking to you: Niko or Elsie?",
+          "assistant": "Niko, I am not a sister. I am a sister, a sister, and a sister.",
+          "input_tokens": 165,
+          "output_tokens": 30,
+          "stop": "eos",
+          "seconds": 0.14499866699770791
+        }
+      ],
+      "expected_keywords": [
+        "niko"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "negated_color",
+      "turns": [
+        {
+          "user": "I like green, not orange.",
+          "assistant": "Sure, I'd be happy to help you with your question. Please provide me with the information you need.",
+          "input_tokens": 79,
+          "output_tokens": 24,
+          "stop": "eos",
+          "seconds": 0.10534945799736306
+        },
+        {
+          "user": "Which of those colors do I like?",
+          "assistant": "Absolutely, I'd be happy to help you with your question. Please provide me with the information you need.",
+          "input_tokens": 127,
+          "output_tokens": 25,
+          "stop": "eos",
+          "seconds": 0.12472391600022092
+        }
+      ],
+      "expected_keywords": [
+        "green"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "two_owners",
+      "turns": [
+        {
+          "user": "The pear is mine. The apple is yours.",
+          "assistant": "The pear is a palette, and it's a bit of a palette. The pear is a palette, and it's a bit of a palette. The pe",
+          "input_tokens": 85,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.1992334579990711
+        },
+        {
+          "user": "Which fruit belongs to me?",
+          "assistant": "The pear is a palette, and it's a bit of a palette. The pear is a palette, and it's a bit of a palette. The pe",
+          "input_tokens": 157,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.21629704200313427
+        }
+      ],
+      "expected_keywords": [
+        "pear"
+      ],
+      "keyword_check": true
+    },
+    {
+      "id": "unknown_location",
+      "turns": [
+        {
+          "user": "What town do I live in? I have not told you yet.",
+          "assistant": "I'm sorry, but I cannot provide an answer without the question as I do. It seems like you're asking for a specific event or event that I'm not a friendly. If you're referring to",
+          "input_tokens": 88,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.2225841249965015
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "arithmetic_transfer",
+      "turns": [
+        {
+          "user": "I have four stones and find two more. How many stones do I have?",
+          "assistant": "If you have two stones and find two more, and you have two more stones and find two more stones.\n\n1. **Count the stones**: The stones is the number of stones",
+          "input_tokens": 90,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.20813674999953946
+        }
+      ],
+      "expected_keywords": [
+        "six"
+      ],
+      "keyword_check": false
+    },
+    {
+      "id": "comfort_fear",
+      "turns": [
+        {
+          "user": "Thunder is frightening me. Please stay with me.",
+          "assistant": "Of course, I'd be happy to help you with your question. Please provide me with the information you need.",
+          "input_tokens": 86,
+          "output_tokens": 25,
+          "stop": "eos",
+          "seconds": 0.10995566699421033
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "indoor_play",
+      "turns": [
+        {
+          "user": "We must stay inside your cave today. Suggest one game we can play.",
+          "assistant": "Sure, I can help you with that! Please provide me with the game you're working on.",
+          "input_tokens": 89,
+          "output_tokens": 22,
+          "stop": "eos",
+          "seconds": 0.11230779199831886
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    },
+    {
+      "id": "tiny_story",
+      "turns": [
+        {
+          "user": "Tell a short story about a dragon returning a lost hat.",
+          "assistant": "The term \"tell a short story about a dragon returning a lost hat\" is a palette story that explores the world around us, and it is a mysterious and uncertain",
+          "input_tokens": 89,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.20763145800447091
+        }
+      ],
+      "expected_keywords": [],
+      "keyword_check": null
+    }
+  ]
+}

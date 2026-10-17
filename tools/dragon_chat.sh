@@ -2,6 +2,20 @@
 set -euo pipefail
 project_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 dragon_python="${DRAGON_PYTHON:-$HOME/.cache/tinyml-eval-venv/bin/python}"
+if [[ "${1:-}" == dialogue || "${1:-}" == dialogue-plain ]]; then
+  dragon_variant="$1"
+  shift
+  dragon_model="$project_dir/build/dragon/dialogue-v1-retained/best"
+  if [[ "$dragon_variant" == dialogue-plain ]]; then
+    dragon_model="$project_dir/build/dragon/dialogue-v1/best"
+  fi
+  if [[ ! -x "$dragon_python" || ! -f "$dragon_model/model.safetensors" ]]; then
+    echo "Trained checkpoint missing. See docs/dialogue-training-v1.md."
+    exit 1
+  fi
+  exec "$dragon_python" "$project_dir/tools/dragon_hf.py" chat \
+    --model "$dragon_model" --persona compact --context 256 "$@"
+fi
 if [[ "${1:-}" == minimind || "${1:-}" == smollm ]]; then
   dragon_candidate="$1"
   shift

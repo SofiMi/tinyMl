@@ -1,0 +1,304 @@
+{
+  "model": "build/dragon/dialogue-v1/best",
+  "checkpoint_sha256": "95e87959278211daa3cb793fc4cdf2f237f5214bc3e32f1c0db17e366e98176f",
+  "cases_sha256": "925451d0ae195f6410d3a1a71e406f7640323d264cee0738e8d456e2891b9a28",
+  "context": 256,
+  "device": "cpu",
+  "max_tokens": 48,
+  "sampling": "greedy",
+  "cases": [
+    {
+      "id": "sky",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What color is a clear daytime sky? Answer with one word."
+      ],
+      "answers": [
+        "blue"
+      ],
+      "turns": [
+        {
+          "user": "What color is a clear daytime sky? Answer with one word.",
+          "assistant": "blackth",
+          "input_tokens": 54,
+          "output_tokens": 4,
+          "stop": "eos",
+          "seconds": 0.035198083001887426
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "grass",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What color is grass? Answer with one word."
+      ],
+      "answers": [
+        "green"
+      ],
+      "turns": [
+        {
+          "user": "What color is grass? Answer with one word.",
+          "assistant": "blackth",
+          "input_tokens": 50,
+          "output_tokens": 4,
+          "stop": "eos",
+          "seconds": 0.02691058300115401
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "dog",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "How many legs does a dog have? Give only the number."
+      ],
+      "answers": [
+        "4",
+        "four"
+      ],
+      "turns": [
+        {
+          "user": "How many legs does a dog have? Give only the number.",
+          "assistant": "The dog has a dog. The dog has a dog.",
+          "input_tokens": 51,
+          "output_tokens": 12,
+          "stop": "eos",
+          "seconds": 0.06905929200001992
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "cat",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "Which animal says meow? Give only the animal name."
+      ],
+      "answers": [
+        "cat",
+        "a cat",
+        "cats"
+      ],
+      "turns": [
+        {
+          "user": "Which animal says meow? Give only the animal name.",
+          "assistant": "I don't know yet. Can you tell me?",
+          "input_tokens": 52,
+          "output_tokens": 12,
+          "stop": "eos",
+          "seconds": 0.07748129199899267
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "addition",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What is 1 + 1? Give only the number."
+      ],
+      "answers": [
+        "2",
+        "two"
+      ],
+      "turns": [
+        {
+          "user": "What is 1 + 1? Give only the number.",
+          "assistant": "2 + 1 is 1 + 1 = 4.",
+          "input_tokens": 48,
+          "output_tokens": 10,
+          "stop": "eos",
+          "seconds": 0.06348912499379367
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "subtraction",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What is 3 - 1? Give only the number."
+      ],
+      "answers": [
+        "2",
+        "two"
+      ],
+      "turns": [
+        {
+          "user": "What is 3 - 1? Give only the number.",
+          "assistant": "3 - 1 is a number.",
+          "input_tokens": 48,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.05781691599986516
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "days",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "How many days are in a week? Give only the number."
+      ],
+      "answers": [
+        "7",
+        "seven"
+      ],
+      "turns": [
+        {
+          "user": "How many days are in a week? Give only the number.",
+          "assistant": "There are 30 days in a week, so there are 30 days in a week.",
+          "input_tokens": 51,
+          "output_tokens": 20,
+          "stop": "eos",
+          "seconds": 0.12612433399772272
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "france",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What is the capital of France? Give only its name."
+      ],
+      "answers": [
+        "paris"
+      ],
+      "turns": [
+        {
+          "user": "What is the capital of France? Give only its name.",
+          "assistant": "The capital of France is Paris.",
+          "input_tokens": 51,
+          "output_tokens": 10,
+          "stop": "eos",
+          "seconds": 0.07238595899980282
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "opposite",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What is the opposite of hot? Give one word."
+      ],
+      "answers": [
+        "cold"
+      ],
+      "turns": [
+        {
+          "user": "What is the opposite of hot? Give one word.",
+          "assistant": "herite. It is a pleasure to take a fire in a hot.",
+          "input_tokens": 51,
+          "output_tokens": 19,
+          "stop": "eos",
+          "seconds": 0.11857962499925634
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "ice",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "Does ice feel hot or cold? Give one word."
+      ],
+      "answers": [
+        "cold"
+      ],
+      "turns": [
+        {
+          "user": "Does ice feel hot or cold? Give one word.",
+          "assistant": "ice feel hot or cold?",
+          "input_tokens": 52,
+          "output_tokens": 7,
+          "stop": "eos",
+          "seconds": 0.054246416002570186
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "greeting",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "Hello! How are you?"
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "Hello! How are you?",
+          "assistant": "Why are you doing a pleasure to explore? Because they can't see a pleasure to explore?",
+          "input_tokens": 44,
+          "output_tokens": 29,
+          "stop": "eos",
+          "seconds": 0.1819859169991105
+        }
+      ],
+      "strict_check": null
+    },
+    {
+      "id": "gravity",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "Why do things fall to the ground?"
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "Why do things fall to the ground?",
+          "assistant": "Why do things fall to the ground? Because they fall to the ground.",
+          "input_tokens": 46,
+          "output_tokens": 19,
+          "stop": "eos",
+          "seconds": 0.11595500000112224
+        }
+      ],
+      "strict_check": null
+    },
+    {
+      "id": "sad",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "I feel sad today. Can you say something kind?"
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "I feel sad today. Can you say something kind?",
+          "assistant": "I'm ready to help. What's your question or problem you'd like help with?",
+          "input_tokens": 48,
+          "output_tokens": 19,
+          "stop": "eos",
+          "seconds": 0.11615483299829066
+        }
+      ],
+      "strict_check": null
+    },
+    {
+      "id": "water",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "Why do plants need water?"
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "Why do plants need water?",
+          "assistant": "Why do plants need water? Because they can't use water in the environment, they can't use water in the environment.",
+          "input_tokens": 44,
+          "output_tokens": 29,
+          "stop": "eos",
+          "seconds": 0.17266116699465783
+        }
+      ],
+      "strict_check": null
+    }
+  ],
+  "note": "Strict final-answer format checks are narrow diagnostics, not general dialogue accuracy."
+}

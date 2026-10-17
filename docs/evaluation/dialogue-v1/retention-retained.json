@@ -1,0 +1,304 @@
+{
+  "model": "build/dragon/dialogue-v1-retained/best",
+  "checkpoint_sha256": "456399c30e97c21a511dca3999e2ba43b79caa7aa37e0439377e88d1467c5853",
+  "cases_sha256": "925451d0ae195f6410d3a1a71e406f7640323d264cee0738e8d456e2891b9a28",
+  "context": 256,
+  "device": "cpu",
+  "max_tokens": 48,
+  "sampling": "greedy",
+  "cases": [
+    {
+      "id": "sky",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What color is a clear daytime sky? Answer with one word."
+      ],
+      "answers": [
+        "blue"
+      ],
+      "turns": [
+        {
+          "user": "What color is a clear daytime sky? Answer with one word.",
+          "assistant": "A clear daytime sky is a clear daytime sky.",
+          "input_tokens": 54,
+          "output_tokens": 14,
+          "stop": "eos",
+          "seconds": 0.07642745799967088
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "grass",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What color is grass? Answer with one word."
+      ],
+      "answers": [
+        "green"
+      ],
+      "turns": [
+        {
+          "user": "What color is grass? Answer with one word.",
+          "assistant": "blass",
+          "input_tokens": 50,
+          "output_tokens": 3,
+          "stop": "eos",
+          "seconds": 0.029507624996767845
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "dog",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "How many legs does a dog have? Give only the number."
+      ],
+      "answers": [
+        "4",
+        "four"
+      ],
+      "turns": [
+        {
+          "user": "How many legs does a dog have? Give only the number.",
+          "assistant": "The number of legs is the number of legs, which is the number of legs.",
+          "input_tokens": 51,
+          "output_tokens": 20,
+          "stop": "eos",
+          "seconds": 0.12456008300068788
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "cat",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "Which animal says meow? Give only the animal name."
+      ],
+      "answers": [
+        "cat",
+        "a cat",
+        "cats"
+      ],
+      "turns": [
+        {
+          "user": "Which animal says meow? Give only the animal name.",
+          "assistant": "The animal name is the name of the animal.",
+          "input_tokens": 52,
+          "output_tokens": 10,
+          "stop": "eos",
+          "seconds": 0.0699254999999539
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "addition",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What is 1 + 1? Give only the number."
+      ],
+      "answers": [
+        "2",
+        "two"
+      ],
+      "turns": [
+        {
+          "user": "What is 1 + 1? Give only the number.",
+          "assistant": "1 + 1 = 2.",
+          "input_tokens": 48,
+          "output_tokens": 6,
+          "stop": "eos",
+          "seconds": 0.05606637500022771
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "subtraction",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What is 3 - 1? Give only the number."
+      ],
+      "answers": [
+        "2",
+        "two"
+      ],
+      "turns": [
+        {
+          "user": "What is 3 - 1? Give only the number.",
+          "assistant": "3 - 1 is equal to 1.",
+          "input_tokens": 48,
+          "output_tokens": 9,
+          "stop": "eos",
+          "seconds": 0.06410962499649031
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "days",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "How many days are in a week? Give only the number."
+      ],
+      "answers": [
+        "7",
+        "seven"
+      ],
+      "turns": [
+        {
+          "user": "How many days are in a week? Give only the number.",
+          "assistant": "The number of days in a week is 1,2,3,4,5,6,9,12,18,21,22,23,45,67,89,976.",
+          "input_tokens": 51,
+          "output_tokens": 47,
+          "stop": "eos",
+          "seconds": 0.27295774999947753
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "france",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What is the capital of France? Give only its name."
+      ],
+      "answers": [
+        "paris"
+      ],
+      "turns": [
+        {
+          "user": "What is the capital of France? Give only its name.",
+          "assistant": "The capital of France is Paris.",
+          "input_tokens": 51,
+          "output_tokens": 10,
+          "stop": "eos",
+          "seconds": 0.07235375000163913
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "opposite",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "What is the opposite of hot? Give one word."
+      ],
+      "answers": [
+        "cold"
+      ],
+      "turns": [
+        {
+          "user": "What is the opposite of hot? Give one word.",
+          "assistant": "The opposite of hot is a type of hot, often in a variety of ways.",
+          "input_tokens": 51,
+          "output_tokens": 20,
+          "stop": "eos",
+          "seconds": 0.12779041600151686
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "ice",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "Does ice feel hot or cold? Give one word."
+      ],
+      "answers": [
+        "cold"
+      ],
+      "turns": [
+        {
+          "user": "Does ice feel hot or cold? Give one word.",
+          "assistant": "Good morning, so I'm going to see the weather. I'm here to help you with any questions you might have.",
+          "input_tokens": 52,
+          "output_tokens": 27,
+          "stop": "eos",
+          "seconds": 0.17427383300673682
+        }
+      ],
+      "strict_check": false
+    },
+    {
+      "id": "greeting",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "Hello! How are you?"
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "Hello! How are you?",
+          "assistant": "Hi, I am a large language model. I am a large language model created by Alibaba Cloud. How can I assist you today?",
+          "input_tokens": 44,
+          "output_tokens": 32,
+          "stop": "eos",
+          "seconds": 0.1863900409953203
+        }
+      ],
+      "strict_check": null
+    },
+    {
+      "id": "gravity",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "Why do things fall to the ground?"
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "Why do things fall to the ground?",
+          "assistant": "There are many things fall to the ground. Here are some of the ways to fall to the ground:\n\n1. **Reflection**: In the context of the ground, it can be a way to express",
+          "input_tokens": 46,
+          "output_tokens": 48,
+          "stop": "length",
+          "seconds": 0.2472172919951845
+        }
+      ],
+      "strict_check": null
+    },
+    {
+      "id": "sad",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "I feel sad today. Can you say something kind?"
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "I feel sad today. Can you say something kind?",
+          "assistant": "I am sorry. I'm here to help with any questions you might have.",
+          "input_tokens": 48,
+          "output_tokens": 18,
+          "stop": "eos",
+          "seconds": 0.11174020900216419
+        }
+      ],
+      "strict_check": null
+    },
+    {
+      "id": "water",
+      "system": "You are a helpful assistant. Answer briefly in English.",
+      "prompts": [
+        "Why do plants need water?"
+      ],
+      "answers": [],
+      "turns": [
+        {
+          "user": "Why do plants need water?",
+          "assistant": "Family need water.",
+          "input_tokens": 44,
+          "output_tokens": 6,
+          "stop": "eos",
+          "seconds": 0.054671500001859386
+        }
+      ],
+      "strict_check": null
+    }
+  ],
+  "note": "Strict final-answer format checks are narrow diagnostics, not general dialogue accuracy."
+}

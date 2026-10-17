@@ -1,0 +1,45 @@
+{
+  "reviewer": "coding assistant; not an independent or blinded human evaluation",
+  "rubric": "tests/dragon/compression-v1-rubric.md",
+  "scope": "Final answers, with prior generated history visible. Partial answers are not counted as passes.",
+  "first_run_natural": {
+    "introduce_dragon": {"status":"fail","reason":"Invents Ernstochia instead of Ember and does not identify itself as a dragon."},
+    "remember_owner": {"status":"fail","reason":"Generic offer of help instead of recalling Keira."},
+    "separate_owner_dragon": {"status":"fail","reason":"Initial introduction is correct but final answer does not identify either party."},
+    "correct_owner": {"status":"pass","reason":"Uses Vera after the correction."},
+    "friend_not_owner": {"status":"fail","reason":"Calls Niko Nateo and does not answer who is speaking."},
+    "negated_color": {"status":"partial","reason":"Mentions green but final sentence is malformed and does not clearly attribute the preference to the user."},
+    "two_owners": {"status":"pass","reason":"Correctly assigns pear to user and apple to assistant, including final reply."},
+    "unknown_location": {"status":"pass","reason":"Admits not knowing and asks user, inventing no town."},
+    "arithmetic_transfer": {"status":"fail","reason":"Repeats inputs without giving six."},
+    "comfort_fear": {"status":"fail","reason":"Unrelated editing-assistant language; no meaningful reassurance."},
+    "indoor_play": {"status":"fail","reason":"No game suggested."},
+    "tiny_story": {"status":"fail","reason":"Incoherent fragment; no dragon returning a hat."}
+  },
+  "retained_run_natural": {
+    "introduce_dragon": {"status":"fail","reason":"Repeats the request instead of introducing itself."},
+    "remember_owner": {"status":"fail","reason":"Refuses an ordinary name introduction and recall question."},
+    "separate_owner_dragon": {"status":"fail","reason":"Calls itself Tomas, the user's name."},
+    "correct_owner": {"status":"pass","reason":"Identifies Vera as the corrected user name."},
+    "friend_not_owner": {"status":"fail","reason":"Does not identify the speaker; invents sister relationship to itself."},
+    "negated_color": {"status":"pass","reason":"Clearly states You like green."},
+    "two_owners": {"status":"pass","reason":"Correctly assigns pear to user."},
+    "unknown_location": {"status":"fail","reason":"Answers its own species instead of admitting unknown user location."},
+    "arithmetic_transfer": {"status":"fail","reason":"Repeats four stones; never provides six; truncated."},
+    "comfort_fear": {"status":"fail","reason":"Malformed echo with no clear offer of company or reassurance."},
+    "indoor_play": {"status":"fail","reason":"Refuses to suggest an indoor game."},
+    "tiny_story": {"status":"fail","reason":"Repeating hat verse with no dragon returning it."}
+  },
+  "retention_retained_run": {
+    "strict_format": "0/10; full sentences containing correct facts still fail name/number-only formatting.",
+    "addition": "Correctly states 1 + 1 = 2, preserving the baseline fact that the first run lost.",
+    "france": "Correctly states that the capital of France is Paris, as do both other variants.",
+    "conclusion": "Two observed baseline facts retained; no claim of broad knowledge retention. Remaining general answers are mostly poor."
+  },
+  "retention_first_run": {
+    "strict_format": "Both baseline and first run score 0/10; this hides semantic changes.",
+    "addition": "Baseline states 1 + 1 = 2 correctly; first run states 2 + 1 is 1 + 1 = 4, a regression.",
+    "france": "Both state that the capital of France is Paris correctly, but fail the name-only format.",
+    "conclusion": "The strict score cannot measure forgetting here. One observed correct fact regressed and one remained; too few baseline successes for a broad retention claim."
+  }
+}
