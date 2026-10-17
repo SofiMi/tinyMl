@@ -12,7 +12,7 @@ static const char* TAG = "tinyml_display";
 static ssd1306_handle_t display;
 static i2c_master_bus_handle_t bus;
 static TextWindow text;
-static char heading[22] = "TinyTalk 2";
+static char heading[22] = "Ember";
 
 static void render() {
     if (!display) return;

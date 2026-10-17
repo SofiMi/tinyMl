@@ -131,11 +131,12 @@ for name,prompt in cases:
 # Compare the shared console's history formatting against the upstream harness.
 subprocess.run([os.environ.get('CXX', 'c++'), '-std=c++17', '-O2', '-pthread',
     '-I', str(ROOT/'tools/host'), '-I', str(ROOT/'components/tinytalk/include'),
-    str(ROOT/'main/console.cpp'), str(ROOT/'components/tinytalk/llm.cpp'),
+    str(ROOT/'main/console.cpp'), str(ROOT/'main/dragon.cpp'), str(ROOT/'main/dragon_store.cpp'),
+    str(ROOT/'components/tinytalk/llm.cpp'),
     '-o', str(OUT/'console')], check=True)
 questions = ['hello', 'my name is sofia', 'what language do you speak?', 'what is my name?']
 console = subprocess.run([str(OUT/'console'), str(ROOT/'components/tinytalk/assets/model_neo_q4.bin'),
-    str(ROOT/'components/tinytalk/assets/tok_neo.bin')],
+    str(ROOT/'components/tinytalk/assets/tok_neo.bin'), '--raw'],
     input='/temp 0\n' + '\n'.join(questions) + '\n', text=True,
     capture_output=True, check=True, timeout=60)
 (OUT/'console-transcript.txt').write_text(console.stdout)

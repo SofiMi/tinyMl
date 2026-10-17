@@ -1,7 +1,8 @@
-// TinyTalk 2 USB console for ESP32-S3 N16R8.
-// Uses the unmodified cardputer-ai inference engine and embedded weights.
+// Offline Ember character; TinyTalk is an optional, separate research mode.
 #include "llm.h"
 #include "display.h"
+#include "dragon.h"
+#include "dragon_store.h"
 #include <algorithm>
 #include <chrono>
 #include <cmath>
@@ -28,6 +29,11 @@ extern "C" const size_t TOKENIZER_DATA_LEN;
 static Transformer model;
 static Tokenizer tokenizer;
 static Sampler sampler;
+static bool raw_mode = false;
+static bool model_ready = false;
+static bool model_attempted = false;
+static Dragon dragon;
+static DragonStore dragon_store;
 static std::vector<std::pair<std::string, std::string>> history;
 static constexpr int kContext = 72; // Keep upstream's verified SRAM layout.
 static constexpr int kMaxReply = 48;
@@ -50,8 +56,11 @@ static void yield_cpu() {
 }
 
 static void stats() {
-    printf("[model] TinyTalk 2, vocab=%d, KV=%d, temperature=%.2f, history=%zu\n",
-           model.config.vocab_size, model.kv_seq_len, sampler.temperature, history.size());
+    printf("[mode] %s; facts: %s\n", raw_mode ? "raw TinyTalk" : "Ember (prepared replies)", dragon_store.status().c_str());
+    if (model_ready) {
+        printf("[model] TinyTalk 2, vocab=%d, KV=%d, temperature=%.2f, history=%zu\n",
+               model.config.vocab_size, model.kv_seq_len, sampler.temperature, history.size());
+    }
 #ifdef ESP_PLATFORM
     printf("[memory] PSRAM=%zu, free PSRAM=%zu, free internal=%zu bytes\n",
            esp_psram_get_size(), heap_caps_get_free_size(MALLOC_CAP_SPIRAM),
@@ -149,8 +158,10 @@ static void answer(const std::string& question) {
 
 static void help() {
     puts("Type a short English message and press Enter.\n"
-         "Commands: /new, /stats, /temp 0..2, /help\n"
-         "TinyTalk is a small experimental model; replies are limited to 48 tokens.");
+         "Commands: /new (keep facts), /memory, /forget (erase facts), /stats, /quit, /help\n"
+         "Examples: My name is Sofia. | I like green. | What is my name? | 1 + 1? | Tell me a story.\n"
+         "/mode raw: experimental TinyTalk; /temp 0..2 controls it.\n"
+         "/mode dragon: return to Ember's limited, prepared English replies.");
 }
 
 static bool read_line(std::string& line) {
@@ -195,15 +206,26 @@ static bool read_line(std::string& line) {
 static bool run_console(const uint8_t* weights, size_t weights_size,
                         const uint8_t* vocab, size_t vocab_size, uint64_t seed) {
     setvbuf(stdout, nullptr, _IONBF, 0);
-    puts("\nTinyTalk 2 / ESP32-S3 N16R8 / USB console");
-    if (!llm_init_embedded(&model, weights, weights_size, kContext) ||
-        model.config.arch != ARCH_GPTNEO ||
-        !llm_tokenizer_from_memory(&tokenizer, vocab, vocab_size, model.config.vocab_size) ||
-        tokenizer.vocab_size != model.config.vocab_size || tokenizer.style != ARCH_GPTNEO) {
-        puts("[FATAL] Model/tokenizer initialization failed.");
-        return false;
-    }
-    llm_build_sampler(&sampler, model.config.vocab_size, 0.8f, 0.9f, seed);
+    puts("\nEmber / offline dragon / ESP32-S3 N16R8");
+    const auto init_model = [&]() {
+        if (model_ready) return true;
+        if (model_attempted) { puts("[error] Raw model unavailable; restart to retry."); return false; }
+        model_attempted = true;
+        if (!llm_init_embedded(&model, weights, weights_size, kContext) ||
+            model.config.arch != ARCH_GPTNEO ||
+            !llm_tokenizer_from_memory(&tokenizer, vocab, vocab_size, model.config.vocab_size) ||
+            tokenizer.vocab_size != model.config.vocab_size || tokenizer.style != ARCH_GPTNEO) {
+            puts("[error] Model/tokenizer initialization failed.");
+            return false;
+        }
+        llm_build_sampler(&sampler, model.config.vocab_size, 0.8f, 0.9f, seed);
+        model_ready = true;
+        return true;
+    };
+    DragonMemory saved;
+    if (dragon_store.load(saved)) dragon.restore(saved);
+    else printf("[warning] %s\n", dragon_store.status().c_str());
+    if (raw_mode && !init_model()) return false;
     display_init();
     display_status("Ready / USB input");
     stats();
@@ -214,15 +236,32 @@ static bool run_console(const uint8_t* weights, size_t weights_size,
         fputs("You> ", stdout);
         if (!read_line(line)) break;
         if (line.empty()) continue;
-        if (line == "/new") {
+        if (line == "/quit") break;
+        if (line == "/mode raw") {
+            if (init_model()) { raw_mode = true; history.clear(); puts("[raw TinyTalk; dragon facts are isolated]"); }
+        }
+        else if (line == "/mode dragon") {
+            raw_mode = false;
+            dragon.new_conversation();
+            puts("[Ember: prepared replies and saved facts]");
+        }
+        else if (line == "/memory") puts(dragon.describe_memory().c_str());
+        else if (line == "/forget") {
+            dragon.forget();
+            if (dragon_store.save(dragon.memory(), true)) puts("[dragon facts cleared]");
+            else printf("[warning] Facts cleared in RAM only; old saved facts may return after restart. %s\n", dragon_store.status().c_str());
+        }
+        else if (line == "/new") {
             history.clear();
+            dragon.new_conversation();
             display_begin_reply();
             display_status("History cleared");
-            puts("[history cleared]");
+            puts("[history cleared; dragon facts kept]");
         }
         else if (line == "/stats") stats();
         else if (line == "/help") help();
         else if (line.compare(0, 6, "/temp ") == 0) {
+            if (!raw_mode) { puts("[error] /temp applies only to /mode raw."); continue; }
             char* end = nullptr;
             const float value = strtof(line.c_str() + 6, &end);
             if (end == line.c_str() + 6 || *end || !std::isfinite(value) || value < 0 || value > 2)
@@ -231,8 +270,17 @@ static bool run_console(const uint8_t* weights, size_t weights_size,
         } else if (line[0] == '/') {
             puts("[error] Unknown command. Use /help.");
         } else if (std::any_of(line.begin(), line.end(), [](unsigned char c) { return c >= 128; })) {
-            puts("[error] This model is trained for English. Use ASCII for the first test.");
-        } else answer(line);
+            puts("[error] Please use short English messages (ASCII).");
+        } else if (raw_mode) answer(line);
+        else {
+            const auto reply = dragon.respond(line);
+            printf("Ember: %s\n", reply.text.c_str());
+            display_begin_reply();
+            display_append(reply.text.c_str());
+            display_status("Ready / USB input");
+            if (reply.memory_changed && !dragon_store.save(dragon.memory()))
+                printf("[warning] %s\n", dragon_store.status().c_str());
+        }
     }
     return true;
 }
@@ -259,7 +307,10 @@ static std::vector<uint8_t> load(const char* path) {
     return data;
 }
 int main(int argc, char** argv) {
-    if (argc != 3) { fprintf(stderr, "Usage: %s model.bin tokenizer.bin\n", argv[0]); return 1; }
+    if (argc != 3 && !(argc == 4 && std::strcmp(argv[3], "--raw") == 0)) {
+        fprintf(stderr, "Usage: %s model.bin tokenizer.bin [--raw]\n", argv[0]); return 1;
+    }
+    raw_mode = argc == 4;
     const auto weights = load(argv[1]), vocab = load(argv[2]);
     return run_console(weights.data(), weights.size(), vocab.data(), vocab.size(), 1234) ? 0 : 1;
 }

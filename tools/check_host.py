@@ -17,6 +17,7 @@ def main():
             "-I", str(ROOT / "tools/host"),
             "-I", str(ROOT / "components/tinytalk/include"),
             str(ROOT / "main/console.cpp"),
+            str(ROOT / "main/dragon.cpp"), str(ROOT / "main/dragon_store.cpp"),
             str(ROOT / "components/tinytalk/llm.cpp"), "-o", str(binary),
         ], check=True)
         messages = ["/temp 0", "Hi!", "How are you?", "/stats", "/new", "Hi!",
@@ -24,7 +25,7 @@ def main():
                     "zxq " * 60, "/stats"]
         result = subprocess.run([
             str(binary), str(ROOT / "components/tinytalk/assets/model_neo_q4.bin"),
-            str(ROOT / "components/tinytalk/assets/tok_neo.bin"),
+            str(ROOT / "components/tinytalk/assets/tok_neo.bin"), "--raw",
         ], input="\r\n".join(messages) + "\r\n", text=True,
             capture_output=True, check=True, timeout=60)
         output = result.stdout
