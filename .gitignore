@@ -3,6 +3,10 @@ sdkconfig
 sdkconfig.old
 *.o
 *.bin
+!components/tinytalk/assets/*.bin
 *.elf
 *.map
 .vscode/
+managed_components/
+__pycache__/
+.venv/

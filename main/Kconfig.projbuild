@@ -1,0 +1,20 @@
+menu "TinyML"
+    config TINYML_OLED
+        bool "Show replies on SSD1306 128x64"
+        default y
+    config TINYML_OLED_SDA
+        int "SSD1306 SDA GPIO"
+        depends on TINYML_OLED
+        range 0 48
+        default 13
+    config TINYML_OLED_SCL
+        int "SSD1306 SCL GPIO"
+        depends on TINYML_OLED
+        range 0 48
+        default 14
+    config TINYML_OLED_ADDR
+        hex "SSD1306 I2C address"
+        depends on TINYML_OLED
+        range 0x08 0x77
+        default 0x3C
+endmenu

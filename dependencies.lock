@@ -21,6 +21,6 @@ dependencies:
 direct_dependencies:
 - chill-sam/ssd1306
 - idf
-manifest_hash: 630423198e4e09ef0be6592f1d5792647f8eaa624d981d574457635d9fb77fe3
+manifest_hash: 38be9cad5a0907efde310d6b4bd660b210db9d8ea64caed7e285358147f797ae
 target: esp32s3
 version: 3.0.0

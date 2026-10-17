@@ -1,0 +1,20 @@
+// Keep the upstream 16-byte alignment required by the S3 SIMD kernel.
+.section .rodata.tinytalk,"a",@progbits
+.balign 16
+.global MODEL_DATA
+MODEL_DATA:
+.incbin "@MODEL_FILE@"
+MODEL_DATA_END:
+.balign 4
+.global MODEL_DATA_LEN
+MODEL_DATA_LEN:
+.long MODEL_DATA_END - MODEL_DATA
+.balign 16
+.global TOKENIZER_DATA
+TOKENIZER_DATA:
+.incbin "@TOKENIZER_FILE@"
+TOKENIZER_DATA_END:
+.balign 4
+.global TOKENIZER_DATA_LEN
+TOKENIZER_DATA_LEN:
+.long TOKENIZER_DATA_END - TOKENIZER_DATA
