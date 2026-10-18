@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-18",
+  "platform": "macOS arm64",
+  "idf_version": "v6.1",
+  "change": "ESP-IDF adaptation of phase0-uart0-console.patch",
+  "hardware_tested": false,
+  "linux_errno71_fixed": false,
+  "config": {
+    "config/sdkconfig.h": [
+      "CONFIG_ESP_CONSOLE_UART_DEFAULT 1",
+      "CONFIG_ESP_CONSOLE_UART_BAUDRATE 115200",
+      "CONFIG_ESP_CONSOLE_SECONDARY_USB_SERIAL_JTAG 1"
+    ],
+    "bootloader/config/sdkconfig.h": [
+      "CONFIG_ESP_CONSOLE_UART_DEFAULT 1",
+      "CONFIG_ESP_CONSOLE_UART_BAUDRATE 115200",
+      "CONFIG_ESP_CONSOLE_SECONDARY_USB_SERIAL_JTAG 1"
+    ]
+  },
+  "artifacts": {
+    "tinyml.bin": {
+      "bytes": 645344,
+      "sha256": "b60c6c4354b8aaa9f0c0160d7adbe24f19bf6b9508be8201862181c17e34fe36"
+    },
+    "partition_table/partition-table.bin": {
+      "bytes": 3072,
+      "sha256": "4cca7d6f3facc4c1595216c23c274922e38d035316cd0dff736fe9b41f7085a2"
+    },
+    "bootloader/bootloader.bin": {
+      "bytes": 22560,
+      "sha256": "eacfb837c235b6df6360b3970b980420ab336c3c200dbacee21efec5fe85d7c5"
+    }
+  },
+  "patch_sha256": "c17a4319c34652f105a4b8a587384822a1ae2001d656cf164ef4c37e3ea536b4"
+}

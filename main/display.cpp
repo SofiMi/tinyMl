@@ -61,6 +61,8 @@ void display_init() {
     render();
 }
 
+bool display_is_present() { return display != nullptr; }
+
 void display_status(const char* status) {
     snprintf(heading, sizeof(heading), "%s", status);
     render();
@@ -74,6 +76,7 @@ void display_append(const char* piece) {
 }
 #else
 void display_init() {}
+bool display_is_present() { return false; }
 void display_status(const char*) {}
 void display_begin_reply() {}
 void display_append(const char*) {}

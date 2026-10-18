@@ -1,0 +1,9 @@
+Verified TinyStories release; generated 25353 token entries in /var/folders/6n/7cb6_5y13cs0d6mktb5b7sjr0000gn/T/tinyml-check-04at_2c7
+PASS: generation, independent prompts, reset, CRLF, invalid/oversized input
+Greedy continuation: , there was a little girl named Lily. She loved to play outside in the sunshine. One day, she saw a big tree with a hole in it. She wanted to touch it, but she was too small.
+Lily's mom came to help her. She said, "Don't worry, Lily. I will help you." Lily was happy and said, "Thank you, mom. I will help you."
+They went to the tree and saw the hole. Lily was happy and said, "Thank you, mom. I love you." Her mom smiled and said, "You're welcome, Lily. You are a
+PASS: fixed 200-token benchmark, profile counts, greedy mode and temperature restore
+PASS: corrupt/truncated model rejected
+PASS: upstream int8 staging, alignment, matvec hooks and model header gates
+PASS: OLED text wrapping, scrolling and clearing

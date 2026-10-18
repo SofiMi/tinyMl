@@ -1,0 +1,383 @@
+diff --git a/firmware/esp32_tinystories/README.md b/firmware/esp32_tinystories/README.md
+index dc9ff0f..da45053 100644
+--- a/firmware/esp32_tinystories/README.md
++++ b/firmware/esp32_tinystories/README.md
+@@ -56,13 +56,28 @@ TOKENIZER=data/tinystories/vocab-32768/tokenizer.json   # the one it trained on
+ uv run python -m research.tinystories.export "$TAG" --tokenizer "$TOKENIZER"
+ ```
+ 
+-Watch the board:
++Watch the board. Everything it prints goes to both the native USB port and
++UART0 (TX on GPIO43, the USB-UART bridge port on most boards), at 115200 baud.
++Generation runs once per boot, so press RST to run it again:
+ 
+ ```bash
+-PORT=/dev/cu.usbmodemNNNN   # the port deploy.sh printed
++PORT=/dev/cu.usbmodemNNNN   # native USB; a bridge is e.g. /dev/ttyUSB0
+ arduino-cli monitor -p "$PORT" --config baudrate=115200
+ ```
+ 
++`deploy.sh` flashes through the first `/dev/cu.usbmodem*` unless `PORT` is set,
++so set it when the board is on a bridge.
++
++Time a run and record its text, timing and profile in a receipt. The script
++resets the board itself; on a bare USB-UART adapter without reset lines, press
++RST once it starts:
++
++```bash
++uv sync --extra device
++uv run python scripts/benchmark_device.py tinystories --port "$PORT" \
++  --out runs/tinystories-baseline.json --repeat 3
++```
++
+ The model payload only needs reflashing after a new export. Firmware-only changes
+ can be uploaded without rewriting the model partition.
+ 
+@@ -80,6 +95,7 @@ model: Vin=32768 Vout=25353 D=96 L=6 H=4 F=66 P=128  (mapped 15.6 MB)
+ norms  -> SRAM   20 vectors
+ hot set-> SRAM   21128 B dynamic + 8192 B static = 29320 B managed
+ weights-> PSRAM  44 tensors int8, 4.19 MB allocated
++config: profile=1 dual_core_active=1 display_enabled=1 display_present=1
+ build: bytes=14912348 fp=a9bdd778 sram=29320B psram=4.19MB
+ free: sram 294 KB | psram 3.74 MB
+ ```
+@@ -88,6 +104,10 @@ free: sram 294 KB | psram 3.74 MB
+ file it flashed and the two must agree. A `FATAL:` line means an allocation
+ missed its intended tier; initialization stops rather than run elsewhere.
+ 
++Without a panel, `no display answering; serial only` follows the `model:` line
++and `config:` reports `display_present=0`; nothing is drawn after that. On
++UART0, the chip's own boot messages come first.
++
+ ## Measured
+ 
+ On this board, 200 tokens:
+diff --git a/firmware/esp32_tinystories/display.h b/firmware/esp32_tinystories/display.h
+index d28b5c9..9256230 100644
+--- a/firmware/esp32_tinystories/display.h
++++ b/firmware/esp32_tinystories/display.h
+@@ -10,6 +10,10 @@
+ //
+ // The API (display_begin / display_puts) is identical for both, so the sketch
+ // integration never changes -- only this header and the wiring.
++//
++// The OLED is probed once at startup. If it does not answer, serial output
++// continues and every draw becomes a no-op. The TFT is write-only SPI and cannot
++// be probed, so it is always treated as present.
+ #ifndef DISPLAY_H
+ #define DISPLAY_H
+ 
+@@ -19,6 +23,10 @@
+ #define DISPLAY_KIND DISPLAY_OLED_I2C
+ #endif
+ 
++// False until the panel is up. Every OLED draw checks it, so a board without a
++// panel costs one probe at boot rather than a failed I2C transfer per token.
++static bool display_present = false;
++
+ // ==================== 128x64 I2C OLED (SH1106 or SSD1306) ===================
+ #if DISPLAY_KIND == DISPLAY_OLED_I2C
+ #include <Adafruit_GFX.h>
+@@ -57,25 +65,34 @@ static void display_home() {
+   ox = 0; oy = 0;
+ }
+ 
+-static void display_begin() {
++// Returns false when nothing answers at OLED_ADDR.
++static bool display_begin() {
+   Wire.begin(OLED_SDA, OLED_SCL);
+   Wire.setClock(400000);   // 400kHz fast I2C -> ~4x quicker frame flush than default
++  Wire.beginTransmission(OLED_ADDR);
++  display_present = (Wire.endTransmission() == 0);
++  if (!display_present) return false;
++  // Answering on the bus is not the same as coming up: begin() still allocates
++  // the framebuffer and initialises the controller, and can fail at either.
+ #if OLED_CONTROLLER == OLED_SH1106
+-  oled.begin(OLED_ADDR, true);
++  display_present = oled.begin(OLED_ADDR, true);
+ #else
+-  oled.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR);
++  display_present = oled.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR);
+ #endif
++  if (!display_present) return false;
+   oled.clearDisplay();
+   oled.setTextSize(1);
+   oled.setTextColor(OLED_WHITE);
+   oled.setTextWrap(false);      // we wrap at token boundaries ourselves
+   oled.display();
+   display_home();
++  return true;
+ }
+ 
+ // Append a token's bytes; whole-token wrap, clear+home when the screen fills,
+ // flush the framebuffer once per token so text visibly appears.
+ static void display_puts(const unsigned char *s, int len) {
++  if (!display_present) return;
+   if (ox + len * CW > SCR_W) { oy += CH; ox = 0; }
+   if (oy + CH > SCR_H) display_home();
+   for (int i = 0; i < len; i++) {
+@@ -95,6 +112,7 @@ static void display_puts(const unsigned char *s, int len) {
+ 
+ // Closing stats card shown when generation finishes.
+ static void display_stats(float tok_s, float ms) {
++  if (!display_present) return;
+   oled.clearDisplay();
+   oled.setTextColor(OLED_WHITE);
+   oled.setTextSize(1);
+@@ -133,7 +151,7 @@ static void display_home() {
+   tft.setCursor(2, 2);
+ }
+ 
+-static void display_begin() {
++static bool display_begin() {
+   SPI.begin(TFT_SCK, -1, TFT_MOSI, TFT_CS);
+   tft.init(TFT_W, TFT_H);
+   tft.setRotation(0);
+@@ -141,6 +159,8 @@ static void display_begin() {
+   tft.setTextColor(ST77XX_GREEN, ST77XX_BLACK);
+   tft.setTextWrap(false);
+   display_home();
++  display_present = true;
++  return true;
+ }
+ 
+ static void display_puts(const unsigned char *s, int len) {
+diff --git a/firmware/esp32_tinystories/esp32_tinystories.ino b/firmware/esp32_tinystories/esp32_tinystories.ino
+index e3b2ffe..3e0dd9e 100644
+--- a/firmware/esp32_tinystories/esp32_tinystories.ino
++++ b/firmware/esp32_tinystories/esp32_tinystories.ino
+@@ -14,6 +14,9 @@
+ //
+ // Same llm.h that is verified against PyTorch on the host; only the platform
+ // hooks differ here.
++//
++// Output, at 115200 baud, goes to the native USB port and to UART0; see the
++// console section below.
+ 
+ #include "esp_partition.h"
+ #include "esp_heap_caps.h"
+@@ -35,6 +38,32 @@
+ #include "display.h"
+ #endif
+ 
++// ---- console ---------------------------------------------------------------
++// Everything printed goes to the native USB port (Serial) and is mirrored to
++// UART0 (Serial0: TX GPIO43, RX GPIO44, the USB-UART bridge port on most boards),
++// so a run can be captured from either. Built with CDCOnBoot disabled, Serial is
++// UART0 itself and there is nothing to mirror. 115200 is also the ROM
++// bootloader's rate on UART0, so one terminal setting reads the whole boot.
++#if ARDUINO_USB_CDC_ON_BOOT
++#define CONSOLE_UART0_MIRROR 1
++#else
++#define CONSOLE_UART0_MIRROR 0
++#endif
++
++class ConsoleTee : public Print {
++ public:
++  using Print::write;
++  size_t write(uint8_t c) override { return write(&c, 1); }
++  size_t write(const uint8_t *buf, size_t n) override {
++    Serial.write(buf, n);
++#if CONSOLE_UART0_MIRROR
++    Serial0.write(buf, n);
++#endif
++    return n;
++  }
++};
++static ConsoleTee console;
++
+ static const int PROMPT_IDS[] = {433, 447, 259, 405}; // "Once upon a time"
+ static const int N_GENERATE = 200;
+ 
+@@ -60,8 +89,8 @@ static void *ps(size_t n) {
+ static void *ps_or_die(size_t n, const char *what) {
+   void *p = ps(n);
+   if (!p) {
+-    Serial.printf("FATAL: required PSRAM allocation failed: %s (%u bytes)\n",
+-                  what, (unsigned)n);
++    console.printf("FATAL: required PSRAM allocation failed: %s (%u bytes)\n",
++                   what, (unsigned)n);
+     while (1) delay(1000);
+   }
+   return p;
+@@ -69,8 +98,8 @@ static void *ps_or_die(size_t n, const char *what) {
+ static void *sram_or_die(size_t n, const char *what) {
+   void *p = heap_caps_malloc(n, MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT);
+   if (!p) {
+-    Serial.printf("FATAL: required SRAM allocation failed: %s (%u bytes)\n",
+-                  what, (unsigned)n);
++    console.printf("FATAL: required SRAM allocation failed: %s (%u bytes)\n",
++                   what, (unsigned)n);
+     while (1) delay(1000);
+   }
+   sram_used += n;
+@@ -125,7 +154,7 @@ static void copy_norms_to_sram() {
+     memcpy(dst, *vecs[i], bytes);
+     *vecs[i] = (const float *)dst;
+   }
+-  Serial.printf("norms  -> SRAM   %d vectors\n", n_vec);
++  console.printf("norms  -> SRAM   %d vectors\n", n_vec);
+ }
+ 
+ static void alloc_scratch() {
+@@ -165,6 +194,11 @@ static void emit(int tok) {
+   // standalone gadget on the display), skip the write instead of stalling the
+   // whole generation once the TX buffer fills.
+   if ((int)Serial.availableForWrite() >= len) Serial.write(bytes, len);
++#if CONSOLE_UART0_MIRROR
++  // A UART drains at the baud rate whether or not anything listens, so this
++  // waits at most for FIFO space and is never skipped: the capture stays whole.
++  Serial0.write(bytes, len);
++#endif
+ #if USE_DISPLAY
+   display_puts(bytes, len);
+ #endif
+@@ -172,48 +206,51 @@ static void emit(int tok) {
+ 
+ void setup() {
+   Serial.begin(115200);
++#if CONSOLE_UART0_MIRROR
++  Serial0.begin(115200);
++#endif
+   delay(1500);
+-  Serial.println("\n=== ESP32-S3 PLE TinyLM ===");
++  console.println("\n=== ESP32-S3 PLE TinyLM ===");
+ 
+   const esp_partition_t *part = esp_partition_find_first(
+       ESP_PARTITION_TYPE_DATA, (esp_partition_subtype_t)0x40, "model");
+-  if (!part) { Serial.println("model partition not found"); return; }
++  if (!part) { console.println("model partition not found"); return; }
+   const void *base;
+   esp_partition_mmap_handle_t h;
+   esp_err_t err = esp_partition_mmap(part, 0, part->size,
+                                      ESP_PARTITION_MMAP_DATA, &base, &h);
+-  if (err != ESP_OK) { Serial.printf("mmap failed: %d\n", err); return; }
++  if (err != ESP_OK) { console.printf("mmap failed: %d\n", err); return; }
+ 
+-  if (llm_load((const uint8_t *)base, &model)) { Serial.println("bad model magic"); return; }
++  if (llm_load((const uint8_t *)base, &model)) { console.println("bad model magic"); return; }
+   Cfg *c = &model.c;
+-  Serial.printf("model: Vin=%d Vout=%d D=%d L=%d H=%d F=%d P=%d  (mapped %.1f MB)\n",
+-                c->vocab, model.out_vocab, c->dim, c->n_layers, c->n_heads,
+-                c->ffn, c->ple_dim, part->size / 1e6);
++  console.printf("model: Vin=%d Vout=%d D=%d L=%d H=%d F=%d P=%d  (mapped %.1f MB)\n",
++                 c->vocab, model.out_vocab, c->dim, c->n_layers, c->n_heads,
++                 c->ffn, c->ple_dim, part->size / 1e6);
+ 
+ #if USE_DISPLAY
+-  display_begin();
++  if (!display_begin()) console.println("no display answering; serial only");
+ #endif
+ 
+   // The model header states how many logits it produces; vocab.h carries the
+   // decode table. If they disagree, every emitted token would be decoded
+   // against the wrong table.
+   if (VOCAB_N != model.out_vocab) {
+-    Serial.printf("FATAL: tokenizer/model mismatch: vocab.h %d, model %d\n",
+-                  VOCAB_N, model.out_vocab);
++    console.printf("FATAL: tokenizer/model mismatch: vocab.h %d, model %d\n",
++                   VOCAB_N, model.out_vocab);
+     return;
+   }
+ 
+   alloc_scratch();
+   copy_norms_to_sram();
+-  Serial.printf("hot set-> SRAM   %u B dynamic + %u B static = %u B managed\n",
+-                (unsigned)sram_used, (unsigned)STATIC_SRAM_BYTES,
+-                (unsigned)(sram_used + STATIC_SRAM_BYTES));
++  console.printf("hot set-> SRAM   %u B dynamic + %u B static = %u B managed\n",
++                 (unsigned)sram_used, (unsigned)STATIC_SRAM_BYTES,
++                 (unsigned)(sram_used + STATIC_SRAM_BYTES));
+ 
+   // Stage every per-position tensor to int8 in PSRAM.
+   int want = llm_core_stage_count(&model);
+   int staged = llm_stage_core_int8_alloc(&model, ps);
+   if (staged != want) {
+-    Serial.printf("FATAL: staged %d/%d core tensors\n", staged, want);
++    console.printf("FATAL: staged %d/%d core tensors\n", staged, want);
+     while (1) delay(1000);
+   }
+   // The tied head is read per token, not per position, so the core helper does
+@@ -223,35 +260,48 @@ void setup() {
+     llm_stage_int8(&model.out_head, b);
+     ++staged;
+   }
+-  Serial.printf("weights-> PSRAM  %d tensors int8, %.2f MB allocated\n",
+-                staged, psram_used / 1048576.0);
++  console.printf("weights-> PSRAM  %d tensors int8, %.2f MB allocated\n",
++                 staged, psram_used / 1048576.0);
+ 
++  int dual_core_active = 0;
+   main_h = xTaskGetCurrentTaskHandle();
+   if (xTaskCreatePinnedToCore(worker_main, "mv", 4096, NULL, 2, &worker_h, 0) == pdPASS) {
+     // After the worker exists: matvec_par notifies worker_h.
+     model.layer_matvec = matvec_par;
+     model.head_matvec  = matvec_par;
++    dual_core_active = 1;
+   } else {
+-    Serial.println("dual-core worker failed; running single core");
++    console.println("dual-core worker failed; running single core");
+   }
+ 
++  // Build switches that change the timing, in the key=value form
++  // scripts/benchmark_device.py records with each receipt.
++#if USE_DISPLAY
++  int display_present_now = display_present ? 1 : 0;
++#else
++  int display_present_now = 0;
++#endif
++  console.printf("config: profile=%d dual_core_active=%d display_enabled=%d "
++                 "display_present=%d\n",
++                 LLM_PROFILE, dual_core_active, USE_DISPLAY, display_present_now);
++
+   // FNV-1a over the mapped image. scripts/deploy.sh prints the same value for
+   // the file it flashed; the two must agree.
+   {
+     const uint8_t *img = (const uint8_t *)base;
+     uint32_t fp = 2166136261u;
+     for (size_t i = 0; i < model.image_bytes; i++) { fp ^= img[i]; fp *= 16777619u; }
+-    Serial.printf("build: bytes=%u fp=%08x sram=%uB psram=%.2fMB\n",
+-                  (unsigned)model.image_bytes, fp,
+-                  (unsigned)(sram_used + STATIC_SRAM_BYTES),
+-                  psram_used / 1048576.0);
++    console.printf("build: bytes=%u fp=%08x sram=%uB psram=%.2fMB\n",
++                   (unsigned)model.image_bytes, fp,
++                   (unsigned)(sram_used + STATIC_SRAM_BYTES),
++                   psram_used / 1048576.0);
+   }
+-  Serial.printf("free: sram %.0f KB | psram %.2f MB\n\n",
+-                heap_caps_get_free_size(MALLOC_CAP_INTERNAL) / 1024.0,
+-                heap_caps_get_free_size(MALLOC_CAP_SPIRAM) / 1048576.0);
++  console.printf("free: sram %.0f KB | psram %.2f MB\n\n",
++                 heap_caps_get_free_size(MALLOC_CAP_INTERNAL) / 1024.0,
++                 heap_caps_get_free_size(MALLOC_CAP_SPIRAM) / 1048576.0);
+ 
+   // ---- generate ----
+-  Serial.print(">>> ");
++  console.print(">>> ");
+   int n_prompt = sizeof(PROMPT_IDS) / sizeof(int);
+   int pos = 0, tok = 0;
+   int64_t decode_us = 0;
+@@ -282,15 +332,15 @@ void setup() {
+   }
+   int64_t total_us = esp_timer_get_time() - t_start;
+ 
+-  Serial.printf("\n\n--- %d tokens in %.2f s ---\n", decoded, total_us / 1e6);
+-  Serial.printf("throughput: %.2f tok/s   (%.1f ms/token)\n",
+-                decoded * 1e6 / total_us, decode_us / 1000.0 / decoded);
++  console.printf("\n\n--- %d tokens in %.2f s ---\n", decoded, total_us / 1e6);
++  console.printf("throughput: %.2f tok/s   (%.1f ms/token)\n",
++                 decoded * 1e6 / total_us, decode_us / 1000.0 / decoded);
+   if (s.profile.calls) {
+     float n = (float)s.profile.calls * 1000.f;
+-    Serial.printf("profile ms/token: input %.1f | attn %.1f | ffn %.1f | ple %.1f | head %.1f\n",
+-                  s.profile.input_us / n, s.profile.attn_us / n,
+-                  s.profile.ffn_us / n, s.profile.ple_us / n,
+-                  s.profile.head_us / n);
++    console.printf("profile ms/token: input %.1f | attn %.1f | ffn %.1f | ple %.1f | head %.1f\n",
++                   s.profile.input_us / n, s.profile.attn_us / n,
++                   s.profile.ffn_us / n, s.profile.ple_us / n,
++                   s.profile.head_us / n);
+   }
+ #if USE_DISPLAY
+   display_stats(decoded * 1e6f / decode_us, decode_us / 1000.0f / decoded);

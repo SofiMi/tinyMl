@@ -180,7 +180,11 @@ static void stats() {
            model.out_vocab, model.c.seq_len, temperature);
     printf("[allocation] dynamic SRAM=%zu, static SRAM=%d, PSRAM=%zu bytes\n",
            sram_used, STATIC_SRAM_BYTES, psram_used);
-    printf("[config] int8=1 dual_core=%d profile=1\n", dual_core_active);
+    printf("[config] int8=1 dual_core=%d profile=1 display_present=%d\n",
+           dual_core_active, display_is_present());
+#ifdef CONFIG_ESP_CONSOLE_SECONDARY_USB_SERIAL_JTAG
+    puts("[console] input=UART0 output=UART0+USB_SERIAL_JTAG");
+#endif
 #ifdef ESP_PLATFORM
     printf("[config] CPU=%dMHz PSRAM=%dMHz cache_line=%d UART=%d baud=%d OLED=%d\n",
            CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ, CONFIG_SPIRAM_SPEED,
@@ -246,7 +250,8 @@ static void answer(const std::string& prompt, bool benchmark = false, bool oled 
         display_begin_reply();
         display_status("Thinking...");
     }
-    if (benchmark) printf("[benchmark] prompt=Once upon a time, tokens=200, greedy=1, oled=%d\n", oled);
+    if (benchmark) printf("[benchmark] prompt=Once upon a time, tokens=200, greedy=1, oled=%d display_present=%d\n",
+                          oled, display_is_present());
     fputs("Story:", stdout);
     const int64_t started = micros();
     int pos = 0;
