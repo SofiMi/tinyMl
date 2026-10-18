@@ -1,0 +1,2 @@
+Verified TinyStories release; generated 25353 token entries in /var/folders/6n/7cb6_5y13cs0d6mktb5b7sjr0000gn/T/tinyml-tokenizer-n2uvjf19
+PASS: 1106 ASCII inputs match Hugging Face; unsupported inputs rejected

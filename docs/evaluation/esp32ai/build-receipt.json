@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-18",
+  "platform": "macOS arm64",
+  "idf_version": "v6.1",
+  "hardware_tested": false,
+  "device_speed_measured": false,
+  "config": [
+    "CONFIG_IDF_TARGET=\"esp32s3\"",
+    "CONFIG_ESPTOOLPY_FLASHMODE_QIO=y",
+    "CONFIG_ESPTOOLPY_FLASHSIZE=\"16MB\"",
+    "CONFIG_SPIRAM_MODE_OCT=y",
+    "CONFIG_SPIRAM_SPEED=80",
+    "CONFIG_ESP_CONSOLE_UART_DEFAULT=y",
+    "CONFIG_ESP_CONSOLE_UART_BAUDRATE=115200",
+    "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ=240",
+    "CONFIG_ESP32S3_DATA_CACHE_LINE_SIZE=64",
+    "CONFIG_FREERTOS_HZ=1000"
+  ],
+  "artifacts": {
+    "tinyml.bin": {
+      "bytes": 645728,
+      "sha256": "848ccb5080e923728f9d11c7c6b60a5671cb554b6656ad7e01771fa5919b0778"
+    },
+    "partition_table/partition-table.bin": {
+      "bytes": 3072,
+      "sha256": "4cca7d6f3facc4c1595216c23c274922e38d035316cd0dff736fe9b41f7085a2"
+    },
+    "bootloader/bootloader.bin": {
+      "bytes": 22560,
+      "sha256": "95f2e96ceadd0e265c978bafe618b8334d734625da33f8a0eacd74a7898ee4e5"
+    }
+  },
+  "flash_files": {
+    "0x0": "bootloader/bootloader.bin",
+    "0x8000": "partition_table/partition-table.bin",
+    "0x110000": "../../components/esp32ai/assets/model.bin",
+    "0x10000": "tinyml.bin"
+  },
+  "runtime_optimization": "-O3 (last optimization flag on console.cpp, which includes the complete runtime)",
+  "elf_checks": [
+    "matvec_i8_range remains a function (including compiler specialization)",
+    "matvec_par::xq and matvec_q8::xq: each 4096 bytes in internal BSS",
+    "parallel hook and worker present"
+  ]
+}

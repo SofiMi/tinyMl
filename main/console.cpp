@@ -1,6 +1,4 @@
-// TinyTalk 2 USB console for ESP32-S3 N16R8.
-// Uses the unmodified cardputer-ai inference engine and embedded weights.
-#include "llm.h"
+// PLE TinyStories USB-UART console. Runtime and memory placement from slvDev/esp32-ai.
 #include "display.h"
 #include <algorithm>
 #include <chrono>
@@ -9,30 +7,17 @@
 #include <cstdlib>
 #include <cstring>
 #include <string>
-#include <utility>
 #include <vector>
 
 #ifdef ESP_PLATFORM
 #include "esp_heap_caps.h"
 #include "esp_psram.h"
+#include "esp_partition.h"
 #include "esp_random.h"
 #include "esp_timer.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-extern "C" const uint8_t MODEL_DATA[];
-extern "C" const size_t MODEL_DATA_LEN;
-extern "C" const uint8_t TOKENIZER_DATA[];
-extern "C" const size_t TOKENIZER_DATA_LEN;
 #endif
-
-static Transformer model;
-static Tokenizer tokenizer;
-static Sampler sampler;
-static std::vector<std::pair<std::string, std::string>> history;
-static constexpr int kContext = 72; // Keep upstream's verified SRAM layout.
-static constexpr int kMaxReply = 48;
-static constexpr size_t kMaxInput = 256;
-
 static int64_t micros() {
 #ifdef ESP_PLATFORM
     return esp_timer_get_time();
@@ -41,17 +26,176 @@ static int64_t micros() {
         std::chrono::steady_clock::now().time_since_epoch()).count();
 #endif
 }
-
 static void yield_cpu() {
 #ifdef ESP_PLATFORM
-    // Let idle tasks run between model positions; retain the task watchdog.
     vTaskDelay(1);
 #endif
 }
 
+#define LLM_PROFILE 1
+#define LLM_PROFILE_NOW() micros()
+#define LLM_INT8_ACT 1
+#include "llm.h"
+#include "bpe_tokenizer.h"
+#include "tokenizer_encoder.h"
+#include "vocab.h"
+
+static Model model;
+static Scratch s;
+static BpeTokenizer tokenizer;
+static constexpr size_t kModelBytes = 14912348;
+static constexpr size_t kMaxInput = 256;
+static constexpr int kMaxReply = 128;
+static float temperature = 0.0f;
+static uint32_t random_state = 1234;
+static bool dual_core_active = false;
+
+// ---- allocation ------------------------------------------------------------
+// Allocations are strict because memory placement is part of the runtime
+// configuration. Allocation failure stops initialization.
+static size_t psram_used = 0, sram_used = 0;
+
+// The two LLM_Q8_MAX_INPUT int8 activation buffers (matvec_q8, matvec_par),
+// which are static and so absent from the totals above. Together these report
+// the managed hot set, not total SRAM usage; the free-SRAM figure printed at
+// boot is the overall diagnostic.
+#ifdef ESP_PLATFORM
+#define STATIC_SRAM_BYTES (2 * LLM_Q8_MAX_INPUT)
+#else
+#define STATIC_SRAM_BYTES LLM_Q8_MAX_INPUT
+#endif
+
+static void *ps(size_t n) {
+  #ifdef ESP_PLATFORM
+  void *p = heap_caps_malloc(n, MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);
+#else
+  void *p = malloc(n);
+#endif
+  if (p) psram_used += n;
+  return p;
+}
+static void *ps_or_die(size_t n, const char *what) {
+  void *p = ps(n);
+  if (!p) {
+    printf("FATAL: required PSRAM allocation failed: %s (%u bytes)\n",
+                  what, (unsigned)n);
+    abort();
+  }
+  return p;
+}
+static void *sram_or_die(size_t n, const char *what) {
+  #ifdef ESP_PLATFORM
+  void *p = heap_caps_malloc(n, MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT);
+#else
+  void *p = malloc(n);
+#endif
+  if (!p) {
+    printf("FATAL: required SRAM allocation failed: %s (%u bytes)\n",
+                  what, (unsigned)n);
+    abort();
+  }
+  sram_used += n;
+  return p;
+}
+
+// ---- dual-core int8 matvec -------------------------------------------------
+// Serves both hooks. Below ~128 rows the task notify round trip costs more than
+// the split saves, so small tensors run single-core.
+#ifdef ESP_PLATFORM
+static TaskHandle_t worker_h, main_h;
+static const QT *job_t;
+static const int8_t *job_xq;
+static float job_xs;
+static float *job_y;
+static int job_split;
+
+static void worker_main(void *) {
+  for (;;) {
+    ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+    matvec_i8_range(job_t, job_xq, job_xs, job_y, 0, job_split);
+    xTaskNotifyGive(main_h);
+  }
+}
+
+static void matvec_par(const QT *t, const float *x, float *y) {
+  static int8_t xq[LLM_Q8_MAX_INPUT];
+  float xs;
+  if (t->w8 == NULL || t->rows < 128) { MATVEC(t, x, y); return; }
+  quantize_act(x, t->cols, xq, &xs);   // once; both cores read the result
+  job_t = t; job_xq = xq; job_xs = xs; job_y = y; job_split = t->rows / 2;
+  xTaskNotifyGive(worker_h);
+  matvec_i8_range(t, xq, xs, y, job_split, t->rows);
+  ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+}
+
+#endif
+
+// Copy RMSNorm weights from mapped flash to internal SRAM.
+static void copy_norms_to_sram() {
+  Cfg *c = &model.c;
+  int D = c->dim, L = c->n_layers, P = c->ple_dim;
+  const float **vecs[3 * 32 + 2];
+  int sizes[3 * 32 + 2], n_vec = 0;
+  vecs[n_vec] = &model.ple_proj_norm; sizes[n_vec++] = P;
+  for (int l = 0; l < L; l++) {
+    vecs[n_vec] = &model.attn_norm[l]; sizes[n_vec++] = D;
+    vecs[n_vec] = &model.ffn_norm[l];  sizes[n_vec++] = D;
+    vecs[n_vec] = &model.ple_norm[l];  sizes[n_vec++] = D;
+  }
+  vecs[n_vec] = &model.out_norm; sizes[n_vec++] = D;
+  for (int i = 0; i < n_vec; i++) {
+    size_t bytes = (size_t)sizes[i] * sizeof(float);
+    void *dst = sram_or_die(bytes, "norm vector");
+    memcpy(dst, *vecs[i], bytes);
+    *vecs[i] = (const float *)dst;
+  }
+  printf("norms  -> SRAM   %d vectors\n", n_vec);
+}
+
+static void alloc_scratch() {
+  Cfg *c = &model.c;
+  int D = c->dim, L = c->n_layers, P = c->ple_dim, F = c->ffn, S = c->seq_len;
+  // hot working set -> internal SRAM
+  s.x     = (float *)sram_or_die(D * 4, "x");
+  s.h     = (float *)sram_or_die((F > D ? F : D) * 4, "h");
+  s.qkv   = (float *)sram_or_die(3 * D * 4, "qkv");
+  s.att   = (float *)sram_or_die(D * 4, "att");
+  s.g1    = (float *)sram_or_die(F * 4, "g1");
+  s.g2    = (float *)sram_or_die((P > F ? P : F) * 4, "g2");
+  s.ple   = (float *)sram_or_die(L * P * 4, "ple");
+  s.tmpP  = (float *)sram_or_die(L * P * 4, "tmpP");
+  s.trow  = (float *)sram_or_die(L * P * 4, "trow");
+  s.scores = (float *)sram_or_die(S * 4, "scores");
+  // logits: out_vocab floats, 99 KiB here, read once per token. Left in PSRAM
+  // rather than spend a fifth of internal SRAM on it.
+  s.logits = (float *)ps_or_die((size_t)model.out_vocab * 4, "logits");
+  // KV cache: 1.1MB, read once per position rather than per matvec.
+  s.kcache = (float *)ps_or_die((size_t)L * S * D * 4, "kcache");
+  s.vcache = (float *)ps_or_die((size_t)L * S * D * 4, "vcache");
+}
+
+
 static void stats() {
-    printf("[model] TinyTalk 2, vocab=%d, KV=%d, temperature=%.2f, history=%zu\n",
-           model.config.vocab_size, model.kv_seq_len, sampler.temperature, history.size());
+    printf("[model] PLE TinyStories 28.9M, vocab=%d, KV=%d, temperature=%.2f, history=0\n",
+           model.out_vocab, model.c.seq_len, temperature);
+    printf("[allocation] dynamic SRAM=%zu, static SRAM=%d, PSRAM=%zu bytes\n",
+           sram_used, STATIC_SRAM_BYTES, psram_used);
+    printf("[config] int8=1 dual_core=%d profile=1\n", dual_core_active);
+#ifdef ESP_PLATFORM
+    printf("[config] CPU=%dMHz PSRAM=%dMHz cache_line=%d UART=%d baud=%d OLED=%d\n",
+           CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ, CONFIG_SPIRAM_SPEED,
+           CONFIG_ESP32S3_DATA_CACHE_LINE_SIZE, CONFIG_ESP_CONSOLE_UART_NUM,
+#ifdef CONFIG_ESP_CONSOLE_UART_BAUDRATE
+           CONFIG_ESP_CONSOLE_UART_BAUDRATE,
+#else
+           0,
+#endif
+#ifdef CONFIG_TINYML_OLED
+           1);
+#else
+           0);
+#endif
+#endif
 #ifdef ESP_PLATFORM
     printf("[memory] PSRAM=%zu, free PSRAM=%zu, free internal=%zu bytes\n",
            esp_psram_get_size(), heap_caps_get_free_size(MALLOC_CAP_SPIRAM),
@@ -59,100 +203,108 @@ static void stats() {
 #endif
 }
 
-static std::vector<int> encode(const std::string& text) {
-    // Byte BPE cannot produce more tokens than input bytes, plus BOS/EOS.
-    std::vector<int> tokens(text.size() + 8);
-    int count = 0;
-    llm_encode(&tokenizer, text.c_str(), 0, 0, tokens.data(), &count);
-    tokens.resize(count);
-    return tokens;
+static int sample() {
+    int best = 0;
+    for (int i = 1; i < model.out_vocab; ++i)
+        if (s.logits[i] > s.logits[best]) best = i;
+    if (temperature == 0) return best;
+    const float max_logit = s.logits[best];
+    double sum = 0;
+    for (int i = 0; i < model.out_vocab; ++i) {
+        s.logits[i] = expf((s.logits[i] - max_logit) / temperature);
+        sum += s.logits[i];
+    }
+    random_state ^= random_state << 13;
+    random_state ^= random_state >> 17;
+    random_state ^= random_state << 5;
+    double threshold = (random_state / 4294967296.0) * sum;
+    for (int i = 0; i < model.out_vocab; ++i) {
+        threshold -= s.logits[i];
+        if (threshold < 0) return i;
+    }
+    return best;
 }
 
-static void answer(const std::string& question) {
-    const int budget = model.kv_seq_len - 8;
-    std::vector<int> prompt = encode("User: " + question + "\nBot:");
-    if (prompt.empty() || prompt.size() > static_cast<size_t>(budget)) {
-        printf("[error] Question exceeds the %d-token prompt budget. Please shorten it.\n", budget);
+static void answer(const std::string& prompt, bool benchmark = false, bool oled = true) {
+    const int limit = benchmark ? 200 : kMaxReply;
+    // The BPE runtime supports ordinary ASCII, not literal added special tokens.
+    if (prompt.find("<|endoftext|>") != std::string::npos) {
+        puts("[error] The EOS marker is reserved; enter ordinary story text.");
         return;
     }
-    const auto newline = encode("\n");
-    for (auto it = history.rbegin(); it != history.rend(); ++it) {
-        auto segment = encode("User: " + it->first + "\nBot:" + it->second);
-        segment.push_back(tokenizer.eos_id);
-        segment.insert(segment.end(), newline.begin(), newline.end());
-        if (segment.size() + prompt.size() > static_cast<size_t>(budget)) break;
-        prompt.insert(prompt.begin(), segment.begin(), segment.end());
+    uint16_t tokens[kMaxInput];
+    int count = bpe_encode_ascii(&tokenizer, prompt.c_str(), tokens, kMaxInput);
+    if (count <= 0 || count > model.c.seq_len - limit) {
+        printf("[error] Prompt exceeds the %d-token budget or cannot be encoded.\n",
+               model.c.seq_len - limit);
+        return;
     }
-
-    printf("[reading %zu tokens]\nBot:", prompt.size());
-    display_begin_reply();
-    fflush(stdout);
+    // Every line starts a fresh story. Position zero overwrites the old KV;
+    // attention only reads positions already written by this request.
+    printf("[reading %d tokens]\n", count);
+    if (oled) {
+        display_begin_reply();
+        display_status("Thinking...");
+    }
+    if (benchmark) printf("[benchmark] prompt=Once upon a time, tokens=200, greedy=1, oled=%d\n", oled);
+    fputs("Story:", stdout);
     const int64_t started = micros();
-    int64_t generation_started = started;
-    int token = prompt[0], slot = 0, outputs = 0, steps = 0;
-    bool pending_newline = false;
-    const char* stop = "position limit";
-    std::string reply;
-    char scratch[256];
-    for (int position = 0; position < model.config.seq_len - 1; ++position) {
-        if (slot >= model.kv_seq_len - 1) {
-            const int removed = llm_kv_slide(&model,
-                std::min<int>(model.kv_seq_len / 4, prompt.size()), model.kv_seq_len / 4);
-            if (removed < 1) { stop = "context limit"; break; }
-            slot -= removed;
-        }
-        if (position == static_cast<int>(prompt.size()) - 1) generation_started = micros();
-        float* logits = llm_forward_at(&model, token, slot, position);
-        ++slot;
-        yield_cpu();
-        if (position < static_cast<int>(prompt.size()) - 1) {
-            token = prompt[position + 1];
-            continue;
-        }
-        if (steps == 0) display_status("Thinking...");
-        const int next = llm_sample(&sampler, logits);
-        ++steps;
-        if (next == tokenizer.eos_id) { stop = "EOS"; break; }
-        const char* piece = llm_decode(&tokenizer, token, next, scratch, sizeof(scratch));
-        token = next;
-        ++outputs;
-        if (piece && *piece) {
-            if (pending_newline) {
-                if (strncmp(piece, "User", 4) == 0) { stop = "next speaker"; break; }
-                putchar('\n');
-                reply += '\n';
-                display_append("\n");
-                pending_newline = false;
-            }
-            if (strcmp(piece, "\n") == 0) {
-                pending_newline = true;
-            } else {
-                fputs(piece, stdout);
-                reply += piece;
-                display_append(piece);
-                fflush(stdout);
-            }
-        }
-        if (outputs >= kMaxReply) { stop = "reply limit"; break; }
+    int pos = 0;
+    for (int i = 0; i < count; ++i) {
+        llm_forward(&model, tokens[i], pos++, &s);
+        if ((i & 7) == 7) yield_cpu();
     }
-    const int64_t finished = micros();
-    display_status("Ready / USB input");
-    const double generation_seconds = (finished - generation_started) / 1000000.0;
-    printf("\n[done] %d tokens, read=%.2fs, generation=%.2fs, %.2f steps/s, stop=%s\n",
-           outputs, (generation_started - started) / 1000000.0, generation_seconds,
-           generation_seconds > 0 ? steps / generation_seconds : 0.0, stop);
-    if (!reply.empty()) {
-        if (history.size() == 4) history.erase(history.begin());
-        history.emplace_back(question, reply);
+    llm_profile_reset(&s);
+    int64_t compute_us = 0;
+    const int64_t generation_started = micros();
+    int outputs = 0;
+    const char* stop = "reply limit";
+    for (int i = 0; i < limit; ++i) {
+        const float previous_temp = temperature;
+        if (benchmark) temperature = 0;
+        const int token = sample();
+        temperature = previous_temp;
+        if (!benchmark && token == EOS_ID) { stop = "EOS"; break; }
+        const unsigned char* bytes = VOCAB_BLOB + VOCAB_OFF[token];
+        const size_t len = VOCAB_OFF[token + 1] - VOCAB_OFF[token];
+        // Suppress terminal control bytes (except newline/tab) in generated text.
+        std::string piece;
+        for (size_t j = 0; j < len; ++j)
+            if (bytes[j] >= 32 && bytes[j] != 127) piece += static_cast<char>(bytes[j]);
+            else if (bytes[j] == '\n' || bytes[j] == '\t') piece += static_cast<char>(bytes[j]);
+        fputs(piece.c_str(), stdout);
+        if (oled) display_append(piece.c_str());
+        ++outputs;
+        if (!benchmark && i + 1 == limit) break;
+        if (pos >= model.c.seq_len) { stop = "context limit"; break; }
+        const int64_t step_start = micros();
+        llm_forward(&model, token, pos++, &s);
+        compute_us += micros() - step_start;
+        if ((i & 7) == 7) yield_cpu();
+    }
+    // Flush the final OLED frame inside the measured end-to-end interval.
+    if (oled) display_status("Ready / USB input");
+    const double seconds = (micros() - generation_started) / 1000000.0;
+    printf("\n[done] %d tokens, read=%.2fs, generation=%.2fs, %.2f tokens/s, stop=%s\n",
+           outputs, (generation_started - started) / 1000000.0, seconds,
+           seconds > 0 ? outputs / seconds : 0.0, stop);
+    if (s.profile.calls) {
+        const double n = s.profile.calls * 1000.0;
+        printf("[timing] forwards=%u compute=%.2f ms/token end_to_end=%.2f tokens/s\n",
+               static_cast<unsigned>(s.profile.calls), compute_us / n,
+               seconds > 0 ? outputs / seconds : 0.0);
+        printf("[profile ms/token] input=%.2f attention=%.2f ffn=%.2f ple=%.2f head=%.2f\n",
+               s.profile.input_us / n, s.profile.attn_us / n, s.profile.ffn_us / n,
+               s.profile.ple_us / n, s.profile.head_us / n);
     }
 }
 
 static void help() {
-    puts("Type a short English message and press Enter.\n"
-         "Commands: /new, /stats, /temp 0..2, /help\n"
-         "TinyTalk is a small experimental model; replies are limited to 48 tokens.");
+    puts("Type an English story opening and press Enter (e.g. Once upon a time).\n"
+         "Commands: /new, /stats, /temp 0..2, /bench, /bench oled, /help\n"
+         "TinyStories continues text; it is not trained for chat or instructions.\n"
+         "Each line starts a new story; output is limited to 128 tokens.");
 }
-
 static bool read_line(std::string& line) {
     static bool after_cr = false;
     line.clear();
@@ -192,18 +344,53 @@ static bool read_line(std::string& line) {
     }
 }
 
-static bool run_console(const uint8_t* weights, size_t weights_size,
-                        const uint8_t* vocab, size_t vocab_size, uint64_t seed) {
+
+static bool run_console(const uint8_t* weights, size_t weights_size) {
     setvbuf(stdout, nullptr, _IONBF, 0);
-    puts("\nTinyTalk 2 / ESP32-S3 N16R8 / USB console");
-    if (!llm_init_embedded(&model, weights, weights_size, kContext) ||
-        model.config.arch != ARCH_GPTNEO ||
-        !llm_tokenizer_from_memory(&tokenizer, vocab, vocab_size, model.config.vocab_size) ||
-        tokenizer.vocab_size != model.config.vocab_size || tokenizer.style != ARCH_GPTNEO) {
+    puts("\nPLE TinyStories 28.9M / ESP32-S3 N16R8 / USB-UART console");
+    // Check the known image before calling upstream's pointer-only loader.
+    if (weights_size < kModelBytes) {
+        puts("[FATAL] Model partition/file is too small.");
+        return false;
+    }
+    uint32_t fp = 2166136261u;
+    for (size_t i = 0; i < kModelBytes; ++i) {
+        fp ^= weights[i]; fp *= 16777619u;
+        if ((i & 0x3ffff) == 0) yield_cpu();
+    }
+    if (fp != 0xa9bdd778u) {
+        puts("[FATAL] Model fingerprint mismatch; run idf.py flash (including model).");
+        return false;
+    }
+    if (llm_load(weights, &model) || model.image_bytes != kModelBytes ||
+        model.out_vocab != VOCAB_N ||
+        bpe_tokenizer_load(TOKENIZER_ENCODER_ASSET, TOKENIZER_ENCODER_ASSET_SIZE, &tokenizer) ||
+        tokenizer.active_vocab != VOCAB_N || tokenizer.active_vocab > (unsigned)model.c.vocab) {
         puts("[FATAL] Model/tokenizer initialization failed.");
         return false;
     }
-    llm_build_sampler(&sampler, model.config.vocab_size, 0.8f, 0.9f, seed);
+    alloc_scratch();
+    copy_norms_to_sram();
+    const int want = llm_core_stage_count(&model);
+    if (llm_stage_core_int8_alloc(&model, ps) != want) {
+        puts("[FATAL] Could not stage core tensors in PSRAM.");
+        return false;
+    }
+    llm_stage_int8(&model.out_head, ps_or_die(llm_stage_int8_bytes(&model.out_head), "head"));
+#ifdef ESP_PLATFORM
+    main_h = xTaskGetCurrentTaskHandle();
+    const int worker_core = xPortGetCoreID() == 0 ? 1 : 0;
+    if (xTaskCreatePinnedToCore(worker_main, "llm-matvec", 4096, nullptr, 2,
+                                &worker_h, worker_core) == pdPASS) {
+        model.layer_matvec = matvec_par;
+        model.head_matvec = matvec_par;
+        dual_core_active = true;
+    } else puts("[warning] Dual-core worker failed; using single core.");
+    random_state = esp_random();
+    if (!random_state) random_state = 1234;
+#endif
+    printf("[build] model_bytes=%zu fp=%08x staged=%d\n", model.image_bytes,
+           static_cast<unsigned>(fp), want + 1);
     display_init();
     display_status("Ready / USB input");
     stats();
@@ -215,24 +402,23 @@ static bool run_console(const uint8_t* weights, size_t weights_size,
         if (!read_line(line)) break;
         if (line.empty()) continue;
         if (line == "/new") {
-            history.clear();
             display_begin_reply();
-            display_status("History cleared");
-            puts("[history cleared]");
-        }
-        else if (line == "/stats") stats();
+            display_status("New story");
+            puts("[new story; each input starts with empty context]");
+        } else if (line == "/stats") stats();
         else if (line == "/help") help();
+        else if (line == "/bench") answer("Once upon a time", true, false);
+        else if (line == "/bench oled") answer("Once upon a time", true, true);
         else if (line.compare(0, 6, "/temp ") == 0) {
             char* end = nullptr;
             const float value = strtof(line.c_str() + 6, &end);
             if (end == line.c_str() + 6 || *end || !std::isfinite(value) || value < 0 || value > 2)
                 puts("[error] Use /temp followed by a number from 0 to 2.");
-            else { sampler.temperature = value; stats(); }
-        } else if (line[0] == '/') {
-            puts("[error] Unknown command. Use /help.");
-        } else if (std::any_of(line.begin(), line.end(), [](unsigned char c) { return c >= 128; })) {
-            puts("[error] This model is trained for English. Use ASCII for the first test.");
-        } else answer(line);
+            else { temperature = value; stats(); }
+        } else if (line[0] == '/') puts("[error] Unknown command. Use /help.");
+        else if (std::any_of(line.begin(), line.end(), [](unsigned char c) { return c >= 128; }))
+            puts("[error] This encoder supports English ASCII input only.");
+        else answer(line);
     }
     return true;
 }
@@ -243,7 +429,19 @@ extern "C" void app_main() {
         puts("[FATAL] Expected 8 MB PSRAM. Check N16R8 / Octal PSRAM settings.");
         return;
     }
-    run_console(MODEL_DATA, MODEL_DATA_LEN, TOKENIZER_DATA, TOKENIZER_DATA_LEN, esp_random());
+    const esp_partition_t* part = esp_partition_find_first(
+        ESP_PARTITION_TYPE_DATA, static_cast<esp_partition_subtype_t>(0x40), "model");
+    if (!part || part->size < kModelBytes) {
+        puts("[FATAL] Missing/undersized model partition. Run idf.py flash.");
+        return;
+    }
+    const void* base = nullptr;
+    esp_partition_mmap_handle_t handle;
+    if (esp_partition_mmap(part, 0, kModelBytes, ESP_PARTITION_MMAP_DATA, &base, &handle) != ESP_OK) {
+        puts("[FATAL] Could not map the model partition.");
+        return;
+    }
+    run_console(static_cast<const uint8_t*>(base), kModelBytes);
 }
 #else
 static std::vector<uint8_t> load(const char* path) {
@@ -259,8 +457,8 @@ static std::vector<uint8_t> load(const char* path) {
     return data;
 }
 int main(int argc, char** argv) {
-    if (argc != 3) { fprintf(stderr, "Usage: %s model.bin tokenizer.bin\n", argv[0]); return 1; }
-    const auto weights = load(argv[1]), vocab = load(argv[2]);
-    return run_console(weights.data(), weights.size(), vocab.data(), vocab.size(), 1234) ? 0 : 1;
+    if (argc != 2) { fprintf(stderr, "Usage: %s model.bin\n", argv[0]); return 1; }
+    const auto weights = load(argv[1]);
+    return run_console(weights.data(), weights.size()) ? 0 : 1;
 }
 #endif

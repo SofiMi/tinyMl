@@ -10,3 +10,5 @@ sdkconfig.old
 managed_components/
 __pycache__/
 .venv/
+
+!components/esp32ai/assets/*.bin

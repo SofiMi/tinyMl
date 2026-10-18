@@ -5,6 +5,7 @@
 #if CONFIG_TINYML_OLED
 #include "driver/i2c_master.h"
 #include "esp_log.h"
+#include "esp_timer.h"
 #include "ssd1306.h"
 #include <cstdio>
 
@@ -12,10 +13,12 @@ static const char* TAG = "tinyml_display";
 static ssd1306_handle_t display;
 static i2c_master_bus_handle_t bus;
 static TextWindow text;
-static char heading[22] = "TinyTalk 2";
+static char heading[22] = "PLE TinyStories";
+static int64_t last_render_us = 0;
 
 static void render() {
     if (!display) return;
+    last_render_us = esp_timer_get_time();
     ssd1306_clear(display);
     ssd1306_draw_text(display, 0, 0, heading, true);
     for (int row = 0; row < 7; ++row)
@@ -63,7 +66,12 @@ void display_status(const char* status) {
     render();
 }
 void display_begin_reply() { text.clear(); display_status("Reading prompt..."); }
-void display_append(const char* piece) { text.append(piece); render(); }
+void display_append(const char* piece) {
+    text.append(piece);
+    // Keep every byte in the text window but batch costly I2C frame transfers.
+    // display_status() flushes the last frame at the end of a reply.
+    if (esp_timer_get_time() - last_render_us >= 500000) render();
+}
 #else
 void display_init() {}
 void display_status(const char*) {}
