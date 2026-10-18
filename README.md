@@ -19,6 +19,7 @@
 Отдельно доступны **Supra2 100M Q4/Q8, Stentor 30M Q4/Q8, Stories42M Q4 и VaghLM 42,6M FP32**:
 `bash tools/small_models.sh` открывает меню выбора.
 Для новой Supra: `bash tools/small_models.sh supra`.
+Для Supra IQ2_M: `bash tools/small_models.sh supra-iq2`.
 [Установка, команды и ограничения моделей](docs/small-models-playground.md).
 
 Для экспериментов с английским персонажем есть отдельный

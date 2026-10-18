@@ -1,0 +1,19 @@
+{
+  "scope": "Local computer inference; not ESP and not a quality benchmark",
+  "runs": [
+    {
+      "model": "supra-iq2",
+      "revision": "35fdf94542b5c74029dcbb48450a8a80b1fc078c",
+      "status": "PASS",
+      "outputs": [
+        "Of course! I'm Sofia, the name of the city and the city of my home.",
+        "Kidney, grass, grass! It's a name for a product! We're talking about grass, as in, it's always been and still is. Let me see if I can find the name of this product?"
+      ]
+    },
+    {
+      "model": "supra-iq2",
+      "mode": "history",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "repo": "liodon-ai/Supra2-100M-Instruct-imatrix-GGUF",
+  "revision": "35fdf94542b5c74029dcbb48450a8a80b1fc078c",
+  "files": {
+    "README.md": {
+      "bytes": 1957,
+      "sha256": "67b0182d6469367420582dd8edf1bba7cf3cca8195782702b49f4e3a6166222e"
+    },
+    "Supra2-100M-Instruct-IQ2_M.gguf": {
+      "bytes": 43942592,
+      "sha256": "a19c8bbce47433e7feca98a992abecab7a531baebd7ab8a6e074ec16b771ad2a"
+    },
+    "chat_template.jinja": {
+      "bytes": 155,
+      "sha256": "9a6ac2cf411f21cf1fa155617d146256deee33e64c43eace6c36fd9eb3dd5a2a"
+    },
+    "config.json": {
+      "bytes": 1044,
+      "sha256": "13b33baefc83a287beac1716cae69822c9b41f58ebd8eb57e3e1812c93550498"
+    },
+    "generation_config.json": {
+      "bytes": 215,
+      "sha256": "db507239aea70dcd3f97b98a5bf9b0d12527cea771a30e8c11c4bdad320805d2"
+    },
+    "tokenizer.json": {
+      "bytes": 2327627,
+      "sha256": "2136750ea890e546750346edf09f2d295dde19796631852f4b596c3597ec7573"
+    },
+    "tokenizer_config.json": {
+      "bytes": 791,
+      "sha256": "ba53e7823d929c638b54e4a02f56782c5e939f587f8372f2d91c4033d03ad8ee"
+    }
+  }
+}

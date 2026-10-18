@@ -1,0 +1,7 @@
+supra-iq2: 100,684,032 parameters, IQ2_M, CPU; context 2048 tokens
+Independent inputs; no Ember persona.
+You> supra-iq2> Of course! I'm Sofia, the name of the city and the city of my home.
+You> {"backend": "llama-cpp-python", "version": "0.3.16", "quantization": "IQ2_M", "device": "cpu", "context": 2048, "parameters": 100684032, "tokenizer": "original Hugging Face tokenizer.json; direct token IDs", "weights_sha256": "a19c8bbce47433e7feca98a992abecab7a531baebd7ab8a6e074ec16b771ad2a"} history_turns=0
+You> New conversation.
+You> supra-iq2> Kidney, grass, grass! It's a name for a product! We're talking about grass, as in, it's always been and still is. Let me see if I can find the name of this product?
+You>

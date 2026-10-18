@@ -316,5 +316,70 @@
       2
     ],
     "quantization": "Q8_0"
+  },
+  "supra-iq2": {
+    "repo": "liodon-ai/Supra2-100M-Instruct-imatrix-GGUF",
+    "revision": "35fdf94542b5c74029dcbb48450a8a80b1fc078c",
+    "files": [
+      {
+        "rfilename": "README.md",
+        "blobId": "95fad0bd54acadb37f30574fc016182a72fc150b",
+        "size": 1957
+      },
+      {
+        "rfilename": "Supra2-100M-Instruct-IQ2_M.gguf",
+        "blobId": "d1e9dfc2a23fa85568a0c16e13e5e615ce7a5cd1",
+        "size": 43942592,
+        "lfs": {
+          "sha256": "a19c8bbce47433e7feca98a992abecab7a531baebd7ab8a6e074ec16b771ad2a",
+          "size": 43942592,
+          "pointerSize": 133
+        }
+      },
+      {
+        "rfilename": "chat_template.jinja",
+        "blobId": "524a0643979a51098c1ddb6990252403dad25fac",
+        "size": 155,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "config.json",
+        "blobId": "6cdd30f91c5467333e1cb2954bcbe33346dde886",
+        "size": 1044,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "generation_config.json",
+        "blobId": "eb1a724c41de9628f9986eae46262ee179f73602",
+        "size": 215,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "dae0f265773c7d17a544a1e5aa430dbba006ea2d",
+        "size": 2327627,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "tokenizer_config.json",
+        "blobId": "eaf0aa16c1e95d59eddc986a54bbf8201017e795",
+        "size": 791,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      }
+    ],
+    "parameters": 100684032,
+    "context": 2048,
+    "chat": true,
+    "add_bos": false,
+    "stop_tokens": [
+      "</s>",
+      "<|im_end|>"
+    ],
+    "quantization": "IQ2_M"
   }
 }

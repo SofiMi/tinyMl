@@ -20,6 +20,7 @@ bash tools/small_models.sh vagh
 bash tools/small_models.sh supra
 bash tools/small_models.sh supra-q8
 bash tools/small_models.sh stentor-q8
+bash tools/small_models.sh supra-iq2
 ```
 
 | Имя | Что запускается | Размер скачанных весов |
@@ -30,11 +31,19 @@ bash tools/small_models.sh stentor-q8
 | `supra` | Supra2-100M-Instruct, 100 684 032 параметра, Q4_K_M | 67 102 400 байт |
 | `supra-q8` | Та же Supra2-100M-Instruct, Q8_0 | 108 208 832 байта |
 | `stentor-q8` | Та же Stentor-30M-Instruct, Q8_0 | 33 110 656 байт |
+| `supra-iq2` | Та же Supra2-100M-Instruct, IQ2_M | 43 942 592 байта |
 
 Для начала попробуйте `bash tools/small_models.sh supra`. Q8-варианты добавлены
 для сравнения точности весов, а не как обещание более качественного диалога.
 Чтобы сравнить Q4/Q8, задавайте одинаковые вопросы с одинаковыми параметрами.
 `--temperature 0` убирает случайный выбор следующего токена.
+
+Для разговора с IQ2_M: `bash tools/small_models.sh supra-iq2`. В меню это
+пункт 7. Независимые запросы включены по умолчанию; для памяти прошлых реплик:
+`bash tools/small_models.sh supra-iq2 --history`. Используются тот же исходный
+HF-токенизатор и ChatML, что у Supra Q4/Q8. Размер IQ2_M — 41,91 МиБ;
+это имя смешанного профиля квантования, а не ровно 2 бита для каждого веса.
+[Проверка запуска и сырые ответы](evaluation/supra-iq2/README.md).
 
 **VaghLM не является проверенной instruct-версией:** карточка и пример автора
 ссылаются на `finetuned_v2_best.pt`, но в зафиксированной публикации присутствует
