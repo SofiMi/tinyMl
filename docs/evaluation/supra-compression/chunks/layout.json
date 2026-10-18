@@ -1,0 +1,11 @@
+{
+  "source_sha256": "b920477b6de0b1d89536f51fe20fc3e96727bf5f73f2a239e8945d25b9469361",
+  "version": 3,
+  "metadata_entries": 33,
+  "tensor_count": 134,
+  "metadata_end": 1163315,
+  "directory_end": 1171136,
+  "alignment": 32,
+  "tensor_data_start": 1171136,
+  "tensor_region_bytes": 65931264
+}
