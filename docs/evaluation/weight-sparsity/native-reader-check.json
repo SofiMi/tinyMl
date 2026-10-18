@@ -1,0 +1,12 @@
+{
+  "ple": {
+    "sampled_values": 405,
+    "comparison": "exact FP32 equality to original C/C++ row dequantizer",
+    "status": "PASS"
+  },
+  "tinytalk": {
+    "sampled_values": 441,
+    "comparison": "exact FP32 equality to original C/C++ row dequantizer",
+    "status": "PASS"
+  }
+}

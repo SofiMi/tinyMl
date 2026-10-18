@@ -174,6 +174,10 @@ build/model-playground/venv/bin/python tools/compare_small_models.py --output bu
 CSV и методика](evaluation/supra-compression/README.md). Это упаковка файла,
 а не новая квантованная модель или готовый загрузчик для ESP.
 
+[Нули и околонулевые веса](evaluation/weight-sparsity/README.md) проверены
+в этих моделях, GPT-2, PLE и прежней TinyTalk. Есть оценки размера маски и
+потока ненулевых кодов; прунинг и изменения checkpoint не выполнялись.
+
 Источники: [VaghLM](https://huggingface.co/Heet24/model42M-v1),
 [Stories42M Q4](https://huggingface.co/mradermacher/llama2.c-stories42M-GGUF),
 [Stentor Q4](https://huggingface.co/mradermacher/Stentor-30M-Instruct-GGUF),
