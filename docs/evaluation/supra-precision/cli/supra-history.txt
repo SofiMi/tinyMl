@@ -1,0 +1,9 @@
+supra: 100,684,032 parameters, Q4_K_M, CPU; context 2048 tokens
+History ON; /new clears it.
+You> supra> I'm Sofia, the host of this show. My name's Maria
+You> supra> My name is Maria, and I'm a hostess at a restaurant on the
+You> {"backend": "llama-cpp-python", "version": "0.3.16", "quantization": "Q4_K_M", "device": "cpu", "context": 2048, "parameters": 100684032, "tokenizer": "original Hugging Face tokenizer.json; direct token IDs", "weights_sha256": "b920477b6de0b1d89536f51fe20fc3e96727bf5f73f2a239e8945d25b9469361"} history_turns=2
+You> New conversation.
+You> Input (3010) + reply (16) exceeds 2048; use /new or shorten input
+You> supra> Hello again! Welcome to our team. I'm Chef LaFleur
+You>

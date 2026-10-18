@@ -1,4 +1,4 @@
-# Три маленькие модели на компьютере
+# Маленькие модели на компьютере
 
 Эксперимент 2026-10-18. Это отдельные модели для Mac/Linux; прошивка ESP и GPT-2
 не меняются. Модели отвечают на английском. Их ответы не заменяются правилами.
@@ -17,6 +17,9 @@ bash tools/small_models.sh
 bash tools/small_models.sh stentor
 bash tools/small_models.sh stories
 bash tools/small_models.sh vagh
+bash tools/small_models.sh supra
+bash tools/small_models.sh supra-q8
+bash tools/small_models.sh stentor-q8
 ```
 
 | Имя | Что запускается | Размер скачанных весов |
@@ -24,6 +27,14 @@ bash tools/small_models.sh vagh
 | `stentor` | Stentor-30M-Instruct, 30 419 712 параметров, Q4_K_M | 20 913 792 байта |
 | `stories` | llama2.c-stories42M, GGUF-конверсия с 58 073 600 параметрами, Q4_K_M | 39 680 864 байта |
 | `vagh` | VaghLM, 42 615 808 уникальных параметров, CPU FP32 | checkpoint 511 474 827 байт, включая optimizer |
+| `supra` | Supra2-100M-Instruct, 100 684 032 параметра, Q4_K_M | 67 102 400 байт |
+| `supra-q8` | Та же Supra2-100M-Instruct, Q8_0 | 108 208 832 байта |
+| `stentor-q8` | Та же Stentor-30M-Instruct, Q8_0 | 33 110 656 байт |
+
+Для начала попробуйте `bash tools/small_models.sh supra`. Q8-варианты добавлены
+для сравнения точности весов, а не как обещание более качественного диалога.
+Чтобы сравнить Q4/Q8, задавайте одинаковые вопросы с одинаковыми параметрами.
+`--temperature 0` убирает случайный выбор следующего токена.
 
 **VaghLM не является проверенной instruct-версией:** карточка и пример автора
 ссылаются на `finetuned_v2_best.pt`, но в зафиксированной публикации присутствует
@@ -33,7 +44,7 @@ bash tools/small_models.sh vagh
 checkpoint не подтверждено.
 
 По умолчанию **каждая строка — независимый запрос**, без прошлых ответов и без
-роли Ember. Для Stentor и VaghLM применяется собственный формат вопроса модели;
+роли Ember. Для Stentor, Supra и VaghLM применяется собственный формат вопроса модели;
 это отличается от системной роли персонажа. Команды:
 
 - `/quit` или Ctrl+C — выход;
@@ -46,11 +57,16 @@ checkpoint не подтверждено.
 ```sh
 bash tools/small_models.sh stentor --history
 bash tools/small_models.sh vagh --history
+bash tools/small_models.sh supra --history
 ```
 
 При заполнении контекста программа просит `/new`; молча отбрасывать старые
 реплики она не должна. Stentor ограничен 512 токенами вместе с ответом, VaghLM —
 2048. Режим истории VaghLM экспериментальный: официальный пример однорепличный.
+У Supra config также разрешает 2048, но автор сообщает об обучении только на
+1024 токенах и предупреждает о непроверенной экстраполяции выше этого предела.
+Для Supra применяется оригинальный ChatML-шаблон без дополнительного BOS;
+генерация останавливается на `</s>` или `<|im_end|>`.
 
 Для Stories вводите начало истории, например:
 
@@ -119,6 +135,8 @@ build/model-playground/venv/bin/python tools/check_small_models.py --output buil
 
 Выходной каталог должен быть новым. На подготовленном Mac вместо этого Python
 можно использовать `~/.cache/tinyml-eval-venv/bin/python`.
+Параметр `--models supra supra-q8 stentor-q8` ограничивает CLI-проверку этими
+вариантами. Без него проверяются все варианты из lock-файла.
 Проверка входных ID, управления историей и получения ответов **не доказывает
 качество разговора и не является измерением скорости ESP**.
 
@@ -127,7 +145,33 @@ build/model-playground/venv/bin/python tools/check_small_models.py --output buil
 Зафиксированные результаты и ограничения качества:
 [локальные проверки](evaluation/small-models/README.md).
 
+## Меньше параметров, больше битов?
+
+Это отдельный компромисс: число параметров определяет размер обученной модели,
+а число битов — точность хранения её весов. Квантование может ухудшать ответы,
+но повышение точности не добавляет знаний и не исправляет недостаточное обучение.
+Даже прежняя VaghLM в FP32 путала роли.
+
+Без накладных расходов 100M × 4 бита, 50M × 8 бит и 25M × 16 бит занимают
+одинаковые 50 MB. Реальные файлы отличаются: учитываются масштабы, токенизатор,
+метаданные и тензоры большей точности; RAM/KV-cache считаются отдельно.
+
+Полезно сначала сравнить **один checkpoint Q4 против Q8**, затем разные модели.
+Так не смешиваются потери квантования и различия архитектуры/обучения.
+Stentor Q8 и Supra Q4 имеют разные размеры файлов; это не эксперимент с равным
+бюджетом памяти. Повторить небольшой опыт на одинаковых вопросах:
+
+```sh
+build/model-playground/venv/bin/python tools/compare_small_models.py --output build/model-playground/precision-new
+```
+
+Сохраняются сырые ответы при greedy: по три независимых запроса и одному
+шестирепличному разговору с собственными ответами каждого варианта. Это небольшой
+диагностический опыт, а не независимый benchmark. [Результаты](evaluation/supra-precision/README.md).
+
 Источники: [VaghLM](https://huggingface.co/Heet24/model42M-v1),
 [Stories42M Q4](https://huggingface.co/mradermacher/llama2.c-stories42M-GGUF),
 [Stentor Q4](https://huggingface.co/mradermacher/Stentor-30M-Instruct-GGUF),
 [исходный Stentor](https://huggingface.co/StentorLabs/Stentor-30M-Instruct).
+Supra: [исходная модель](https://huggingface.co/SupraLabs/Supra2-100M-Instruct),
+[закреплённые Q4/Q8](https://huggingface.co/liodon-ai/Supra2-100M-Instruct-imatrix-GGUF).

@@ -1,0 +1,7 @@
+stentor-q8: 30,419,712 parameters, Q8_0, CPU; context 512 tokens
+Independent inputs; no Ember persona.
+You> stentor-q8> ect. When you see the name of your family, it has to do with your name. The name of a family is a surname of one family. It may be used for a family name or to refer to a particular family. There are some exceptions to the rule of thumb. See the example below for how
+You> {"backend": "llama-cpp-python", "version": "0.3.16", "quantization": "Q8_0", "device": "cpu", "context": 512, "parameters": 30419712, "tokenizer": "original Hugging Face tokenizer.json; direct token IDs", "weights_sha256": "483d895b317071dc56d4114cc79ab3f5f3829f96a8461b9ebccca8b2bd46b597"} history_turns=0
+You> New conversation.
+You> stentor-q8> et al. (2010) - ↑ OCR for page 344 Biological Insects in the Region: Natural Resources and Conservation of Nature, 55(3): 61–71. - ↑ Eckel et al., (2000
+You>

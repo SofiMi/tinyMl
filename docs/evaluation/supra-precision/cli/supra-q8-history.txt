@@ -1,0 +1,9 @@
+supra-q8: 100,684,032 parameters, Q8_0, CPU; context 2048 tokens
+History ON; /new clears it.
+You> supra-q8> My name is Sofia, and I am a student in the United States
+You> supra-q8> My name is Sophia, and I am a student in the United States.
+You> {"backend": "llama-cpp-python", "version": "0.3.16", "quantization": "Q8_0", "device": "cpu", "context": 2048, "parameters": 100684032, "tokenizer": "original Hugging Face tokenizer.json; direct token IDs", "weights_sha256": "e8a225e41f54a6c7423f637fdcca493bae4c49f58f7e89b59a94b42f59f7e5cb"} history_turns=2
+You> New conversation.
+You> Input (3010) + reply (16) exceeds 2048; use /new or shorten input
+You> supra-q8> Hello again! I'm glad you found this helpful.
+You>

@@ -1,0 +1,11 @@
+supra-q8: 100,684,032 parameters, Q8_0, CPU; context 2048 tokens
+Independent inputs; no Ember persona.
+You> supra-q8> I'm Sofia, the host of this show. How can I help you today?
+You> {"backend": "llama-cpp-python", "version": "0.3.16", "quantization": "Q8_0", "device": "cpu", "context": 2048, "parameters": 100684032, "tokenizer": "original Hugging Face tokenizer.json; direct token IDs", "weights_sha256": "e8a225e41f54a6c7423f637fdcca493bae4c49f58f7e89b59a94b42f59f7e5cb"} history_turns=0
+You> New conversation.
+You> supra-q8> Great question! 🌟🌟🌟 The color of grass is actually a combination of two fundamental colors: blue and black.
+
+**Color names:**
+
+* **Grass**: A green grass with a deep, rich green color, often used in gardens, landscapes, and for
+You>

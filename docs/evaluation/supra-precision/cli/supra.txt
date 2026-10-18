@@ -1,0 +1,7 @@
+supra: 100,684,032 parameters, Q4_K_M, CPU; context 2048 tokens
+Independent inputs; no Ember persona.
+You> supra> I'm Sofia, the owner of this beautiful estate in the picturesque town of Ravenswood. What is your name?
+You> {"backend": "llama-cpp-python", "version": "0.3.16", "quantization": "Q4_K_M", "device": "cpu", "context": 2048, "parameters": 100684032, "tokenizer": "original Hugging Face tokenizer.json; direct token IDs", "weights_sha256": "b920477b6de0b1d89536f51fe20fc3e96727bf5f73f2a239e8945d25b9469361"} history_turns=0
+You> New conversation.
+You> supra> The color of grass is typically red, but some grasses, such as cattle and sheep, can be green or orange. The color of green grass typically comes from the nitrogen in the soil, which is a crucial component of the grass's structure.
+You>

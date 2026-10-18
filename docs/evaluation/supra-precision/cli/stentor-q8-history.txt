@@ -1,0 +1,9 @@
+stentor-q8: 30,419,712 parameters, Q8_0, CPU; context 512 tokens
+History ON; /new clears it.
+You> stentor-q8> ials. When you enter the name of the word, the form is to be
+You> stentor-q8> You can’t tell if I am a man or a girl. Or you
+You> {"backend": "llama-cpp-python", "version": "0.3.16", "quantization": "Q8_0", "device": "cpu", "context": 512, "parameters": 30419712, "tokenizer": "original Hugging Face tokenizer.json; direct token IDs", "weights_sha256": "483d895b317071dc56d4114cc79ab3f5f3829f96a8461b9ebccca8b2bd46b597"} history_turns=2
+You> New conversation.
+You> Input (3004) + reply (16) exceeds 512; use /new or shorten input
+You> stentor-q8> iane: SATTERING IN THE LIGHTS AND SELECT COMMIT
+You>

@@ -1,0 +1,9 @@
+stentor: 30,419,712 parameters, Q4_K_M, CPU; context 512 tokens
+History ON; /new clears it.
+You> stentor> et. A word is a verb that means to be the voice of God,
+You> stentor> This is the most common word for a word that can be found in French,
+You> {"backend": "llama-cpp-python", "version": "0.3.16", "quantization": "Q4_K_M", "device": "cpu", "context": 512, "parameters": 30419712, "tokenizer": "original Hugging Face tokenizer.json; direct token IDs", "weights_sha256": "9dcb3035dab347233f03c3e85d8235adadbfec5d6495acbd19b380002c1a4339"} history_turns=2
+You> New conversation.
+You> Input (3004) + reply (16) exceeds 512; use /new or shorten input
+You> stentor> Researchers are studying the role of the brain in the brain’s role in
+You>

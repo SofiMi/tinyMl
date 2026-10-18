@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pinned local playground: Stories42M Q4, Stentor30M Q4, VaghLM checkpoint."""
+"""Pinned local playground for small language models and quantization comparisons."""
 import argparse
 import hashlib
 import json
@@ -67,7 +67,7 @@ def verify_local(key):
 
 class GGUFRunner:
     def __init__(self, key, args):
-        self.key, self.args = key, args
+        self.key, self.args, self.spec = key, args, LOCK[key]
         verify_local(key)
         import llama_cpp
         from tokenizers import Tokenizer
@@ -76,12 +76,12 @@ class GGUFRunner:
         from llama_cpp._utils import suppress_stdout_stderr
         with suppress_stdout_stderr(disable=False):
             self.model = llama_cpp.Llama(model_path=str(STORE / key / filename),
-                                         n_ctx=512 if key == "stentor" else 1024,
+                                         n_ctx=self.spec["context"],
                                          n_threads=args.threads, n_gpu_layers=0, seed=42, verbose=False)
         if self.model.n_vocab() != self.tokenizer.get_vocab_size():
             raise RuntimeError("HF/GGUF vocabulary sizes differ")
         self.template = None
-        if key == "stentor":
+        if self.spec["chat"]:
             from jinja2 import StrictUndefined
             from jinja2.sandbox import ImmutableSandboxedEnvironment
             env = ImmutableSandboxedEnvironment(undefined=StrictUndefined)
@@ -90,8 +90,8 @@ class GGUFRunner:
             env.globals["raise_exception"] = fail
             self.template = env.from_string((STORE / key / "chat_template.jinja").read_text())
         self.info = dict(backend="llama-cpp-python", version=llama_cpp.__version__,
-                         quantization="Q4_K_M", device="cpu", context=self.model.n_ctx(),
-                         parameters=30419712 if key == "stentor" else 58073600,
+                         quantization=self.spec["quantization"], device="cpu", context=self.model.n_ctx(),
+                         parameters=self.spec["parameters"],
                          tokenizer="original Hugging Face tokenizer.json; direct token IDs",
                          weights_sha256=sha256(STORE / key / filename))
         # Compare every token ID, not just vocab sizes, before bypassing GGUF tokenization.
@@ -99,14 +99,20 @@ class GGUFRunner:
             actual = self.model._model.token_get_text(i)
             if actual != token:
                 raise RuntimeError(f"HF/GGUF vocabulary mismatch at ID {i}: {token!r} vs {actual!r}")
+        self.stop_ids = set(self.spec.get("stop_ids", []))
+        for token in self.spec.get("stop_tokens", []):
+            token_id = self.tokenizer.token_to_id(token)
+            if token_id is None:
+                raise RuntimeError(f"Missing stop token: {token}")
+            self.stop_ids.add(token_id)
 
     def generate(self, prompt, history):
         formatted = prompt
-        if self.key == "stentor" and not self.args.raw:
+        if self.template is not None and not self.args.raw:
             formatted = self.template.render(messages=history + [{"role": "user", "content": prompt}],
                                              bos_token="<s>", eos_token="</s>", add_generation_prompt=True)
         ids = self.tokenizer.encode(formatted, add_special_tokens=False).ids
-        if not ids or ids[0] != self.model.token_bos():
+        if self.spec["add_bos"] and (not ids or ids[0] != self.model.token_bos()):
             ids.insert(0, self.model.token_bos())
         if len(ids) + self.args.max_tokens > self.info["context"]:
             raise ValueError(f"Input ({len(ids)}) + reply ({self.args.max_tokens}) exceeds "
@@ -119,13 +125,14 @@ class GGUFRunner:
         try:
             for token in stream:
                 generated.append(token)
-                if token == self.model.token_eos() or len(generated) >= self.args.max_tokens:
+                if token in self.stop_ids or len(generated) >= self.args.max_tokens:
                     break
         finally:
             stream.close()
         return dict(answer=self.tokenizer.decode(generated, skip_special_tokens=True),
                     formatted_prompt=formatted, input_ids=ids, output_ids=generated,
-                    input_tokens=len(ids), generated_tokens=len(generated))
+                    input_tokens=len(ids), generated_tokens=len(generated),
+                    stop_reason="eos" if generated[-1] in self.stop_ids else "length")
 
 
 class VaghRunner:

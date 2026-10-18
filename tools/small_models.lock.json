@@ -91,7 +91,15 @@
         "repo": "Xenova/llama2.c-stories42M",
         "revision": "be9e05cce52ef2a4615026726bddb12639d541f5"
       }
-    ]
+    ],
+    "parameters": 58073600,
+    "context": 1024,
+    "chat": false,
+    "add_bos": true,
+    "stop_ids": [
+      2
+    ],
+    "quantization": "Q4_K_M"
   },
   "stentor": {
     "repo": "mradermacher/Stentor-30M-Instruct-GGUF",
@@ -126,6 +134,187 @@
         "repo": "StentorLabs/Stentor-30M-Instruct",
         "revision": "25746d4ee9ce83dc7296f8757f02b5663c112f0f"
       }
-    ]
+    ],
+    "parameters": 30419712,
+    "context": 512,
+    "chat": true,
+    "add_bos": true,
+    "stop_ids": [
+      2
+    ],
+    "quantization": "Q4_K_M"
+  },
+  "supra": {
+    "repo": "liodon-ai/Supra2-100M-Instruct-imatrix-GGUF",
+    "revision": "35fdf94542b5c74029dcbb48450a8a80b1fc078c",
+    "files": [
+      {
+        "rfilename": "README.md",
+        "blobId": "95fad0bd54acadb37f30574fc016182a72fc150b",
+        "size": 1957
+      },
+      {
+        "rfilename": "Supra2-100M-Instruct-Q4_K_M.gguf",
+        "blobId": "3a2b8e8fbc260bc70a386aa37ec8028d461d21fe",
+        "size": 67102400,
+        "lfs": {
+          "sha256": "b920477b6de0b1d89536f51fe20fc3e96727bf5f73f2a239e8945d25b9469361",
+          "size": 67102400,
+          "pointerSize": 133
+        }
+      },
+      {
+        "rfilename": "chat_template.jinja",
+        "blobId": "524a0643979a51098c1ddb6990252403dad25fac",
+        "size": 155,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "config.json",
+        "blobId": "6cdd30f91c5467333e1cb2954bcbe33346dde886",
+        "size": 1044,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "generation_config.json",
+        "blobId": "eb1a724c41de9628f9986eae46262ee179f73602",
+        "size": 215,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "dae0f265773c7d17a544a1e5aa430dbba006ea2d",
+        "size": 2327627,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "tokenizer_config.json",
+        "blobId": "eaf0aa16c1e95d59eddc986a54bbf8201017e795",
+        "size": 791,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      }
+    ],
+    "parameters": 100684032,
+    "context": 2048,
+    "chat": true,
+    "add_bos": false,
+    "stop_tokens": [
+      "</s>",
+      "<|im_end|>"
+    ],
+    "quantization": "Q4_K_M"
+  },
+  "supra-q8": {
+    "repo": "liodon-ai/Supra2-100M-Instruct-imatrix-GGUF",
+    "revision": "35fdf94542b5c74029dcbb48450a8a80b1fc078c",
+    "files": [
+      {
+        "rfilename": "README.md",
+        "blobId": "95fad0bd54acadb37f30574fc016182a72fc150b",
+        "size": 1957
+      },
+      {
+        "rfilename": "Supra2-100M-Instruct-Q8_0.gguf",
+        "blobId": "a0715ecf707034c43e9ba9ae27d7dcaff18b6081",
+        "size": 108208832,
+        "lfs": {
+          "sha256": "e8a225e41f54a6c7423f637fdcca493bae4c49f58f7e89b59a94b42f59f7e5cb",
+          "size": 108208832,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "chat_template.jinja",
+        "blobId": "524a0643979a51098c1ddb6990252403dad25fac",
+        "size": 155,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "config.json",
+        "blobId": "6cdd30f91c5467333e1cb2954bcbe33346dde886",
+        "size": 1044,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "generation_config.json",
+        "blobId": "eb1a724c41de9628f9986eae46262ee179f73602",
+        "size": 215,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "dae0f265773c7d17a544a1e5aa430dbba006ea2d",
+        "size": 2327627,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      },
+      {
+        "rfilename": "tokenizer_config.json",
+        "blobId": "eaf0aa16c1e95d59eddc986a54bbf8201017e795",
+        "size": 791,
+        "repo": "SupraLabs/Supra2-100M-Instruct",
+        "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5"
+      }
+    ],
+    "parameters": 100684032,
+    "context": 2048,
+    "chat": true,
+    "add_bos": false,
+    "stop_tokens": [
+      "</s>",
+      "<|im_end|>"
+    ],
+    "quantization": "Q8_0"
+  },
+  "stentor-q8": {
+    "repo": "mradermacher/Stentor-30M-Instruct-GGUF",
+    "revision": "843faf95a645f2775f20247b616011e79069d732",
+    "files": [
+      {
+        "rfilename": "README.md",
+        "blobId": "ac22d12e21b8a96d66e12324394d32fe4cf2e66c",
+        "size": 4058
+      },
+      {
+        "rfilename": "chat_template.jinja",
+        "blobId": "0bab084a418ae72c8de3286f317f8b659aea7c53",
+        "size": 3959,
+        "repo": "StentorLabs/Stentor-30M-Instruct",
+        "revision": "25746d4ee9ce83dc7296f8757f02b5663c112f0f"
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "2e5f2aa1803d9fed8036b1d4faccd9ab31392ee7",
+        "size": 3671968,
+        "repo": "StentorLabs/Stentor-30M-Instruct",
+        "revision": "25746d4ee9ce83dc7296f8757f02b5663c112f0f"
+      },
+      {
+        "rfilename": "Stentor-30M-Instruct.Q8_0.gguf",
+        "blobId": "3ec458379fafdd7b0eb2972b642edc3b175a3148",
+        "size": 33110656,
+        "lfs": {
+          "sha256": "483d895b317071dc56d4114cc79ab3f5f3829f96a8461b9ebccca8b2bd46b597",
+          "size": 33110656,
+          "pointerSize": 133
+        }
+      }
+    ],
+    "parameters": 30419712,
+    "context": 512,
+    "chat": true,
+    "add_bos": true,
+    "stop_ids": [
+      2
+    ],
+    "quantization": "Q8_0"
   }
 }

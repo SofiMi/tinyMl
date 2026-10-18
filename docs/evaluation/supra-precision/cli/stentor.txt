@@ -1,0 +1,7 @@
+stentor: 30,419,712 parameters, Q4_K_M, CPU; context 512 tokens
+Independent inputs; no Ember persona.
+You> stentor> may be in the same place as you are. You will also find two places where you can't find this. The next place you might not see is the most common place to find it. It may be in the middle of the place where you can find something new. The second place, where you can still
+You> {"backend": "llama-cpp-python", "version": "0.3.16", "quantization": "Q4_K_M", "device": "cpu", "context": 512, "parameters": 30419712, "tokenizer": "original Hugging Face tokenizer.json; direct token IDs", "weights_sha256": "9dcb3035dab347233f03c3e85d8235adadbfec5d6495acbd19b380002c1a4339"} history_turns=0
+You> New conversation.
+You> stentor> et al. (2008) A study of forestry for the U.S. Department of Agriculture (USDA/ILO). The study authors used data from 1979 to 2005 to compare land use and urban development in a 6,347 acres
+You>

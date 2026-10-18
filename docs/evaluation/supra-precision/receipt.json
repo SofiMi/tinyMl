@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-18",
+  "platform": "Darwin-25.2.0-arm64-arm-64bit-Mach-O",
+  "scope": "Local Mac only; no ESP changes or device measurements",
+  "packages": {
+    "torch": "2.14.1",
+    "llama-cpp-python": "0.3.16",
+    "tokenizers": "0.23.3",
+    "sentencepiece": "0.2.2",
+    "jinja2": "3.1.6",
+    "numpy": "2.2.6"
+  },
+  "models": {
+    "supra": {
+      "repo": "liodon-ai/Supra2-100M-Instruct-imatrix-GGUF",
+      "revision": "35fdf94542b5c74029dcbb48450a8a80b1fc078c",
+      "files": {
+        "README.md": {
+          "bytes": 1957,
+          "sha256": "67b0182d6469367420582dd8edf1bba7cf3cca8195782702b49f4e3a6166222e"
+        },
+        "Supra2-100M-Instruct-Q4_K_M.gguf": {
+          "bytes": 67102400,
+          "sha256": "b920477b6de0b1d89536f51fe20fc3e96727bf5f73f2a239e8945d25b9469361"
+        },
+        "chat_template.jinja": {
+          "bytes": 155,
+          "sha256": "9a6ac2cf411f21cf1fa155617d146256deee33e64c43eace6c36fd9eb3dd5a2a"
+        },
+        "config.json": {
+          "bytes": 1044,
+          "sha256": "13b33baefc83a287beac1716cae69822c9b41f58ebd8eb57e3e1812c93550498"
+        },
+        "generation_config.json": {
+          "bytes": 215,
+          "sha256": "db507239aea70dcd3f97b98a5bf9b0d12527cea771a30e8c11c4bdad320805d2"
+        },
+        "tokenizer.json": {
+          "bytes": 2327627,
+          "sha256": "2136750ea890e546750346edf09f2d295dde19796631852f4b596c3597ec7573"
+        },
+        "tokenizer_config.json": {
+          "bytes": 791,
+          "sha256": "ba53e7823d929c638b54e4a02f56782c5e939f587f8372f2d91c4033d03ad8ee"
+        }
+      }
+    },
+    "supra-q8": {
+      "repo": "liodon-ai/Supra2-100M-Instruct-imatrix-GGUF",
+      "revision": "35fdf94542b5c74029dcbb48450a8a80b1fc078c",
+      "files": {
+        "README.md": {
+          "bytes": 1957,
+          "sha256": "67b0182d6469367420582dd8edf1bba7cf3cca8195782702b49f4e3a6166222e"
+        },
+        "Supra2-100M-Instruct-Q8_0.gguf": {
+          "bytes": 108208832,
+          "sha256": "e8a225e41f54a6c7423f637fdcca493bae4c49f58f7e89b59a94b42f59f7e5cb"
+        },
+        "chat_template.jinja": {
+          "bytes": 155,
+          "sha256": "9a6ac2cf411f21cf1fa155617d146256deee33e64c43eace6c36fd9eb3dd5a2a"
+        },
+        "config.json": {
+          "bytes": 1044,
+          "sha256": "13b33baefc83a287beac1716cae69822c9b41f58ebd8eb57e3e1812c93550498"
+        },
+        "generation_config.json": {
+          "bytes": 215,
+          "sha256": "db507239aea70dcd3f97b98a5bf9b0d12527cea771a30e8c11c4bdad320805d2"
+        },
+        "tokenizer.json": {
+          "bytes": 2327627,
+          "sha256": "2136750ea890e546750346edf09f2d295dde19796631852f4b596c3597ec7573"
+        },
+        "tokenizer_config.json": {
+          "bytes": 791,
+          "sha256": "ba53e7823d929c638b54e4a02f56782c5e939f587f8372f2d91c4033d03ad8ee"
+        }
+      }
+    },
+    "stentor": {
+      "repo": "mradermacher/Stentor-30M-Instruct-GGUF",
+      "revision": "843faf95a645f2775f20247b616011e79069d732",
+      "files": {
+        "README.md": {
+          "bytes": 4058,
+          "sha256": "301a090445f3ca8f9277edb26778574366e3f56d5c0b1296797e4e8bfdef62e9"
+        },
+        "Stentor-30M-Instruct.Q4_K_M.gguf": {
+          "bytes": 20913792,
+          "sha256": "9dcb3035dab347233f03c3e85d8235adadbfec5d6495acbd19b380002c1a4339"
+        },
+        "chat_template.jinja": {
+          "bytes": 3959,
+          "sha256": "e16746b40344d6c5b5265988e0328a0bf7277be86f1c335156eae07e29c82826"
+        },
+        "tokenizer.json": {
+          "bytes": 3671968,
+          "sha256": "3e01771050ce4fba855c59ddb474c72ca1a3f2113a04727990155e3e47390764"
+        }
+      }
+    },
+    "stentor-q8": {
+      "repo": "mradermacher/Stentor-30M-Instruct-GGUF",
+      "revision": "843faf95a645f2775f20247b616011e79069d732",
+      "files": {
+        "README.md": {
+          "bytes": 4058,
+          "sha256": "301a090445f3ca8f9277edb26778574366e3f56d5c0b1296797e4e8bfdef62e9"
+        },
+        "chat_template.jinja": {
+          "bytes": 3959,
+          "sha256": "e16746b40344d6c5b5265988e0328a0bf7277be86f1c335156eae07e29c82826"
+        },
+        "tokenizer.json": {
+          "bytes": 3671968,
+          "sha256": "3e01771050ce4fba855c59ddb474c72ca1a3f2113a04727990155e3e47390764"
+        },
+        "Stentor-30M-Instruct.Q8_0.gguf": {
+          "bytes": 33110656,
+          "sha256": "483d895b317071dc56d4114cc79ab3f5f3829f96a8461b9ebccca8b2bd46b597"
+        }
+      }
+    }
+  },
+  "python": "3.10.19"
+}
