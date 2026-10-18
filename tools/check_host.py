@@ -22,7 +22,7 @@ def main():
         ], check=True)
         messages = ["/temp 0", "Once upon a time", "There was a dragon named Ember.",
                     "/new", "Once upon a time", "/temp nan", "/temp 3", "/unknown",
-                    "Привет", "x" * 257, "~!" * 100, "<|endoftext|>", "/stats"]
+                    "Привет", "x" * 257, "~!" * 100, "<|endoftext|>", "/stats", "/memory"]
         result = subprocess.run([
             str(binary), str(ROOT / "components/esp32ai/assets/model.bin"),
         ], input="\r\n".join(messages) + "\r\n", text=True,
@@ -35,6 +35,8 @@ def main():
         assert output.count("[error]") == 7, output
         assert "Prompt exceeds" in output, output
         assert "[READY]" in output and "fp=a9bdd778" in output, output
+        assert "[memory-begin]" in output and "[memory-end]" in output, output
+        assert "HOST: allocation counters only" in output, output
         print("PASS: generation, independent prompts, reset, CRLF, invalid/oversized input")
         print("Greedy continuation:", replies[0].strip())
         bench = subprocess.run([str(binary), str(ROOT / "components/esp32ai/assets/model.bin")],

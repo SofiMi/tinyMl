@@ -1,4 +1,4 @@
-// PLE TinyStories USB-UART console. Runtime and memory placement from slvDev/esp32-ai.
+// PLE TinyStories USB console. Runtime and memory placement from slvDev/esp32-ai.
 #include "display.h"
 #include <algorithm>
 #include <chrono>
@@ -13,6 +13,7 @@
 #include "esp_heap_caps.h"
 #include "esp_psram.h"
 #include "esp_partition.h"
+#include "esp_flash.h"
 #include "esp_random.h"
 #include "esp_timer.h"
 #include "esp_stdio.h"
@@ -180,6 +181,47 @@ static void alloc_scratch() {
 }
 
 
+static void memory_report() {
+    puts("[memory-begin] bytes; flash and RAM are separate resources");
+    const size_t kv = (size_t)2 * model.c.n_layers * model.c.seq_len * model.c.dim * sizeof(float);
+    const size_t logits = (size_t)model.out_vocab * sizeof(float);
+    printf("[memory-model] flash_image=%zu psram_allocations=%zu kv=%zu logits=%zu staged_weights=%zu\n",
+           kModelBytes, psram_used, kv, logits, psram_used - kv - logits);
+    printf("[memory-model] internal_dynamic=%zu internal_static_buffers=%d (not whole firmware)\n",
+           sram_used, STATIC_SRAM_BYTES);
+#ifdef ESP_PLATFORM
+    auto heap = [](const char *name, uint32_t caps) {
+        multi_heap_info_t info = {};
+        heap_caps_get_info(&info, caps);
+        printf("[memory-heap] %s total=%zu allocated=%zu free=%zu largest_block=%zu minimum_free=%zu\n",
+               name, heap_caps_get_total_size(caps), info.total_allocated_bytes,
+               info.total_free_bytes, info.largest_free_block, info.minimum_free_bytes);
+    };
+    heap("internal_8bit", MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT);
+    heap("psram_8bit", MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);
+    printf("[memory-hardware] psram_detected=%zu\n", esp_psram_get_size());
+    uint32_t physical = 0, configured = 0;
+    const esp_err_t physical_err = esp_flash_get_physical_size(nullptr, &physical);
+    const esp_err_t configured_err = esp_flash_get_size(nullptr, &configured);
+    printf("[memory-flash] detected=%lu configured=%lu detected_status=%s configured_status=%s\n",
+           (unsigned long)physical, (unsigned long)configured,
+           esp_err_to_name(physical_err), esp_err_to_name(configured_err));
+    for (esp_partition_iterator_t it = esp_partition_find(
+             ESP_PARTITION_TYPE_ANY, ESP_PARTITION_SUBTYPE_ANY, nullptr);
+         it != nullptr; it = esp_partition_next(it)) {
+        const esp_partition_t *part = esp_partition_get(it);
+        printf("[memory-partition] %s offset=0x%lx capacity=%lu\n", part->label,
+               (unsigned long)part->address, (unsigned long)part->size);
+        if (strcmp(part->label, "model") == 0 && part->size >= kModelBytes)
+            printf("[memory-model] partition_padding=%zu (flash only)\n", (size_t)part->size - kModelBytes);
+    }
+    puts("[memory-note] Heap excludes static code/data and reserved RAM. Model allocations are already in heap allocated; do not add them again.");
+#else
+    puts("[memory-note] HOST: allocation counters only; ESP free heap and physical capacities are unavailable.");
+#endif
+    puts("[memory-end]");
+}
+
 static void stats() {
     printf("[model] PLE TinyStories 28.9M, vocab=%d, KV=%d, temperature=%.2f, history=0\n",
            model.out_vocab, model.c.seq_len, temperature);
@@ -313,7 +355,7 @@ static void answer(const std::string& prompt, bool benchmark = false, bool oled 
 
 static void help() {
     puts("Type an English story opening and press Enter (e.g. Once upon a time).\n"
-         "Commands: /new, /stats, /temp 0..2, /bench, /bench oled, /help\n"
+         "Commands: /new, /stats, /memory, /temp 0..2, /bench, /bench oled, /help\n"
          "TinyStories continues text; it is not trained for chat or instructions.\n"
          "Each line starts a new story; output is limited to 128 tokens.");
 }
@@ -419,6 +461,7 @@ static bool run_console(const uint8_t* weights, size_t weights_size) {
             display_status("New story");
             puts("[new story; each input starts with empty context]");
         } else if (line == "/stats") stats();
+        else if (line == "/memory") memory_report();
         else if (line == "/help") help();
         else if (line == "/bench") answer("Once upon a time", true, false);
         else if (line == "/bench oled") answer("Once upon a time", true, true);

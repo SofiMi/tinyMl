@@ -1,0 +1,22 @@
+PASS: exact inputs (including spaces), no preceding turns or Ember prompt, real generation
+PASS: /context inspects last input only; /new clears inspection; RNG continuous
+ComCom/gpt2-small: 124,439,808 parameters, CPU FP32
+GPT-2 text completion: each input is independent; no history or role prompt.
+/context shows the last input; /stats shows its size; /quit exits.
+You: GPT-2: , AZ) - The U.S. Marshals Service is investigating a shooting at a U.S. Marshals
+You: GPT-2: . I'm not sure how much of a difference this makes.
+
+
+In other words, I'd say a lot
+You: GPT-2:  hatched into a powerful dragon and became one of the most powerful dragons in the world.
+
+The following information is from
+You: [context-begin]
+  A baby dragon met a boy named Ramil. Together, they
+[context-end]
+You: [context] history=0 role_prompt=0 last_input_tokens=14 limit=1024 reply_reserve=24
+You: [every input already starts with empty context]
+You: [context-begin]
+
+[context-end]
+You:

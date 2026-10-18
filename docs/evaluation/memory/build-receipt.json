@@ -1,0 +1,14 @@
+{
+  "platform": "macOS; local build only, no ESP hardware measurement",
+  "idf": "6.1",
+  "app_bytes": 664272,
+  "app_sha256": "31ee4ecdc2a5e67f0b80cac60295f4ca839468df26b015646cc5fe0959e5f62a",
+  "model_bytes": 14912348,
+  "checks": [
+    "ESP-IDF build passed",
+    "shared host console checks passed",
+    "native USB primary + VFS + real linked driver passed",
+    "memory_report.py decoded actual built partition table",
+    "serial /memory capture passed via simulated PTY, not real ESP"
+  ]
+}

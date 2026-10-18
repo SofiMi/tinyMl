@@ -1,0 +1,20 @@
+Build: /Users/simasl/tinyMl/build/esp32ai
+Configured flash: 16,777,216 bytes (not a physical chip measurement)
+Partition          Offset      Capacity       Image     Padding  (bytes)
+nvs              0x00009000      24,576     unknown     unknown
+phy_init         0x0000f000       4,096     unknown     unknown
+factory          0x00010000   1,048,576     664,272     384,304
+model            0x00110000  15,663,104  14,912,348     750,756
+Reserved boot/header/table area: 36,864 bytes
+Outside partitions: 0 bytes
+Padding is unused by the current image, not automatically usable RAM or a writable filesystem.
+NVS/PHY contents and live free RAM cannot be inferred from build files.
+For static firmware SRAM: idf.py -B <build-directory> size
+For live heaps after model load: /memory in the device console, or --port <port> here.
+
+300,000,000 parameters, weights only (no scales, metadata, KV or scratch):
+16-bit: 600,000,000 bytes = 572.20 MiB
+ 8-bit: 300,000,000 bytes = 286.10 MiB
+ 4-bit: 150,000,000 bytes = 143.05 MiB
+ 2-bit: 75,000,000 bytes = 71.53 MiB
+ 1-bit: 37,500,000 bytes = 35.76 MiB

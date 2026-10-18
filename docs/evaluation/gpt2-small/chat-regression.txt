@@ -1,0 +1,2 @@
+PASS: reported 3-turn constant-answer regression ["I'm Ember!", 'Hello', "I'm the god of the open-world adventure game!"]
+PASS: history retains user AND generated replies; /new clears history; context visible

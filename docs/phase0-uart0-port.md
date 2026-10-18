@@ -136,3 +136,29 @@ UFW относятся к другим подсистемам. Пустое чт
 `--interface usb`, затем build/flash/monitor в `build/esp32ai`. После `[READY]`
 ввести `/stats` и `/bench`. При отсутствии стартового вывода нажать RESET/EN
 при открытом мониторе; прислать полученный boot-лог.
+
+### Последующий flash снова завершился EPROTO
+
+Пользователь затем прислал успешную сборку в `/home/espdev/test/build`
+(`tinyml.bin` 0x9ffd0), но `/dev/ttyACM0` снова выдал `[Errno 71] Protocol error`
+на `Connecting`. Дальше esptool перебирал `ttyS*`: явный порт не был зафиксирован.
+Запись прошивки ещё не началась. Успех предыдущего простого serial probe
+не доказывает исправность входа в загрузчик или установки новой прошивки.
+
+Для следующей аппаратной проверки: закрыть монитор, удержать BOOT, нажать и
+отпустить EN/RESET, затем отпустить BOOT. Проверить актуальный `ttyACM*` после
+переподключения. В активированном ESP-IDF окружении выполнить чтение Flash ID
+без автоматического сброса и без загрузки stub:
+
+```sh
+python -m esptool --chip esp32s3 --port /dev/ttyACM0 \
+  --before no-reset --after no-reset --no-stub flash-id
+```
+
+Это чтение, не стирание и не прошивка. Ручной ROM download исключает запуск
+приложения из этой проверки. Если и здесь возникает EPROTO, нужен свежий
+USB-фрагмент kernel log с момента этой попытки; изменение LLM её не устранит.
+Если чтение успешно, переходить к прошивке именно `build/esp32ai` с явным портом.
+Результат этой проверки пользователь пока не прислал.
+[Вход в загрузчик](https://docs.espressif.com/projects/esptool/en/latest/esp32s3/advanced-topics/boot-mode-selection.html),
+[диагностика native USB](https://docs.espressif.com/projects/esptool/en/latest/esp32s3/troubleshooting.html).
