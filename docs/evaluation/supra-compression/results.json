@@ -1,0 +1,2818 @@
+{
+  "metadata": {
+    "date_utc": "2026-10-18T15:54:48Z",
+    "source": "build/model-playground/supra/Supra2-100M-Instruct-Q4_K_M.gguf",
+    "source_bytes": 67102400,
+    "source_sha256": "b920477b6de0b1d89536f51fe20fc3e96727bf5f73f2a239e8945d25b9469361",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.10.19",
+    "zstandard_python": "0.25.0",
+    "libzstd": "1.5.7",
+    "lz4_python": "4.4.5",
+    "liblz4": "1.9.4",
+    "repeats": 3
+  },
+  "results": [
+    {
+      "codec": "zstd",
+      "level": 1,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 65464872,
+      "frame_bytes": 65464872,
+      "index_bytes": 0,
+      "largest_frame_bytes": 65464872,
+      "size_pct": 97.55965807482295,
+      "saved_pct": 2.4403419251770475,
+      "compress_seconds": 0.0604967089893762,
+      "decompress_seconds": 0.03514454199466854,
+      "decompress_mib_s": 1820.875499214833,
+      "compress_samples": [
+        0.0604967089893762,
+        0.06367050000699237,
+        0.05995824999990873
+      ],
+      "decompress_samples": [
+        0.03514454199466854,
+        0.03789895800582599,
+        0.03331229199829977
+      ],
+      "artifact": "artifacts/zstd-01-whole.zst",
+      "artifact_sha256": "a4b90350790cbffe6a3e6ae89ce5906e4817ec83343d9ef75808071b1e901d0a",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 2,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 65453431,
+      "frame_bytes": 65453431,
+      "index_bytes": 0,
+      "largest_frame_bytes": 65453431,
+      "size_pct": 97.54260801402036,
+      "saved_pct": 2.45739198597964,
+      "compress_seconds": 0.06685779200051911,
+      "decompress_seconds": 0.04310491700016428,
+      "decompress_mib_s": 1484.6063953440594,
+      "compress_samples": [
+        0.05974404099106323,
+        0.06685779200051911,
+        0.09228983298817184
+      ],
+      "decompress_samples": [
+        0.03347166700405069,
+        0.04310491700016428,
+        0.04706662500393577
+      ],
+      "artifact": "artifacts/zstd-02-whole.zst",
+      "artifact_sha256": "0f452305b76ae57bbbd00678792a2f071feae44e6ce24109aadb58cdabc07671",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 3,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 65537427,
+      "frame_bytes": 65537427,
+      "index_bytes": 0,
+      "largest_frame_bytes": 65537427,
+      "size_pct": 97.66778386466058,
+      "saved_pct": 2.3322161353394266,
+      "compress_seconds": 0.12747870899329428,
+      "decompress_seconds": 0.036636874996474944,
+      "decompress_mib_s": 1746.705619826363,
+      "compress_samples": [
+        0.12123008399794344,
+        0.12747870899329428,
+        0.13282212500052992
+      ],
+      "decompress_samples": [
+        0.036636874996474944,
+        0.03550087500480004,
+        0.03689595899777487
+      ],
+      "artifact": "artifacts/zstd-03-whole.zst",
+      "artifact_sha256": "1032f4862232be6028729dc9871c5f79196993c0c42a42241c98453d595db7b4",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 4,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 65535385,
+      "frame_bytes": 65535385,
+      "index_bytes": 0,
+      "largest_frame_bytes": 65535385,
+      "size_pct": 97.66474075442905,
+      "saved_pct": 2.335259245570953,
+      "compress_seconds": 0.13455087500915397,
+      "decompress_seconds": 0.03798691699921619,
+      "decompress_mib_s": 1684.6283011211249,
+      "compress_samples": [
+        0.13423629199678544,
+        0.13455087500915397,
+        0.1374102919944562
+      ],
+      "decompress_samples": [
+        0.03798691699921619,
+        0.03558812499977648,
+        0.03809941600775346
+      ],
+      "artifact": "artifacts/zstd-04-whole.zst",
+      "artifact_sha256": "8f6f1e6f1932ad4bff9bae982dc59f984cd922ebde054e242d3a30b54ee4199c",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 5,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 65436406,
+      "frame_bytes": 65436406,
+      "index_bytes": 0,
+      "largest_frame_bytes": 65436406,
+      "size_pct": 97.51723634326045,
+      "saved_pct": 2.4827636567395506,
+      "compress_seconds": 0.08599695900920779,
+      "decompress_seconds": 0.0347248329926515,
+      "decompress_mib_s": 1842.8838941503673,
+      "compress_samples": [
+        0.08599695900920779,
+        0.08062229200731963,
+        0.08657466700242367
+      ],
+      "decompress_samples": [
+        0.034269875002792105,
+        0.03545691700128373,
+        0.0347248329926515
+      ],
+      "artifact": "artifacts/zstd-05-whole.zst",
+      "artifact_sha256": "22d1da6bc8298e4c409894974f5f41ed4bd9bcd4a9418ad0f66120029532cc45",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 6,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 65428515,
+      "frame_bytes": 65428515,
+      "index_bytes": 0,
+      "largest_frame_bytes": 65428515,
+      "size_pct": 97.50547670426096,
+      "saved_pct": 2.4945232957390484,
+      "compress_seconds": 0.0831394580018241,
+      "decompress_seconds": 0.03330316599749494,
+      "decompress_mib_s": 1921.5541085202635,
+      "compress_samples": [
+        0.09084741600963753,
+        0.08224533300381154,
+        0.0831394580018241
+      ],
+      "decompress_samples": [
+        0.03337366699997801,
+        0.03303237499494571,
+        0.03330316599749494
+      ],
+      "artifact": "artifacts/zstd-06-whole.zst",
+      "artifact_sha256": "cfb69727454405cbace9accc428f3e8f861ec18a3fb042bd03dba054371dc81d",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 7,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 65426386,
+      "frame_bytes": 65426386,
+      "index_bytes": 0,
+      "largest_frame_bytes": 65426386,
+      "size_pct": 97.50230394143877,
+      "saved_pct": 2.4976960585612384,
+      "compress_seconds": 0.08944916698965244,
+      "decompress_seconds": 0.03437833300267812,
+      "decompress_mib_s": 1861.4583622839868,
+      "compress_samples": [
+        0.09338725000270642,
+        0.08944916698965244,
+        0.08865829100250266
+      ],
+      "decompress_samples": [
+        0.03437833300267812,
+        0.03430812500300817,
+        0.03797674999805167
+      ],
+      "artifact": "artifacts/zstd-07-whole.zst",
+      "artifact_sha256": "a1c58b362ce88948d6a35e234b5f969b67cc8b47ecc5615a42e5734aaef1ae97",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 8,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 65425675,
+      "frame_bytes": 65425675,
+      "index_bytes": 0,
+      "largest_frame_bytes": 65425675,
+      "size_pct": 97.50124436681847,
+      "saved_pct": 2.4987556331815264,
+      "compress_seconds": 0.09948404200258665,
+      "decompress_seconds": 0.03380750000360422,
+      "decompress_mib_s": 1892.8887212126413,
+      "compress_samples": [
+        0.09948404200258665,
+        0.10047362500336021,
+        0.09792162499797996
+      ],
+      "decompress_samples": [
+        0.03380750000360422,
+        0.034302625004784204,
+        0.033547208993695676
+      ],
+      "artifact": "artifacts/zstd-08-whole.zst",
+      "artifact_sha256": "77ea641c92b9d5212eb445c863b17b1a55df7c65fe39343f95041b6bb7dce4a7",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 9,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 65425488,
+      "frame_bytes": 65425488,
+      "index_bytes": 0,
+      "largest_frame_bytes": 65425488,
+      "size_pct": 97.50096568826152,
+      "saved_pct": 2.4990343117384795,
+      "compress_seconds": 0.10315504200116266,
+      "decompress_seconds": 0.03413041599560529,
+      "decompress_mib_s": 1874.979650334726,
+      "compress_samples": [
+        0.10278100000869017,
+        0.10315504200116266,
+        0.1037498749938095
+      ],
+      "decompress_samples": [
+        0.03315958300663624,
+        0.03413041599560529,
+        0.03419408299669158
+      ],
+      "artifact": "artifacts/zstd-09-whole.zst",
+      "artifact_sha256": "2ef23782673fd01b5e8b5a6b3a9c916e1bb35968dc296b9c50bf36afe6efe634",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 10,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 65423443,
+      "frame_bytes": 65423443,
+      "index_bytes": 0,
+      "largest_frame_bytes": 65423443,
+      "size_pct": 97.497918107251,
+      "saved_pct": 2.5020818927489974,
+      "compress_seconds": 0.11587016700650565,
+      "decompress_seconds": 0.033653833001153544,
+      "decompress_mib_s": 1901.5318536532004,
+      "compress_samples": [
+        0.11753608299477492,
+        0.11587016700650565,
+        0.11361041599593591
+      ],
+      "decompress_samples": [
+        0.033653833001153544,
+        0.03418191599484999,
+        0.033589500002563
+      ],
+      "artifact": "artifacts/zstd-10-whole.zst",
+      "artifact_sha256": "054f3973edbb27226128ece6818a9e2ac4497b5587d51e1f13bdb02edaa2adf3",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 1,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 66428786,
+      "frame_bytes": 66428786,
+      "index_bytes": 0,
+      "largest_frame_bytes": 66428786,
+      "size_pct": 98.99614022747323,
+      "saved_pct": 1.0038597725267606,
+      "compress_seconds": 0.019875625002896413,
+      "decompress_seconds": 0.016760291997343302,
+      "decompress_mib_s": 3818.1814170876323,
+      "compress_samples": [
+        0.020361125003546476,
+        0.019261915993411094,
+        0.019875625002896413
+      ],
+      "decompress_samples": [
+        0.016760291997343302,
+        0.01679104199865833,
+        0.01622483400569763
+      ],
+      "artifact": "artifacts/lz4-01-whole.lz4",
+      "artifact_sha256": "abb9bbd2eed2be60f293a4c3e2712e0956ac0805e667009fd1b1f9236fd358a0",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 2,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 66428786,
+      "frame_bytes": 66428786,
+      "index_bytes": 0,
+      "largest_frame_bytes": 66428786,
+      "size_pct": 98.99614022747323,
+      "saved_pct": 1.0038597725267606,
+      "compress_seconds": 0.019989833992440253,
+      "decompress_seconds": 0.01675816699571442,
+      "decompress_mib_s": 3818.6655775410254,
+      "compress_samples": [
+        0.019576958991819993,
+        0.02045645800535567,
+        0.019989833992440253
+      ],
+      "decompress_samples": [
+        0.016958583000814542,
+        0.01675816699571442,
+        0.016577041998971254
+      ],
+      "artifact": "artifacts/lz4-02-whole.lz4",
+      "artifact_sha256": "abb9bbd2eed2be60f293a4c3e2712e0956ac0805e667009fd1b1f9236fd358a0",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 3,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 66310443,
+      "frame_bytes": 66310443,
+      "index_bytes": 0,
+      "largest_frame_bytes": 66310443,
+      "size_pct": 98.81977842819333,
+      "saved_pct": 1.1802215718066722,
+      "compress_seconds": 1.1159281670115888,
+      "decompress_seconds": 0.01680358398880344,
+      "decompress_mib_s": 3808.34442770418,
+      "compress_samples": [
+        1.1256644999957643,
+        1.1159281670115888,
+        1.1136494590027723
+      ],
+      "decompress_samples": [
+        0.017012791999150068,
+        0.016637583990814164,
+        0.01680358398880344
+      ],
+      "artifact": "artifacts/lz4-03-whole.lz4",
+      "artifact_sha256": "e2b3bd8c5b156714c9cccc096cbff142db37187d992bdcf3d36f9185796087d0",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 4,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 66300598,
+      "frame_bytes": 66300598,
+      "index_bytes": 0,
+      "largest_frame_bytes": 66300598,
+      "size_pct": 98.80510682181263,
+      "saved_pct": 1.1948931781873728,
+      "compress_seconds": 1.1813560830050847,
+      "decompress_seconds": 0.016809791995910928,
+      "decompress_mib_s": 3806.93797191456,
+      "compress_samples": [
+        1.1813560830050847,
+        1.1798003330040956,
+        1.1927457910060184
+      ],
+      "decompress_samples": [
+        0.016324958007317036,
+        0.016809791995910928,
+        0.017481417002272792
+      ],
+      "artifact": "artifacts/lz4-04-whole.lz4",
+      "artifact_sha256": "f3ed55a3e18b958e0f2460f2865888ae20e27a4cc578a9af46d1fce76a36afd0",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 5,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 66295429,
+      "frame_bytes": 66295429,
+      "index_bytes": 0,
+      "largest_frame_bytes": 66295429,
+      "size_pct": 98.79740366961539,
+      "saved_pct": 1.2025963303846088,
+      "compress_seconds": 1.1804457910038764,
+      "decompress_seconds": 0.016873458996997215,
+      "decompress_mib_s": 3792.5736187587286,
+      "compress_samples": [
+        1.1875446249905508,
+        1.1804457910038764,
+        1.173418166988995
+      ],
+      "decompress_samples": [
+        0.016981749999104068,
+        0.016873458996997215,
+        0.01675525000609923
+      ],
+      "artifact": "artifacts/lz4-05-whole.lz4",
+      "artifact_sha256": "fb0a5884d14dddd5a866e13b8a2438d7e9efd037aa1296e2a3892f2456137c6b",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 6,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 66293038,
+      "frame_bytes": 66293038,
+      "index_bytes": 0,
+      "largest_frame_bytes": 66293038,
+      "size_pct": 98.79384045876154,
+      "saved_pct": 1.2061595412384607,
+      "compress_seconds": 1.1795182079949882,
+      "decompress_seconds": 0.016712708995328285,
+      "decompress_mib_s": 3829.0522181117967,
+      "compress_samples": [
+        1.1795182079949882,
+        1.1759634999907576,
+        1.1797902919934131
+      ],
+      "decompress_samples": [
+        0.016712708995328285,
+        0.01726599999528844,
+        0.016681167006026953
+      ],
+      "artifact": "artifacts/lz4-06-whole.lz4",
+      "artifact_sha256": "3a41ad81649fc5e60d1c2d3186c939d3344c9ced9a4e820b65dbe998c86851e5",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 7,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 66291829,
+      "frame_bytes": 66291829,
+      "index_bytes": 0,
+      "largest_frame_bytes": 66291829,
+      "size_pct": 98.79203873482916,
+      "saved_pct": 1.2079612651708427,
+      "compress_seconds": 1.1817353749938775,
+      "decompress_seconds": 0.01659437500347849,
+      "decompress_mib_s": 3856.35707496091,
+      "compress_samples": [
+        1.1817353749938775,
+        1.1794022919930285,
+        1.1869948329986073
+      ],
+      "decompress_samples": [
+        0.01659437500347849,
+        0.01611304200196173,
+        0.016983416993753053
+      ],
+      "artifact": "artifacts/lz4-07-whole.lz4",
+      "artifact_sha256": "d4ae382f1b1f35aeea720743d09ddae2e135896da4f90f9a8c2c77d5f5b14ccd",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 8,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 66291107,
+      "frame_bytes": 66291107,
+      "index_bytes": 0,
+      "largest_frame_bytes": 66291107,
+      "size_pct": 98.79096276735258,
+      "saved_pct": 1.2090372326474141,
+      "compress_seconds": 1.182045499997912,
+      "decompress_seconds": 0.01660004199948162,
+      "decompress_mib_s": 3855.040574669458,
+      "compress_samples": [
+        1.1826473330002045,
+        1.182045499997912,
+        1.177900958005921
+      ],
+      "decompress_samples": [
+        0.01669208300882019,
+        0.016195499993045814,
+        0.01660004199948162
+      ],
+      "artifact": "artifacts/lz4-08-whole.lz4",
+      "artifact_sha256": "a16c6da925f219542dd2f9ac109b12f7fa1e409ee613bb5bef9607d888e79d77",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 9,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 66290621,
+      "frame_bytes": 66290621,
+      "index_bytes": 0,
+      "largest_frame_bytes": 66290621,
+      "size_pct": 98.79023850115645,
+      "saved_pct": 1.2097614988435534,
+      "compress_seconds": 1.1889132920041448,
+      "decompress_seconds": 0.01632725000672508,
+      "decompress_mib_s": 3919.4497188969444,
+      "compress_samples": [
+        1.1889132920041448,
+        1.1922340000019176,
+        1.1851800419972278
+      ],
+      "decompress_samples": [
+        0.01632725000672508,
+        0.01611925000906922,
+        0.016840541997225955
+      ],
+      "artifact": "artifacts/lz4-09-whole.lz4",
+      "artifact_sha256": "2b969745f9ba5650b94ec7873d2f6d33faea3e213a8e7c121ad9b14a2af77d27",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 10,
+      "chunk_bytes": 0,
+      "chunks": 1,
+      "file_bytes": 66296348,
+      "frame_bytes": 66296348,
+      "index_bytes": 0,
+      "largest_frame_bytes": 66296348,
+      "size_pct": 98.79877321824554,
+      "saved_pct": 1.2012267817544497,
+      "compress_seconds": 1.379773207998369,
+      "decompress_seconds": 0.016311165993101895,
+      "decompress_mib_s": 3923.3145856208066,
+      "compress_samples": [
+        1.385257540998282,
+        1.379773207998369,
+        1.3674806250055553
+      ],
+      "decompress_samples": [
+        0.016204374987864867,
+        0.01683991600293666,
+        0.016311165993101895
+      ],
+      "artifact": "artifacts/lz4-10-whole.lz4",
+      "artifact_sha256": "45c723537bc62912c37240b0f4e79d18e3be2a7020e21bd3eef9958f0b69125f",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 1,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 65521786,
+      "frame_bytes": 65513562,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65550,
+      "size_pct": 97.64447471327404,
+      "saved_pct": 2.355525286725957,
+      "compress_seconds": 0.06258266700024251,
+      "decompress_seconds": 0.0367833329946734,
+      "decompress_mib_s": 1739.7508664722066,
+      "compress_samples": [
+        0.07061125000473112,
+        0.06258266700024251,
+        0.06220745800237637
+      ],
+      "decompress_samples": [
+        0.04526058299234137,
+        0.0367833329946734,
+        0.03629583399742842
+      ],
+      "artifact": "artifacts/zstd-01-64KiB.tmlc",
+      "artifact_sha256": "2c9eb7a024f89f3395f58f6ccd0d89fc2c53348e1ede301ea35fc0724c8a40c3",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 2,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 65521759,
+      "frame_bytes": 65513535,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65550,
+      "size_pct": 97.64443447626314,
+      "saved_pct": 2.355565523736858,
+      "compress_seconds": 0.06405654099944513,
+      "decompress_seconds": 0.03515137500653509,
+      "decompress_mib_s": 1820.5215425377094,
+      "compress_samples": [
+        0.06405654099944513,
+        0.0652112920070067,
+        0.06395529200381134
+      ],
+      "decompress_samples": [
+        0.03469595799106173,
+        0.03545670800667722,
+        0.03515137500653509
+      ],
+      "artifact": "artifacts/zstd-02-64KiB.tmlc",
+      "artifact_sha256": "584d9e54bac098f6b81f559323d366c43b6661f75d2f42beae3c12f065c1be60",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 3,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 65514243,
+      "frame_bytes": 65506019,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65550,
+      "size_pct": 97.6332336846372,
+      "saved_pct": 2.3667663153627894,
+      "compress_seconds": 0.06670179199136328,
+      "decompress_seconds": 0.035870292005711235,
+      "decompress_mib_s": 1784.034415973801,
+      "compress_samples": [
+        0.06670179199136328,
+        0.0658137499995064,
+        0.0673705420049373
+      ],
+      "decompress_samples": [
+        0.035870292005711235,
+        0.03602800000226125,
+        0.0353347920026863
+      ],
+      "artifact": "artifacts/zstd-03-64KiB.tmlc",
+      "artifact_sha256": "48c3d329714692e7bc5f17886dd68729ab36b7e7a5bb6f0c4d1c29a7952e7034",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 4,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 65520322,
+      "frame_bytes": 65512098,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65550,
+      "size_pct": 97.64229297312764,
+      "saved_pct": 2.3577070268723577,
+      "compress_seconds": 0.06823983301001135,
+      "decompress_seconds": 0.03528237499995157,
+      "decompress_mib_s": 1813.7621248373043,
+      "compress_samples": [
+        0.06823983301001135,
+        0.06900775000394788,
+        0.06784916699689347
+      ],
+      "decompress_samples": [
+        0.03528237499995157,
+        0.035629874997539446,
+        0.035151083997334354
+      ],
+      "artifact": "artifacts/zstd-04-64KiB.tmlc",
+      "artifact_sha256": "36626e83e911192c3b1e0abc1f55b9abea6932335108d30a69c779310b4892b5",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 5,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 65513738,
+      "frame_bytes": 65505514,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65550,
+      "size_pct": 97.63248110350747,
+      "saved_pct": 2.3675188964925264,
+      "compress_seconds": 0.07979454100131989,
+      "decompress_seconds": 0.03513008399750106,
+      "decompress_mib_s": 1821.6248914682606,
+      "compress_samples": [
+        0.08130383299430832,
+        0.07979454100131989,
+        0.07839070899353828
+      ],
+      "decompress_samples": [
+        0.03545375000976492,
+        0.0344414169958327,
+        0.03513008399750106
+      ],
+      "artifact": "artifacts/zstd-05-64KiB.tmlc",
+      "artifact_sha256": "af21ad7a3a93d7fed6ff3d404124fea8a42a75298c41b7f135f189ea8c660f9f",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 6,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 65503116,
+      "frame_bytes": 65494892,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65550,
+      "size_pct": 97.61665156536876,
+      "saved_pct": 2.3833484346312495,
+      "compress_seconds": 0.08135595900239423,
+      "decompress_seconds": 0.03517733298940584,
+      "decompress_mib_s": 1819.1781471463858,
+      "compress_samples": [
+        0.08039212500443682,
+        0.08135595900239423,
+        0.08284570800606161
+      ],
+      "decompress_samples": [
+        0.034619374986505136,
+        0.03517733298940584,
+        0.03587087499909103
+      ],
+      "artifact": "artifacts/zstd-06-64KiB.tmlc",
+      "artifact_sha256": "54251b7a6c466993c1d734b8681e32a8534b019d83c4c1d8c8ff26b364e988a4",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 7,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 65500750,
+      "frame_bytes": 65492526,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65550,
+      "size_pct": 97.61312561100645,
+      "saved_pct": 2.386874388993543,
+      "compress_seconds": 0.08401604199025314,
+      "decompress_seconds": 0.03512470799614675,
+      "decompress_mib_s": 1821.9036997044643,
+      "compress_samples": [
+        0.08401604199025314,
+        0.08284408399777021,
+        0.084141917002853
+      ],
+      "decompress_samples": [
+        0.0341713750094641,
+        0.03554062500188593,
+        0.03512470799614675
+      ],
+      "artifact": "artifacts/zstd-07-64KiB.tmlc",
+      "artifact_sha256": "bd19d780f7c8ada41c74ef9c285a8f3d97db4579f095e6b550641f17dbe9d473",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 8,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 65499122,
+      "frame_bytes": 65490898,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65550,
+      "size_pct": 97.61069946827536,
+      "saved_pct": 2.3893005317246474,
+      "compress_seconds": 0.08728133300610352,
+      "decompress_seconds": 0.03524883299542125,
+      "decompress_mib_s": 1815.4880604850496,
+      "compress_samples": [
+        0.08728133300610352,
+        0.08616095899196807,
+        0.08760579199588392
+      ],
+      "decompress_samples": [
+        0.03558216699457262,
+        0.03524883299542125,
+        0.0351830840081675
+      ],
+      "artifact": "artifacts/zstd-08-64KiB.tmlc",
+      "artifact_sha256": "54c79dff9251142a70387089b5d072ce1c374b4ebcaf69e760347ab5c6ba5a3b",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 9,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 65497452,
+      "frame_bytes": 65489228,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65550,
+      "size_pct": 97.6082107346384,
+      "saved_pct": 2.391789265361599,
+      "compress_seconds": 0.09187795899924822,
+      "decompress_seconds": 0.035687666008016095,
+      "decompress_mib_s": 1793.1639304975724,
+      "compress_samples": [
+        0.09351579200301785,
+        0.09187795899924822,
+        0.09100141600356437
+      ],
+      "decompress_samples": [
+        0.036533875012537464,
+        0.03549754100095015,
+        0.035687666008016095
+      ],
+      "artifact": "artifacts/zstd-09-64KiB.tmlc",
+      "artifact_sha256": "d21b6fa53185ed1282d7a87c0ee8311b8d75604a4f5ef9044cb0bd3e56c4f096",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 10,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 65495962,
+      "frame_bytes": 65487738,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65550,
+      "size_pct": 97.60599024774078,
+      "saved_pct": 2.3940097522592296,
+      "compress_seconds": 0.10147737499210052,
+      "decompress_seconds": 0.03564724999887403,
+      "decompress_mib_s": 1795.1969773612295,
+      "compress_samples": [
+        0.10272187500959262,
+        0.10147737499210052,
+        0.10141533399291802
+      ],
+      "decompress_samples": [
+        0.03564724999887403,
+        0.03700845800631214,
+        0.03562574999523349
+      ],
+      "artifact": "artifacts/zstd-10-64KiB.tmlc",
+      "artifact_sha256": "4f482e5334ec934a7309ba390aa55c9aba23ec0c26dd5e56335229c6b2d7fae4",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 1,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 66443272,
+      "frame_bytes": 66435048,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65563,
+      "size_pct": 99.01772812894919,
+      "saved_pct": 0.9822718710508105,
+      "compress_seconds": 0.02668204199289903,
+      "decompress_seconds": 0.01893891699728556,
+      "decompress_mib_s": 3378.959602515325,
+      "compress_samples": [
+        0.02646808400459122,
+        0.026692625004216097,
+        0.02668204199289903
+      ],
+      "decompress_samples": [
+        0.01893891699728556,
+        0.018840791992261074,
+        0.019203791991458274
+      ],
+      "artifact": "artifacts/lz4-01-64KiB.tmlc",
+      "artifact_sha256": "249ce3f17c6414e17a13c1b39eb3dd12503a39b620bcf25a9b36a9ae816a1b69",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 2,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 66443272,
+      "frame_bytes": 66435048,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65563,
+      "size_pct": 99.01772812894919,
+      "saved_pct": 0.9822718710508105,
+      "compress_seconds": 0.02653950000240002,
+      "decompress_seconds": 0.01886970899067819,
+      "decompress_mib_s": 3391.3525365352634,
+      "compress_samples": [
+        0.027359458996215835,
+        0.025929166993591934,
+        0.02653950000240002
+      ],
+      "decompress_samples": [
+        0.01886970899067819,
+        0.019066332999500446,
+        0.018649166988325305
+      ],
+      "artifact": "artifacts/lz4-02-64KiB.tmlc",
+      "artifact_sha256": "249ce3f17c6414e17a13c1b39eb3dd12503a39b620bcf25a9b36a9ae816a1b69",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 3,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 66371028,
+      "frame_bytes": 66362804,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65563,
+      "size_pct": 98.91006580986671,
+      "saved_pct": 1.0899341901332904,
+      "compress_seconds": 0.7551673339912668,
+      "decompress_seconds": 0.019366167005500756,
+      "decompress_mib_s": 3304.414106882481,
+      "compress_samples": [
+        0.7551673339912668,
+        0.7551720409974223,
+        0.7544432499998948
+      ],
+      "decompress_samples": [
+        0.019366167005500756,
+        0.01880445799906738,
+        0.019370208989130333
+      ],
+      "artifact": "artifacts/lz4-03-64KiB.tmlc",
+      "artifact_sha256": "b97479fe1b1db3edf89f3d30cfeab49f307cea26b522cf5fc5eeb60301bcab59",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 4,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 66364685,
+      "frame_bytes": 66356461,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65563,
+      "size_pct": 98.9006130928253,
+      "saved_pct": 1.0993869071747042,
+      "compress_seconds": 0.7731602499989094,
+      "decompress_seconds": 0.01865925001038704,
+      "decompress_mib_s": 3429.603837967513,
+      "compress_samples": [
+        0.7706688749894965,
+        0.7734329999948386,
+        0.7731602499989094
+      ],
+      "decompress_samples": [
+        0.018369749988778494,
+        0.01874604199838359,
+        0.01865925001038704
+      ],
+      "artifact": "artifacts/lz4-04-64KiB.tmlc",
+      "artifact_sha256": "14ea9fa9ac79e55543c4e0f28f1503e29f893f763ac1384087db5624cc5bbc8b",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 5,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 66361512,
+      "frame_bytes": 66353288,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65563,
+      "size_pct": 98.89588449891508,
+      "saved_pct": 1.1041155010849124,
+      "compress_seconds": 0.7665595840080641,
+      "decompress_seconds": 0.01862283299851697,
+      "decompress_mib_s": 3436.310439679876,
+      "compress_samples": [
+        0.7629657499928726,
+        0.7665595840080641,
+        0.7679197500110604
+      ],
+      "decompress_samples": [
+        0.0182917920028558,
+        0.019031457995879464,
+        0.01862283299851697
+      ],
+      "artifact": "artifacts/lz4-05-64KiB.tmlc",
+      "artifact_sha256": "f7930263cd29a6a87dc1e631262de4b5fbdcfa32f1271cc4dfd4a31e43774bb9",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 6,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 66360024,
+      "frame_bytes": 66351800,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65563,
+      "size_pct": 98.89366699253678,
+      "saved_pct": 1.1063330074632227,
+      "compress_seconds": 0.7823927909921622,
+      "decompress_seconds": 0.018627875004312955,
+      "decompress_mib_s": 3435.3803337418844,
+      "compress_samples": [
+        0.7748834999947576,
+        0.7823927909921622,
+        0.7864643749926472
+      ],
+      "decompress_samples": [
+        0.019565208989661187,
+        0.018627875004312955,
+        0.018437040998833254
+      ],
+      "artifact": "artifacts/lz4-06-64KiB.tmlc",
+      "artifact_sha256": "3ca693e9c059f4991a55a873e42d2ee20b17c5c1eb03685ea030252c243b7dc8",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 7,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 66359189,
+      "frame_bytes": 66350965,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65563,
+      "size_pct": 98.8924226257183,
+      "saved_pct": 1.1075773742816986,
+      "compress_seconds": 0.7891520830016816,
+      "decompress_seconds": 0.020037875001435168,
+      "decompress_mib_s": 3193.6438092679655,
+      "compress_samples": [
+        0.7891520830016816,
+        0.7765983339922968,
+        0.7927524580009049
+      ],
+      "decompress_samples": [
+        0.020438042003661394,
+        0.018145292007829994,
+        0.020037875001435168
+      ],
+      "artifact": "artifacts/lz4-07-64KiB.tmlc",
+      "artifact_sha256": "32bdbae18fa2196da672e60ab48b3da816f93fef4714bba7efb35eb4c39028ca",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 8,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 66358610,
+      "frame_bytes": 66350386,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65563,
+      "size_pct": 98.89155976537351,
+      "saved_pct": 1.1084402346264843,
+      "compress_seconds": 0.8216346249973867,
+      "decompress_seconds": 0.018950165991554968,
+      "decompress_mib_s": 3376.953820760052,
+      "compress_samples": [
+        0.8216346249973867,
+        0.8377070419955999,
+        0.8039818329998525
+      ],
+      "decompress_samples": [
+        0.020256250005331822,
+        0.018950165991554968,
+        0.018258084004628472
+      ],
+      "artifact": "artifacts/lz4-08-64KiB.tmlc",
+      "artifact_sha256": "500b7d68bcfe246d80fd8a279f334f82e72051bf162e18bf14bdb2a38ef76ab9",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 9,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 66358205,
+      "frame_bytes": 66349981,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65563,
+      "size_pct": 98.89095621021006,
+      "saved_pct": 1.109043789789932,
+      "compress_seconds": 0.7991181669931393,
+      "decompress_seconds": 0.019470041996100917,
+      "decompress_mib_s": 3286.784664462162,
+      "compress_samples": [
+        0.7991181669931393,
+        0.8203211670042947,
+        0.7915852089936379
+      ],
+      "decompress_samples": [
+        0.01848716700624209,
+        0.01959812499990221,
+        0.019470041996100917
+      ],
+      "artifact": "artifacts/lz4-09-64KiB.tmlc",
+      "artifact_sha256": "eaf85750bc43c750915e43f4ab1eac3e643cd4413ae4c5abe1ba240173318ca4",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 10,
+      "chunk_bytes": 65536,
+      "chunks": 1024,
+      "file_bytes": 66362913,
+      "frame_bytes": 66354689,
+      "index_bytes": 8224,
+      "largest_frame_bytes": 65563,
+      "size_pct": 98.89797235270274,
+      "saved_pct": 1.1020276472972657,
+      "compress_seconds": 0.9520076659973711,
+      "decompress_seconds": 0.01847762500983663,
+      "decompress_mib_s": 3463.314977717721,
+      "compress_samples": [
+        0.9663495409913594,
+        0.9520076659973711,
+        0.9429953750077402
+      ],
+      "decompress_samples": [
+        0.01843537500826642,
+        0.019127583000226878,
+        0.01847762500983663
+      ],
+      "artifact": "artifacts/lz4-10-64KiB.tmlc",
+      "artifact_sha256": "fef9bfb541e39619abbb9b82be3ad693db18ee2f8765e945ea274008f4860a40",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 1,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 65495821,
+      "frame_bytes": 65491693,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131088,
+      "size_pct": 97.6057801211283,
+      "saved_pct": 2.394219878871695,
+      "compress_seconds": 0.06221962500421796,
+      "decompress_seconds": 0.036820541994529776,
+      "decompress_mib_s": 1737.9927611800488,
+      "compress_samples": [
+        0.062447874995996244,
+        0.06221962500421796,
+        0.059169790998566896
+      ],
+      "decompress_samples": [
+        0.03842912500840612,
+        0.036820541994529776,
+        0.03565633299876936
+      ],
+      "artifact": "artifacts/zstd-01-128KiB.tmlc",
+      "artifact_sha256": "3a17f95fbf9c8c3c45d9c7573bdcd0678a9c4093885165fca673ae234ee36df1",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 2,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 65493437,
+      "frame_bytes": 65489309,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131088,
+      "size_pct": 97.60222734209208,
+      "saved_pct": 2.397772657907915,
+      "compress_seconds": 0.05891999999585096,
+      "decompress_seconds": 0.03614850000303704,
+      "decompress_mib_s": 1770.304035958401,
+      "compress_samples": [
+        0.06071620900183916,
+        0.05891999999585096,
+        0.05838037500507198
+      ],
+      "decompress_samples": [
+        0.036493084000539966,
+        0.03572420901036821,
+        0.03614850000303704
+      ],
+      "artifact": "artifacts/zstd-02-128KiB.tmlc",
+      "artifact_sha256": "15fa506672766123140d9ad6647ef71da2aed5a46984318816aa54b22ebffc15",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 3,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 65480688,
+      "frame_bytes": 65476560,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131088,
+      "size_pct": 97.5832280216505,
+      "saved_pct": 2.416771978349508,
+      "compress_seconds": 0.06403929200314451,
+      "decompress_seconds": 0.035861833006492816,
+      "decompress_mib_s": 1784.4552295370013,
+      "compress_samples": [
+        0.06562979199225083,
+        0.06403929200314451,
+        0.05937441700370982
+      ],
+      "decompress_samples": [
+        0.03955195800517686,
+        0.035861833006492816,
+        0.03545012501126621
+      ],
+      "artifact": "artifacts/zstd-03-128KiB.tmlc",
+      "artifact_sha256": "633366a57e68e68e7e54b84a5457946785dffdbcce4d430aee819036fc694acd",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 4,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 65486148,
+      "frame_bytes": 65482020,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131088,
+      "size_pct": 97.59136483940962,
+      "saved_pct": 2.4086351605903777,
+      "compress_seconds": 0.06402020799578167,
+      "decompress_seconds": 0.03728833299828693,
+      "decompress_mib_s": 1716.1892287370074,
+      "compress_samples": [
+        0.06077574999653734,
+        0.06402020799578167,
+        0.06568304200482089
+      ],
+      "decompress_samples": [
+        0.03526212500582915,
+        0.03728833299828693,
+        0.03752166699268855
+      ],
+      "artifact": "artifacts/zstd-04-128KiB.tmlc",
+      "artifact_sha256": "e681ffcde1411b379813730af25620bee2fc4729738590bebc0c68d6419156b6",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 5,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 65479234,
+      "frame_bytes": 65475106,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131088,
+      "size_pct": 97.58106118410072,
+      "saved_pct": 2.4189388158992853,
+      "compress_seconds": 0.06796683398715686,
+      "decompress_seconds": 0.03529341600369662,
+      "decompress_mib_s": 1813.1947171822658,
+      "compress_samples": [
+        0.07015299999329727,
+        0.06796683398715686,
+        0.0674883749888977
+      ],
+      "decompress_samples": [
+        0.035785792002570815,
+        0.03529341600369662,
+        0.03528437500062864
+      ],
+      "artifact": "artifacts/zstd-05-128KiB.tmlc",
+      "artifact_sha256": "84f8d5ed1c35f9f0ced1369739971f35823b62f67857d012927a03dc8e85e2f3",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 6,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 65468424,
+      "frame_bytes": 65464296,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131088,
+      "size_pct": 97.56495147714539,
+      "saved_pct": 2.4350485228546215,
+      "compress_seconds": 0.07093195799097884,
+      "decompress_seconds": 0.035123583002132364,
+      "decompress_mib_s": 1821.9620545356568,
+      "compress_samples": [
+        0.06866900000022724,
+        0.07093195799097884,
+        0.07114400000136811
+      ],
+      "decompress_samples": [
+        0.03501458298705984,
+        0.03591429200605489,
+        0.035123583002132364
+      ],
+      "artifact": "artifacts/zstd-06-128KiB.tmlc",
+      "artifact_sha256": "abf7669bef87f254692766109ae20cb876f6aa1c6b5b353bdc66d8fdd9e28ed9",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 7,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 65465597,
+      "frame_bytes": 65461469,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131088,
+      "size_pct": 97.56073851307852,
+      "saved_pct": 2.4392614869214846,
+      "compress_seconds": 0.07298729100148194,
+      "decompress_seconds": 0.03466566700080875,
+      "decompress_mib_s": 1846.029255624182,
+      "compress_samples": [
+        0.07280362500750925,
+        0.07298729100148194,
+        0.0753035829984583
+      ],
+      "decompress_samples": [
+        0.03466566700080875,
+        0.035160416999133304,
+        0.034655625000596046
+      ],
+      "artifact": "artifacts/zstd-07-128KiB.tmlc",
+      "artifact_sha256": "1c2c1688cce05e943ae514bcd7c4e9c730112195db119ffbb037df3871252443",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 8,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 65463819,
+      "frame_bytes": 65459691,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131088,
+      "size_pct": 97.55808883139798,
+      "saved_pct": 2.441911168602018,
+      "compress_seconds": 0.075458790990524,
+      "decompress_seconds": 0.035705959002370946,
+      "decompress_mib_s": 1792.2452508548904,
+      "compress_samples": [
+        0.0735306670103455,
+        0.08114904099784326,
+        0.075458790990524
+      ],
+      "decompress_samples": [
+        0.035855540991178714,
+        0.035705959002370946,
+        0.035503124992828816
+      ],
+      "artifact": "artifacts/zstd-08-128KiB.tmlc",
+      "artifact_sha256": "5d895d2794584d65a167a565cc6d094f9f093375d36574e58ede062ba0199a86",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 9,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 65461786,
+      "frame_bytes": 65457658,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131088,
+      "size_pct": 97.55505913350342,
+      "saved_pct": 2.444940866496581,
+      "compress_seconds": 0.08550674999423791,
+      "decompress_seconds": 0.037461500003701076,
+      "decompress_mib_s": 1708.256088060979,
+      "compress_samples": [
+        0.08131670900911558,
+        0.09400850000383798,
+        0.08550674999423791
+      ],
+      "decompress_samples": [
+        0.037461500003701076,
+        0.04269508300058078,
+        0.036660540994489565
+      ],
+      "artifact": "artifacts/zstd-09-128KiB.tmlc",
+      "artifact_sha256": "e147fe5ff7ad5b46fe42e6a245033d60dd987e57b2f1797ebc6ecf3da7408a5d",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 10,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 65460104,
+      "frame_bytes": 65455976,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131088,
+      "size_pct": 97.55255251675052,
+      "saved_pct": 2.4474474832494764,
+      "compress_seconds": 0.1287282500125002,
+      "decompress_seconds": 0.03907329200592358,
+      "decompress_mib_s": 1637.7897065728985,
+      "compress_samples": [
+        0.1287282500125002,
+        0.10903158299333882,
+        0.13453354200464673
+      ],
+      "decompress_samples": [
+        0.03907329200592358,
+        0.04123962500307243,
+        0.0377270419994602
+      ],
+      "artifact": "artifacts/zstd-10-128KiB.tmlc",
+      "artifact_sha256": "fccb186768905242aff3d90f38c36ccb736741cfab50f2773ef48931de192c0c",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 1,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 66441685,
+      "frame_bytes": 66437557,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131099,
+      "size_pct": 99.01536308686426,
+      "saved_pct": 0.9846369131357502,
+      "compress_seconds": 0.03163029199640732,
+      "decompress_seconds": 0.02591900000697933,
+      "decompress_mib_s": 2468.99322628137,
+      "compress_samples": [
+        0.028303416998824105,
+        0.034328207999351434,
+        0.03163029199640732
+      ],
+      "decompress_samples": [
+        0.02677087500342168,
+        0.02591900000697933,
+        0.019415957998717204
+      ],
+      "artifact": "artifacts/lz4-01-128KiB.tmlc",
+      "artifact_sha256": "8b0a5fc268509a69490a78d7fe13ddd5e42ddebc64a2b3a827e1045e4ca0ddbd",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 2,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 66441685,
+      "frame_bytes": 66437557,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131099,
+      "size_pct": 99.01536308686426,
+      "saved_pct": 0.9846369131357502,
+      "compress_seconds": 0.030701000010594726,
+      "decompress_seconds": 0.02275599999120459,
+      "decompress_mib_s": 2812.174172699639,
+      "compress_samples": [
+        0.03177604099619202,
+        0.02710583400039468,
+        0.030701000010594726
+      ],
+      "decompress_samples": [
+        0.02114554200670682,
+        0.02382954199856613,
+        0.02275599999120459
+      ],
+      "artifact": "artifacts/lz4-02-128KiB.tmlc",
+      "artifact_sha256": "8b0a5fc268509a69490a78d7fe13ddd5e42ddebc64a2b3a827e1045e4ca0ddbd",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 3,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 66334144,
+      "frame_bytes": 66330016,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131099,
+      "size_pct": 98.85509907246238,
+      "saved_pct": 1.1449009275376176,
+      "compress_seconds": 0.953499915995053,
+      "decompress_seconds": 0.017737916990881786,
+      "decompress_mib_s": 3607.742413165814,
+      "compress_samples": [
+        1.0089049999951385,
+        0.9398110000038287,
+        0.953499915995053
+      ],
+      "decompress_samples": [
+        0.017454749991884455,
+        0.017770292004570365,
+        0.017737916990881786
+      ],
+      "artifact": "artifacts/lz4-03-128KiB.tmlc",
+      "artifact_sha256": "dce3e96f347d4b4d2083011958211ea45ab3d4ed77a0defe90c652d3c30bb2c2",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 4,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 66325820,
+      "frame_bytes": 66321692,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131099,
+      "size_pct": 98.84269415102888,
+      "saved_pct": 1.157305848971124,
+      "compress_seconds": 1.0492185000039171,
+      "decompress_seconds": 0.017336500008241273,
+      "decompress_mib_s": 3691.277675355344,
+      "compress_samples": [
+        1.0871935830073198,
+        1.0492185000039171,
+        0.9733808750024764
+      ],
+      "decompress_samples": [
+        0.017336500008241273,
+        0.017951374989934266,
+        0.017136624999693595
+      ],
+      "artifact": "artifacts/lz4-04-128KiB.tmlc",
+      "artifact_sha256": "7d5149721163f7a86a015683a8ea89be4a73ffc6b2cd8c119df95d6b1121f1cd",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 5,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 66321622,
+      "frame_bytes": 66317494,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131099,
+      "size_pct": 98.83643804096425,
+      "saved_pct": 1.1635619590357416,
+      "compress_seconds": 0.9941304999956628,
+      "decompress_seconds": 0.018120916007319465,
+      "decompress_mib_s": 3531.4900981479154,
+      "compress_samples": [
+        0.9824395829928108,
+        0.9941304999956628,
+        0.9966795830114279
+      ],
+      "decompress_samples": [
+        0.018735834004473872,
+        0.018120916007319465,
+        0.01729174998763483
+      ],
+      "artifact": "artifacts/lz4-05-128KiB.tmlc",
+      "artifact_sha256": "92971d5b624d7cb2a310030fe3fc4486b6dd9567e7a5d12019378f4782fd807d",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 6,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 66319672,
+      "frame_bytes": 66315544,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131099,
+      "size_pct": 98.83353203462171,
+      "saved_pct": 1.1664679653782928,
+      "compress_seconds": 0.9826267500029644,
+      "decompress_seconds": 0.017693083005724475,
+      "decompress_mib_s": 3616.8843738829455,
+      "compress_samples": [
+        0.9773332500044489,
+        0.9983227089978755,
+        0.9826267500029644
+      ],
+      "decompress_samples": [
+        0.01756049999676179,
+        0.01778483300586231,
+        0.017693083005724475
+      ],
+      "artifact": "artifacts/lz4-06-128KiB.tmlc",
+      "artifact_sha256": "0335d16ac96dbd1892e750fed9b72a85a45d38b4dfcb2fa070bf01115142ef84",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 7,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 66318630,
+      "frame_bytes": 66314502,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131099,
+      "size_pct": 98.83197918405303,
+      "saved_pct": 1.1680208159469685,
+      "compress_seconds": 0.9806665829964913,
+      "decompress_seconds": 0.017806750009185635,
+      "decompress_mib_s": 3593.796476965614,
+      "compress_samples": [
+        0.9806665829964913,
+        0.977743791998364,
+        1.0357235420087818
+      ],
+      "decompress_samples": [
+        0.017454250002629124,
+        0.019255457998951897,
+        0.017806750009185635
+      ],
+      "artifact": "artifacts/lz4-07-128KiB.tmlc",
+      "artifact_sha256": "162181a6a9586ba0733a32e9a2788584e06e1cf6b0d078440f0e14a9fbb6f1df",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 8,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 66317983,
+      "frame_bytes": 66313855,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131099,
+      "size_pct": 98.83101498605117,
+      "saved_pct": 1.1689850139488311,
+      "compress_seconds": 1.0014331660058815,
+      "decompress_seconds": 0.017910583002958447,
+      "decompress_mib_s": 3572.9621664827064,
+      "compress_samples": [
+        1.0370207500091055,
+        1.0014331660058815,
+        0.9761235420010053
+      ],
+      "decompress_samples": [
+        0.018685624992940575,
+        0.017910583002958447,
+        0.017514666993520223
+      ],
+      "artifact": "artifacts/lz4-08-128KiB.tmlc",
+      "artifact_sha256": "6d70fb95d56c8b39264ad8113d5b9044c0422165a0aa889a0a1b3b1f3a3a0a6e",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 9,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 66317540,
+      "frame_bytes": 66313412,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131099,
+      "size_pct": 98.83035480102052,
+      "saved_pct": 1.1696451989794743,
+      "compress_seconds": 1.0063948340102797,
+      "decompress_seconds": 0.01763829200353939,
+      "decompress_mib_s": 3628.119742908067,
+      "compress_samples": [
+        1.0281650410033762,
+        1.0063948340102797,
+        0.9772345829987898
+      ],
+      "decompress_samples": [
+        0.019027333008125424,
+        0.01763829200353939,
+        0.017287208000198007
+      ],
+      "artifact": "artifacts/lz4-09-128KiB.tmlc",
+      "artifact_sha256": "45dd39aa9db946d23dab88a0b83873c9203d4d60b8f27079ac1347e0fe2bb1bc",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 10,
+      "chunk_bytes": 131072,
+      "chunks": 512,
+      "file_bytes": 66322792,
+      "frame_bytes": 66318664,
+      "index_bytes": 4128,
+      "largest_frame_bytes": 131099,
+      "size_pct": 98.83818164476979,
+      "saved_pct": 1.1618183552302153,
+      "compress_seconds": 1.203152832997148,
+      "decompress_seconds": 0.018235750001622364,
+      "decompress_mib_s": 3509.2516317412483,
+      "compress_samples": [
+        1.203152832997148,
+        1.1732717499980936,
+        1.2034985420032172
+      ],
+      "decompress_samples": [
+        0.018235750001622364,
+        0.01802408299408853,
+        0.020768583999597467
+      ],
+      "artifact": "artifacts/lz4-10-128KiB.tmlc",
+      "artifact_sha256": "1c12e8f50ffb508a1bb4e9bfc0a9cee765c2dda34ec74f7083994d158db55e92",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 1,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 65480477,
+      "frame_bytes": 65478381,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260115,
+      "size_pct": 97.58291357686163,
+      "saved_pct": 2.4170864231383704,
+      "compress_seconds": 0.0608290000091074,
+      "decompress_seconds": 0.034405415994115174,
+      "decompress_mib_s": 1859.9930737696789,
+      "compress_samples": [
+        0.0608290000091074,
+        0.0619679169903975,
+        0.05515604199899826
+      ],
+      "decompress_samples": [
+        0.035070249999989755,
+        0.03440133300318848,
+        0.034405415994115174
+      ],
+      "artifact": "artifacts/zstd-01-254KiB.tmlc",
+      "artifact_sha256": "a33d04410e51a8c481ffa412fd27d167355643c3053c7613f6606ec9fc7791d4",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 2,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 65471832,
+      "frame_bytes": 65469736,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260115,
+      "size_pct": 97.57003028207635,
+      "saved_pct": 2.4299697179236524,
+      "compress_seconds": 0.08191499998793006,
+      "decompress_seconds": 0.04307758298818953,
+      "decompress_mib_s": 1485.5484224071663,
+      "compress_samples": [
+        0.08191499998793006,
+        0.09057029099494684,
+        0.058953415995347314
+      ],
+      "decompress_samples": [
+        0.04307758298818953,
+        0.044272916013142094,
+        0.0357522499980405
+      ],
+      "artifact": "artifacts/zstd-02-254KiB.tmlc",
+      "artifact_sha256": "f86958f87218fc47e22b6f2bfad640483a718e8193cad4cf20216e8a452f6f6f",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 3,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 65473737,
+      "frame_bytes": 65471641,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260115,
+      "size_pct": 97.57286922673407,
+      "saved_pct": 2.4271307732659286,
+      "compress_seconds": 0.058678000001236796,
+      "decompress_seconds": 0.03441516699967906,
+      "decompress_mib_s": 1859.4660734848542,
+      "compress_samples": [
+        0.0599776660092175,
+        0.05861929200182203,
+        0.058678000001236796
+      ],
+      "decompress_samples": [
+        0.03490404201147612,
+        0.03441516699967906,
+        0.03428320901002735
+      ],
+      "artifact": "artifacts/zstd-03-254KiB.tmlc",
+      "artifact_sha256": "73e8b9e2f88f1e58d2dffe364a9e29ed51875e256e8ad43c7dbe7a7921ae801e",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 4,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 65458827,
+      "frame_bytes": 65456731,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260115,
+      "size_pct": 97.55064945516106,
+      "saved_pct": 2.449350544838935,
+      "compress_seconds": 0.06909441699099261,
+      "decompress_seconds": 0.035260499993455596,
+      "decompress_mib_s": 1814.8873516001222,
+      "compress_samples": [
+        0.06909441699099261,
+        0.06823600000643637,
+        0.0727198750100797
+      ],
+      "decompress_samples": [
+        0.035260499993455596,
+        0.03542687500885222,
+        0.034942416998092085
+      ],
+      "artifact": "artifacts/zstd-04-254KiB.tmlc",
+      "artifact_sha256": "f344d730ed645f249b56e37ee343386993102596c85642ff48e3a7941202f6a3",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 5,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 65455619,
+      "frame_bytes": 65453523,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260115,
+      "size_pct": 97.54586870216266,
+      "saved_pct": 2.4541312978373364,
+      "compress_seconds": 0.07365700000082143,
+      "decompress_seconds": 0.034744832999422215,
+      "decompress_mib_s": 1841.8230834577023,
+      "compress_samples": [
+        0.07048429100541398,
+        0.07778420799877495,
+        0.07365700000082143
+      ],
+      "decompress_samples": [
+        0.03423425000801217,
+        0.03640791599173099,
+        0.034744832999422215
+      ],
+      "artifact": "artifacts/zstd-05-254KiB.tmlc",
+      "artifact_sha256": "3c6aae45081a55b0035042d5ce86380afde32225185abb44929439742b90f3ac",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 6,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 65450444,
+      "frame_bytes": 65448348,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260115,
+      "size_pct": 97.53815660840745,
+      "saved_pct": 2.4618433915925553,
+      "compress_seconds": 0.0820536249957513,
+      "decompress_seconds": 0.035614624997833744,
+      "decompress_mib_s": 1796.8414788337984,
+      "compress_samples": [
+        0.07599616699735634,
+        0.0820536249957513,
+        0.08692345800227486
+      ],
+      "decompress_samples": [
+        0.035614624997833744,
+        0.0357245830091415,
+        0.034740041999612004
+      ],
+      "artifact": "artifacts/zstd-06-254KiB.tmlc",
+      "artifact_sha256": "762f421c84da2dce1601b6a9342ecc971d580806dfcf73bd29f0d69194a89702",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 7,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 65452151,
+      "frame_bytes": 65450055,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260115,
+      "size_pct": 97.54070048165192,
+      "saved_pct": 2.4592995183480792,
+      "compress_seconds": 0.07821012500789948,
+      "decompress_seconds": 0.035312291991431266,
+      "decompress_mib_s": 1812.2254841103836,
+      "compress_samples": [
+        0.07821012500789948,
+        0.07756474999769125,
+        0.08075400000961963
+      ],
+      "decompress_samples": [
+        0.034294916011276655,
+        0.035312291991431266,
+        0.03606237500207499
+      ],
+      "artifact": "artifacts/zstd-07-254KiB.tmlc",
+      "artifact_sha256": "aa68c543ef9d9609b0ca68e286fd85734cffdc0f1b4e43caa2146d570449d66b",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 8,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 65449192,
+      "frame_bytes": 65447096,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260115,
+      "size_pct": 97.53629080330957,
+      "saved_pct": 2.4637091966904334,
+      "compress_seconds": 0.08841291700082365,
+      "decompress_seconds": 0.0360156660026405,
+      "decompress_mib_s": 1776.8333214920146,
+      "compress_samples": [
+        0.08841291700082365,
+        0.08324875000107568,
+        0.0956193330057431
+      ],
+      "decompress_samples": [
+        0.0360156660026405,
+        0.036615916993469,
+        0.03412687499076128
+      ],
+      "artifact": "artifacts/zstd-08-254KiB.tmlc",
+      "artifact_sha256": "c97182ad1ac2c32c40561e656f7c341bee1a71687cf4a43714748f85265dd3b1",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 9,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 65446875,
+      "frame_bytes": 65444779,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260115,
+      "size_pct": 97.53283787167076,
+      "saved_pct": 2.4671621283292366,
+      "compress_seconds": 0.0847793340071803,
+      "decompress_seconds": 0.034031499992124736,
+      "decompress_mib_s": 1880.4294686989297,
+      "compress_samples": [
+        0.08398475000285544,
+        0.08520695799961686,
+        0.0847793340071803
+      ],
+      "decompress_samples": [
+        0.03409362499951385,
+        0.03387937499792315,
+        0.034031499992124736
+      ],
+      "artifact": "artifacts/zstd-09-254KiB.tmlc",
+      "artifact_sha256": "81a242f29eada23ed3a20c6c98bf8202d0075aecbee01739dbc9377ae38b625d",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 10,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 65445087,
+      "frame_bytes": 65442991,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260115,
+      "size_pct": 97.5301732873936,
+      "saved_pct": 2.4698267126064044,
+      "compress_seconds": 0.09110975000658073,
+      "decompress_seconds": 0.034474917003535666,
+      "decompress_mib_s": 1856.2433505686379,
+      "compress_samples": [
+        0.09238899999763817,
+        0.08770633299718611,
+        0.09110975000658073
+      ],
+      "decompress_samples": [
+        0.034474917003535666,
+        0.03407854199758731,
+        0.03475958299532067
+      ],
+      "artifact": "artifacts/zstd-10-254KiB.tmlc",
+      "artifact_sha256": "3699afd042744ed2f85ba4f420e1755b13094b899c60327eb90f183db8ba578d",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 1,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 66430293,
+      "frame_bytes": 66428197,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260123,
+      "size_pct": 98.99838604878514,
+      "saved_pct": 1.0016139512148636,
+      "compress_seconds": 0.022941209012060426,
+      "decompress_seconds": 0.01693387499835808,
+      "decompress_mib_s": 3779.042626417382,
+      "compress_samples": [
+        0.022963124996749684,
+        0.022633624990703538,
+        0.022941209012060426
+      ],
+      "decompress_samples": [
+        0.01693387499835808,
+        0.017028417001711205,
+        0.01623041600396391
+      ],
+      "artifact": "artifacts/lz4-01-254KiB.tmlc",
+      "artifact_sha256": "c066b09156cc7932b74c5a3b355811055f65460b0a06cf582fb4cf10557829b9",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 2,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 66430293,
+      "frame_bytes": 66428197,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260123,
+      "size_pct": 98.99838604878514,
+      "saved_pct": 1.0016139512148636,
+      "compress_seconds": 0.022795458004111424,
+      "decompress_seconds": 0.016721834006602876,
+      "decompress_mib_s": 3826.9627257362913,
+      "compress_samples": [
+        0.022921416006283835,
+        0.022795458004111424,
+        0.02275108300091233
+      ],
+      "decompress_samples": [
+        0.016721834006602876,
+        0.01662012499582488,
+        0.016844166995724663
+      ],
+      "artifact": "artifacts/lz4-02-254KiB.tmlc",
+      "artifact_sha256": "c066b09156cc7932b74c5a3b355811055f65460b0a06cf582fb4cf10557829b9",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 3,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 66317069,
+      "frame_bytes": 66314973,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260123,
+      "size_pct": 98.82965288871934,
+      "saved_pct": 1.1703471112806674,
+      "compress_seconds": 1.0224742919963319,
+      "decompress_seconds": 0.016586832993198186,
+      "decompress_mib_s": 3858.11055524951,
+      "compress_samples": [
+        1.0224742919963319,
+        1.0332334999984596,
+        1.0224505420046626
+      ],
+      "decompress_samples": [
+        0.01656258299772162,
+        0.016586832993198186,
+        0.01695862499764189
+      ],
+      "artifact": "artifacts/lz4-03-254KiB.tmlc",
+      "artifact_sha256": "aca4641a1b21de5c7d765ce8e55d5eb8dbd2eb9c63ec3ddccdfb8c826be25424",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 4,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 66307950,
+      "frame_bytes": 66305854,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260123,
+      "size_pct": 98.81606321085386,
+      "saved_pct": 1.183936789146145,
+      "compress_seconds": 1.0773396659933496,
+      "decompress_seconds": 0.017348125009448268,
+      "decompress_mib_s": 3688.8041453682135,
+      "compress_samples": [
+        1.0773396659933496,
+        1.0855071250116453,
+        1.0545917909912532
+      ],
+      "decompress_samples": [
+        0.017492958009825088,
+        0.017348125009448268,
+        0.016535750008188188
+      ],
+      "artifact": "artifacts/lz4-04-254KiB.tmlc",
+      "artifact_sha256": "0b14e3e5f8eef16644a1849f90c4ced321acaf3311d46f752d9323cf7aabc25c",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 5,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 66303230,
+      "frame_bytes": 66301134,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260123,
+      "size_pct": 98.80902918524524,
+      "saved_pct": 1.190970814754766,
+      "compress_seconds": 1.0669943329994567,
+      "decompress_seconds": 0.016776333999587223,
+      "decompress_mib_s": 3814.5303646668754,
+      "compress_samples": [
+        1.0669943329994567,
+        1.0656222499965224,
+        1.0676467079902068
+      ],
+      "decompress_samples": [
+        0.016461000006529503,
+        0.016776333999587223,
+        0.016944082992267795
+      ],
+      "artifact": "artifacts/lz4-05-254KiB.tmlc",
+      "artifact_sha256": "15a8fc81389ae5c63a592609331265e9a873e7ec2d8aedb8af28077b30b106fc",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 6,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 66301047,
+      "frame_bytes": 66298951,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260123,
+      "size_pct": 98.80577594840125,
+      "saved_pct": 1.1942240515987468,
+      "compress_seconds": 1.107135832993663,
+      "decompress_seconds": 0.016865291006979533,
+      "decompress_mib_s": 3794.410391302204,
+      "compress_samples": [
+        1.1046837089961627,
+        1.107135832993663,
+        1.1090384590061149
+      ],
+      "decompress_samples": [
+        0.017803541995817795,
+        0.016865291006979533,
+        0.016671208999468945
+      ],
+      "artifact": "artifacts/lz4-06-254KiB.tmlc",
+      "artifact_sha256": "da8fc0c135703ac978ee69af7605a72c81a76919070bd08ad7a7e8eaa9c0a769",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 7,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 66299904,
+      "frame_bytes": 66297808,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260123,
+      "size_pct": 98.80407258160662,
+      "saved_pct": 1.1959274183933832,
+      "compress_seconds": 1.108434291993035,
+      "decompress_seconds": 0.017342125007417053,
+      "decompress_mib_s": 3690.0803922154423,
+      "compress_samples": [
+        1.1142638749879552,
+        1.108434291993035,
+        1.095697000011569
+      ],
+      "decompress_samples": [
+        0.017506459000287578,
+        0.017342125007417053,
+        0.017240041008335538
+      ],
+      "artifact": "artifacts/lz4-07-254KiB.tmlc",
+      "artifact_sha256": "19530e187cb146c404d2de836d0d4792e562aec54a7a432432345f89b08c91f6",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 8,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 66299206,
+      "frame_bytes": 66297110,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260123,
+      "size_pct": 98.80303238036196,
+      "saved_pct": 1.1969676196380452,
+      "compress_seconds": 1.0876788329915144,
+      "decompress_seconds": 0.016976707993308082,
+      "decompress_mib_s": 3769.507932541691,
+      "compress_samples": [
+        1.0839735000045039,
+        1.0896574159996817,
+        1.0876788329915144
+      ],
+      "decompress_samples": [
+        0.016824000005726703,
+        0.016976707993308082,
+        0.017460624992963858
+      ],
+      "artifact": "artifacts/lz4-08-254KiB.tmlc",
+      "artifact_sha256": "d228254b38f6adc545a3cdc00e141d5283483291475c37662d5bb6a9bff93843",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 9,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 66298719,
+      "frame_bytes": 66296623,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260123,
+      "size_pct": 98.80230662390615,
+      "saved_pct": 1.1976933760938557,
+      "compress_seconds": 1.0934249169949908,
+      "decompress_seconds": 0.0175079999899026,
+      "decompress_mib_s": 3655.119687350123,
+      "compress_samples": [
+        1.0978633749909932,
+        1.0902916659979383,
+        1.0934249169949908
+      ],
+      "decompress_samples": [
+        0.019566707997000776,
+        0.016332375002093613,
+        0.0175079999899026
+      ],
+      "artifact": "artifacts/lz4-09-254KiB.tmlc",
+      "artifact_sha256": "e086ac968594279ee3a26be5fcc68f13ce929ff35fe4518efdc654ce1d830028",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 10,
+      "chunk_bytes": 260096,
+      "chunks": 258,
+      "file_bytes": 66304194,
+      "frame_bytes": 66302098,
+      "index_bytes": 2096,
+      "largest_frame_bytes": 260123,
+      "size_pct": 98.81046579556022,
+      "saved_pct": 1.1895342044397794,
+      "compress_seconds": 1.2852812920027645,
+      "decompress_seconds": 0.017275166988838464,
+      "decompress_mib_s": 3704.383030888521,
+      "compress_samples": [
+        1.3023977919947356,
+        1.274952708001365,
+        1.2852812920027645
+      ],
+      "decompress_samples": [
+        0.01708291699469555,
+        0.017275166988838464,
+        0.017532333004055545
+      ],
+      "artifact": "artifacts/lz4-10-254KiB.tmlc",
+      "artifact_sha256": "ca187f0a3655994d97b558c8074c07de8dabcd161e20ae89a4236756c67fa110",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 1,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 65476226,
+      "frame_bytes": 65475170,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524313,
+      "size_pct": 97.57657848303488,
+      "saved_pct": 2.4234215169651185,
+      "compress_seconds": 0.05872695900325198,
+      "decompress_seconds": 0.03393362500355579,
+      "decompress_mib_s": 1885.8532043809953,
+      "compress_samples": [
+        0.05872695900325198,
+        0.05796720800572075,
+        0.05939991699415259
+      ],
+      "decompress_samples": [
+        0.03393362500355579,
+        0.033863375007058494,
+        0.03429725000751205
+      ],
+      "artifact": "artifacts/zstd-01-512KiB.tmlc",
+      "artifact_sha256": "b5f407c87ee739716799aa31b85315dd600d9da5d917d6b5bcf8e053641a089e",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 2,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 65467134,
+      "frame_bytes": 65466078,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524313,
+      "size_pct": 97.5630290421803,
+      "saved_pct": 2.436970957819695,
+      "compress_seconds": 0.059388875000877306,
+      "decompress_seconds": 0.034422374999849126,
+      "decompress_mib_s": 1859.076703728294,
+      "compress_samples": [
+        0.059841666006832384,
+        0.059388875000877306,
+        0.057165999998687766
+      ],
+      "decompress_samples": [
+        0.034422374999849126,
+        0.03464929100300651,
+        0.03430804199888371
+      ],
+      "artifact": "artifacts/zstd-02-512KiB.tmlc",
+      "artifact_sha256": "7c114aafcd0850d136e5ff49df878cba8c631ea3c8756c81d83b6fc615c0019d",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 3,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 65483095,
+      "frame_bytes": 65482039,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524313,
+      "size_pct": 97.58681507665897,
+      "saved_pct": 2.4131849233410385,
+      "compress_seconds": 0.07232579099945724,
+      "decompress_seconds": 0.034798541993950494,
+      "decompress_mib_s": 1838.9803647619397,
+      "compress_samples": [
+        0.07378112500009593,
+        0.07232579099945724,
+        0.0710027080058353
+      ],
+      "decompress_samples": [
+        0.03526608399988618,
+        0.034798541993950494,
+        0.034335707998252474
+      ],
+      "artifact": "artifacts/zstd-03-512KiB.tmlc",
+      "artifact_sha256": "625491dff06d9938f8bd498ded24187ba6beacda3742f8fb0ed17e7506101735",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 4,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 65481937,
+      "frame_bytes": 65480881,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524313,
+      "size_pct": 97.58508935596937,
+      "saved_pct": 2.414910644030621,
+      "compress_seconds": 0.0752820839988999,
+      "decompress_seconds": 0.03435145800176542,
+      "decompress_mib_s": 1862.914681697933,
+      "compress_samples": [
+        0.0752820839988999,
+        0.07597920899570454,
+        0.07369925000239164
+      ],
+      "decompress_samples": [
+        0.034076042007654905,
+        0.03435145800176542,
+        0.034939292003400624
+      ],
+      "artifact": "artifacts/zstd-04-512KiB.tmlc",
+      "artifact_sha256": "b0ebe6b63203200932a866bed7b320d72e46ab9e42bdac980e0088aa48f5715b",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 5,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 65446592,
+      "frame_bytes": 65445536,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524313,
+      "size_pct": 97.53241612818617,
+      "saved_pct": 2.4675838718138277,
+      "compress_seconds": 0.07423066699993797,
+      "decompress_seconds": 0.0337582499923883,
+      "decompress_mib_s": 1895.6502621921418,
+      "compress_samples": [
+        0.07396154200250749,
+        0.07464087499829475,
+        0.07423066699993797
+      ],
+      "decompress_samples": [
+        0.0333524169982411,
+        0.03422433299419936,
+        0.0337582499923883
+      ],
+      "artifact": "artifacts/zstd-05-512KiB.tmlc",
+      "artifact_sha256": "1ebd6470a9413046547b1201ac33d96b0151d8e5af2cc4f8344f5f45f25f1630",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 6,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 65438584,
+      "frame_bytes": 65437528,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524313,
+      "size_pct": 97.52048212880612,
+      "saved_pct": 2.4795178711938815,
+      "compress_seconds": 0.07594933299697004,
+      "decompress_seconds": 0.03381345799425617,
+      "decompress_mib_s": 1892.5551908973423,
+      "compress_samples": [
+        0.07852008400368504,
+        0.0758059170038905,
+        0.07594933299697004
+      ],
+      "decompress_samples": [
+        0.03381345799425617,
+        0.03376358399691526,
+        0.03416954098793212
+      ],
+      "artifact": "artifacts/zstd-06-512KiB.tmlc",
+      "artifact_sha256": "7490a3e2fe624f513531092c940df59819f905efafca881696a059b0863bb86f",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 7,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 65436670,
+      "frame_bytes": 65435614,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524313,
+      "size_pct": 97.51762977181144,
+      "saved_pct": 2.4823702281885573,
+      "compress_seconds": 0.08450587499828544,
+      "decompress_seconds": 0.03433049999875948,
+      "decompress_mib_s": 1864.0519494773205,
+      "compress_samples": [
+        0.08662200000253506,
+        0.08450587499828544,
+        0.08364687499124557
+      ],
+      "decompress_samples": [
+        0.03433049999875948,
+        0.03415062501153443,
+        0.03445574999204837
+      ],
+      "artifact": "artifacts/zstd-07-512KiB.tmlc",
+      "artifact_sha256": "d5f4d1382695a7ccc3bdce63913561a91d90c130c282ad5ca0a2d22be4a341ee",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 8,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 65436328,
+      "frame_bytes": 65435272,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524313,
+      "size_pct": 97.51712010300675,
+      "saved_pct": 2.482879896993251,
+      "compress_seconds": 0.09033120899403002,
+      "decompress_seconds": 0.03437220900377724,
+      "decompress_mib_s": 1861.7900130360058,
+      "compress_samples": [
+        0.09033120899403002,
+        0.08939366599952336,
+        0.09054345800541341
+      ],
+      "decompress_samples": [
+        0.033790666988352314,
+        0.03437220900377724,
+        0.03572291700402275
+      ],
+      "artifact": "artifacts/zstd-08-512KiB.tmlc",
+      "artifact_sha256": "d85e7278b2e85a0ce2e4edb39fdc4367206dcae4641c82c90848c8fe93ea823c",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 9,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 65436328,
+      "frame_bytes": 65435272,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524313,
+      "size_pct": 97.51712010300675,
+      "saved_pct": 2.482879896993251,
+      "compress_seconds": 0.09141791700676549,
+      "decompress_seconds": 0.034474750005756505,
+      "decompress_mib_s": 1856.2523423239682,
+      "compress_samples": [
+        0.09580366700538434,
+        0.09010233399749268,
+        0.09141791700676549
+      ],
+      "decompress_samples": [
+        0.034474750005756505,
+        0.03476333399885334,
+        0.03404758400574792
+      ],
+      "artifact": "artifacts/zstd-09-512KiB.tmlc",
+      "artifact_sha256": "d85e7278b2e85a0ce2e4edb39fdc4367206dcae4641c82c90848c8fe93ea823c",
+      "verified": true
+    },
+    {
+      "codec": "zstd",
+      "level": 10,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 65434385,
+      "frame_bytes": 65433329,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524313,
+      "size_pct": 97.51422452848185,
+      "saved_pct": 2.485775471518159,
+      "compress_seconds": 0.09520783298648894,
+      "decompress_seconds": 0.03407454100670293,
+      "decompress_mib_s": 1878.0542175646706,
+      "compress_samples": [
+        0.09520783298648894,
+        0.09410474999458529,
+        0.09617741699912585
+      ],
+      "decompress_samples": [
+        0.03407454100670293,
+        0.03526629200496245,
+        0.03400758400675841
+      ],
+      "artifact": "artifacts/zstd-10-512KiB.tmlc",
+      "artifact_sha256": "ca4ee0346734f1e2784a054dbb50565c22628c3dc420eba6ae542fbbd6990612",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 1,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 66423633,
+      "frame_bytes": 66422577,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524315,
+      "size_pct": 98.9884609194306,
+      "saved_pct": 1.0115390805694013,
+      "compress_seconds": 0.021689792003598996,
+      "decompress_seconds": 0.01670350000495091,
+      "decompress_mib_s": 3831.1632550214626,
+      "compress_samples": [
+        0.022156792008900084,
+        0.021637416997691616,
+        0.021689792003598996
+      ],
+      "decompress_samples": [
+        0.01697862498986069,
+        0.01670350000495091,
+        0.01628891700238455
+      ],
+      "artifact": "artifacts/lz4-01-512KiB.tmlc",
+      "artifact_sha256": "77880128d5817e9f299e0b8946b053d2f472f14360bfd2392e5c6044c043bda9",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 2,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 66423633,
+      "frame_bytes": 66422577,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524315,
+      "size_pct": 98.9884609194306,
+      "saved_pct": 1.0115390805694013,
+      "compress_seconds": 0.021585541995591484,
+      "decompress_seconds": 0.01644224999472499,
+      "decompress_mib_s": 3892.036398287904,
+      "compress_samples": [
+        0.020847000007051975,
+        0.021881541004404426,
+        0.021585541995591484
+      ],
+      "decompress_samples": [
+        0.016202667000470683,
+        0.017080292003811337,
+        0.01644224999472499
+      ],
+      "artifact": "artifacts/lz4-02-512KiB.tmlc",
+      "artifact_sha256": "77880128d5817e9f299e0b8946b053d2f472f14360bfd2392e5c6044c043bda9",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 3,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 66307096,
+      "frame_bytes": 66306040,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524315,
+      "size_pct": 98.8147905291018,
+      "saved_pct": 1.1852094708982075,
+      "compress_seconds": 1.1006711660011206,
+      "decompress_seconds": 0.019375457995920442,
+      "decompress_mib_s": 3302.8295621550124,
+      "compress_samples": [
+        1.0803607910056598,
+        1.1976467500062427,
+        1.1006711660011206
+      ],
+      "decompress_samples": [
+        0.020105458999751136,
+        0.019375457995920442,
+        0.01609629199083429
+      ],
+      "artifact": "artifacts/lz4-03-512KiB.tmlc",
+      "artifact_sha256": "b1354b5a5fab682df3e37c992cf7114335a815d002fd5f8604b7534c126ee374",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 4,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 66297537,
+      "frame_bytes": 66296481,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524315,
+      "size_pct": 98.80054513698467,
+      "saved_pct": 1.1994548630153368,
+      "compress_seconds": 1.218092458002502,
+      "decompress_seconds": 0.019699000011314638,
+      "decompress_mib_s": 3248.5829439292456,
+      "compress_samples": [
+        1.111804125001072,
+        1.2646793750027427,
+        1.218092458002502
+      ],
+      "decompress_samples": [
+        0.016390083997976035,
+        0.020964833005564287,
+        0.019699000011314638
+      ],
+      "artifact": "artifacts/lz4-04-512KiB.tmlc",
+      "artifact_sha256": "5ba89e76e9d648177413c57315fe4f3ced34e24e4b78c420fd72b653aa61dccc",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 5,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 66292528,
+      "frame_bytes": 66291472,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524315,
+      "size_pct": 98.79308042633347,
+      "saved_pct": 1.2069195736665206,
+      "compress_seconds": 1.1883422910032095,
+      "decompress_seconds": 0.017585084002348594,
+      "decompress_mib_s": 3639.097512452712,
+      "compress_samples": [
+        1.2636359589960193,
+        1.1883422910032095,
+        1.1581642499950249
+      ],
+      "decompress_samples": [
+        0.017585084002348594,
+        0.018425708010909148,
+        0.016175374999875203
+      ],
+      "artifact": "artifacts/lz4-05-512KiB.tmlc",
+      "artifact_sha256": "e952ec274d9d422bec06c1542b4f6f35c6b19d9e54e222f3bec09fca80e06724",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 6,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 66290197,
+      "frame_bytes": 66289141,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524315,
+      "size_pct": 98.7896066310594,
+      "saved_pct": 1.2103933689405988,
+      "compress_seconds": 1.179895374996704,
+      "decompress_seconds": 0.01626445799774956,
+      "decompress_mib_s": 3934.58149408196,
+      "compress_samples": [
+        1.179895374996704,
+        1.2353376250102883,
+        1.128276499992353
+      ],
+      "decompress_samples": [
+        0.01626445799774956,
+        0.016393124999012798,
+        0.015812666999408975
+      ],
+      "artifact": "artifacts/lz4-06-512KiB.tmlc",
+      "artifact_sha256": "38a756e8ec6cff72fb25b02e098fed24fe650e792510c09d39f27be73e37f7ec",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 7,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 66289018,
+      "frame_bytes": 66287962,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524315,
+      "size_pct": 98.7878496149169,
+      "saved_pct": 1.2121503850830995,
+      "compress_seconds": 1.1302877499983879,
+      "decompress_seconds": 0.016653250000672415,
+      "decompress_mib_s": 3842.723519231072,
+      "compress_samples": [
+        1.1420317919983063,
+        1.1238544170046225,
+        1.1302877499983879
+      ],
+      "decompress_samples": [
+        0.016653250000672415,
+        0.017312790994765237,
+        0.01590687500720378
+      ],
+      "artifact": "artifacts/lz4-07-512KiB.tmlc",
+      "artifact_sha256": "d4f813ef962224f917f2535800507fb099e49ec582c4add245878290aaff7cda",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 8,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 66288305,
+      "frame_bytes": 66287249,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524315,
+      "size_pct": 98.7867870597773,
+      "saved_pct": 1.2132129402227076,
+      "compress_seconds": 1.1679016669950215,
+      "decompress_seconds": 0.017542166999191977,
+      "decompress_mib_s": 3648.0005835177844,
+      "compress_samples": [
+        1.1582393329881597,
+        1.1963586670026416,
+        1.1679016669950215
+      ],
+      "decompress_samples": [
+        0.017542166999191977,
+        0.018169834002037533,
+        0.016523041005712003
+      ],
+      "artifact": "artifacts/lz4-08-512KiB.tmlc",
+      "artifact_sha256": "991e7c4fee1d156c6488b7175542e6efdb8155cbb1014d3f41e8527a4b7d6adc",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 9,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 66287827,
+      "frame_bytes": 66286771,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524315,
+      "size_pct": 98.78607471565846,
+      "saved_pct": 1.2139252843415438,
+      "compress_seconds": 1.123419957992155,
+      "decompress_seconds": 0.01619937500800006,
+      "decompress_mib_s": 3950.3891611630324,
+      "compress_samples": [
+        1.123419957992155,
+        1.1104614999931073,
+        1.1409606250090292
+      ],
+      "decompress_samples": [
+        0.01619937500800006,
+        0.016017832997022197,
+        0.0164181670115795
+      ],
+      "artifact": "artifacts/lz4-09-512KiB.tmlc",
+      "artifact_sha256": "1b7392d1b6e0041292d8d7bfa4810e4311ac2cf1fb154f3d13b894d57749f34f",
+      "verified": true
+    },
+    {
+      "codec": "lz4",
+      "level": 10,
+      "chunk_bytes": 524288,
+      "chunks": 128,
+      "file_bytes": 66293410,
+      "frame_bytes": 66292354,
+      "index_bytes": 1056,
+      "largest_frame_bytes": 524315,
+      "size_pct": 98.79439483535612,
+      "saved_pct": 1.205605164643886,
+      "compress_seconds": 1.3124575830006506,
+      "decompress_seconds": 0.01591379199817311,
+      "decompress_mib_s": 4021.2813801113643,
+      "compress_samples": [
+        1.280960165997385,
+        1.3187596250063507,
+        1.3124575830006506
+      ],
+      "decompress_samples": [
+        0.01591379199817311,
+        0.01668575000076089,
+        0.01588616700610146
+      ],
+      "artifact": "artifacts/lz4-10-512KiB.tmlc",
+      "artifact_sha256": "399405e1b768c9ef8911aff3d5bd1df817a115144f997fe8563a1c8be402288b",
+      "verified": true
+    }
+  ]
+}

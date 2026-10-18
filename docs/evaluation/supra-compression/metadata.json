@@ -1,0 +1,14 @@
+{
+  "date_utc": "2026-10-18T15:54:48Z",
+  "source": "build/model-playground/supra/Supra2-100M-Instruct-Q4_K_M.gguf",
+  "source_bytes": 67102400,
+  "source_sha256": "b920477b6de0b1d89536f51fe20fc3e96727bf5f73f2a239e8945d25b9469361",
+  "platform": "macOS-26.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.10.19",
+  "zstandard_python": "0.25.0",
+  "libzstd": "1.5.7",
+  "lz4_python": "4.4.5",
+  "liblz4": "1.9.4",
+  "repeats": 3
+}

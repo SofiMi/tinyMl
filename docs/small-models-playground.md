@@ -169,6 +169,11 @@ build/model-playground/venv/bin/python tools/compare_small_models.py --output bu
 шестирепличному разговору с собственными ответами каждого варианта. Это небольшой
 диагностический опыт, а не независимый benchmark. [Результаты](evaluation/supra-precision/README.md).
 
+Отдельно проверено сжатие всего Supra Q4 без потерь: zstd/LZ4, уровни 1–10,
+целиком и независимыми чанками 64/128/254/512 КиБ. [Все размеры и времена,
+CSV и методика](evaluation/supra-compression/README.md). Это упаковка файла,
+а не новая квантованная модель или готовый загрузчик для ESP.
+
 Источники: [VaghLM](https://huggingface.co/Heet24/model42M-v1),
 [Stories42M Q4](https://huggingface.co/mradermacher/llama2.c-stories42M-GGUF),
 [Stentor Q4](https://huggingface.co/mradermacher/Stentor-30M-Instruct-GGUF),
