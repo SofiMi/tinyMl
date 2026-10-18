@@ -1,0 +1,10 @@
+stories: 58,073,600 parameters, Q4_K_M, CPU; context 1024 tokens
+Independent inputs; no Ember persona.
+Text continuation: type the beginning of an English story.
+You> stories> Rex was very friendly and the little boy liked him a lot. He wanted to take Rex home with him, but Rex could not come along.
+One day, Rex asked Rex: "Can I take you home?" Ross said: "Yes, but first, I have a secret.
+You> {"backend": "llama-cpp-python", "version": "0.3.16", "quantization": "Q4_K_M", "device": "cpu", "context": 1024, "parameters": 58073600, "tokenizer": "original Hugging Face tokenizer.json; direct token IDs", "weights_sha256": "5f7ce1dbce9408cc06047099130434e9b1a221fc55bbc0e20af8d735ef9cd332"} history_turns=0
+You> New conversation.
+You> stories> it was getting dark and the dragon wanted to hide. So, he ran and hid under a big tree. He stayed there for what seemed like forever.
+The dragon heard a noise coming from behind the tree. He peeked out to see what was happening. To his surprise, he saw a huge
+You>

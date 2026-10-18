@@ -1,0 +1,42 @@
+{
+  "scope": "Local computer inference; not ESP and not a quality benchmark",
+  "runs": [
+    {
+      "model": "stentor",
+      "revision": "843faf95a645f2775f20247b616011e79069d732",
+      "status": "PASS",
+      "outputs": [
+        "may be in the same place as you are. You will also find two places where you can't find this. The next place you might not see is the most common place to find it. It may be in the middle of the place where you can find something new. The second place, where you can still",
+        "et al. (2008) A study of forestry for the U.S. Department of Agriculture (USDA/ILO). The study authors used data from 1979 to 2005 to compare land use and urban development in a 6,347 acres"
+      ]
+    },
+    {
+      "model": "stories",
+      "revision": "2e358f492b302e20c9546c162a903d97801b9a2b",
+      "status": "PASS",
+      "outputs": [
+        "Rex was very friendly and the little boy liked him a lot. He wanted to take Rex home with him, but Rex could not come along.\nOne day, Rex asked Rex: \"Can I take you home?\" Ross said: \"Yes, but first, I have a secret.",
+        "it was getting dark and the dragon wanted to hide. So, he ran and hid under a big tree. He stayed there for what seemed like forever.\nThe dragon heard a noise coming from behind the tree. He peeked out to see what was happening. To his surprise, he saw a huge"
+      ]
+    },
+    {
+      "model": "vagh",
+      "revision": "5c7f9877907cf852099fde00c9cc1685e9b2c30b",
+      "status": "PASS",
+      "outputs": [
+        "I am Sofian and my mom are the people that come from Bulgaria, Romania, France, Spain, Germany, Italy, Turkey, Ukraine, Switzerland, and the United States. They all live in a village called  ⁇ eskova which means \"to feed on the food of every person\". And they have their",
+        "The grass is a plant that has the highest concentration of carbon dioxide in the atmosphere. Grass is a complex and diverse ecosystem, including many plants that grow on soil, waterways and other habitats such as the Gulf Coast and parts of California’s Central Valley. The grass can be divided into four main categories: grass ("
+      ]
+    },
+    {
+      "model": "stentor",
+      "mode": "history",
+      "status": "PASS"
+    },
+    {
+      "model": "vagh",
+      "mode": "history",
+      "status": "PASS"
+    }
+  ]
+}

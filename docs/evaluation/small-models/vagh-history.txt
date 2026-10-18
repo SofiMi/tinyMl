@@ -1,0 +1,10 @@
+vagh: 42,615,808 parameters, FP32, CPU; context 2048 tokens
+Published best_checkpoint.pt, FP32. The advertised finetuned_v2_best.pt is unavailable.
+History ON; /new clears it.
+You> vagh> I am currently a former member of the International Federation for the Advancement of Science
+You> vagh> I am an Australian citizen, and I have been on the UN’s list
+You> {"backend": "torch", "version": "2.14.1", "dtype": "float32", "device": "cpu", "parameters": 42615808, "checkpoint": "best_checkpoint.pt", "context": 2048, "step": 44000, "loss": 1.991916732788086} history_turns=2
+You> New conversation.
+You> Context is full; use /new or shorten input
+You> vagh> Today we're going to learn about a cool concept called "linear algebra."
+You>

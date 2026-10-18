@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-18",
+  "platform": "Darwin-25.2.0-arm64-arm-64bit-Mach-O",
+  "scope": "Local Mac only; no ESP changes or device measurements",
+  "packages": {
+    "torch": "2.14.1",
+    "llama-cpp-python": "0.3.16",
+    "tokenizers": "0.23.3",
+    "sentencepiece": "0.2.2",
+    "jinja2": "3.1.6",
+    "numpy": "2.2.6"
+  },
+  "models": {
+    "stories": {
+      "repo": "mradermacher/llama2.c-stories42M-GGUF",
+      "revision": "2e358f492b302e20c9546c162a903d97801b9a2b",
+      "files": {
+        "README.md": {
+          "bytes": 3399,
+          "sha256": "8aeeeea051134e166c73b1652bca335d9b4051ff0807526bd7337c2b78f98968"
+        },
+        "llama2.c-stories42M.Q4_K_M.gguf": {
+          "bytes": 39680864,
+          "sha256": "5f7ce1dbce9408cc06047099130434e9b1a221fc55bbc0e20af8d735ef9cd332"
+        },
+        "tokenizer.json": {
+          "bytes": 1842767,
+          "sha256": "6d5e0f8575e3bba8e9dad476cf67b7f4b77c4a4b7b749331dc89c9b1c53b642b"
+        }
+      }
+    },
+    "stentor": {
+      "repo": "mradermacher/Stentor-30M-Instruct-GGUF",
+      "revision": "843faf95a645f2775f20247b616011e79069d732",
+      "files": {
+        "README.md": {
+          "bytes": 4058,
+          "sha256": "301a090445f3ca8f9277edb26778574366e3f56d5c0b1296797e4e8bfdef62e9"
+        },
+        "Stentor-30M-Instruct.Q4_K_M.gguf": {
+          "bytes": 20913792,
+          "sha256": "9dcb3035dab347233f03c3e85d8235adadbfec5d6495acbd19b380002c1a4339"
+        },
+        "chat_template.jinja": {
+          "bytes": 3959,
+          "sha256": "e16746b40344d6c5b5265988e0328a0bf7277be86f1c335156eae07e29c82826"
+        },
+        "tokenizer.json": {
+          "bytes": 3671968,
+          "sha256": "3e01771050ce4fba855c59ddb474c72ca1a3f2113a04727990155e3e47390764"
+        }
+      }
+    },
+    "vagh": {
+      "repo": "Heet24/model42M-v1",
+      "revision": "5c7f9877907cf852099fde00c9cc1685e9b2c30b",
+      "files": {
+        "LICENSE": {
+          "bytes": 1066,
+          "sha256": "80d464562264c4f4559f9958e5ddc5319df493e1ba6532934c6471fa7c92b844"
+        },
+        "README.md": {
+          "bytes": 12235,
+          "sha256": "6a94284990213d695e9ce3cfd6ba82c837aaf5ac1f3725632b54cb022fb23526"
+        },
+        "checkpoints/best_checkpoint.pt": {
+          "bytes": 511474827,
+          "sha256": "e17e11e0917760f21b002b35e802ba46ce02a2ae48b09b972030f187e1f01b06"
+        },
+        "inference/generate.py": {
+          "bytes": 4672,
+          "sha256": "f49bab834e14c35af56b1f4b93a5242909a6c9ccff97a5eade270ac2ca672aa0"
+        },
+        "model/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "model/attention.py": {
+          "bytes": 1432,
+          "sha256": "aeeea5e2abc4915c409c2b48f5570ce2067754e1c297cce905281ef4fe59b130"
+        },
+        "model/config.py": {
+          "bytes": 956,
+          "sha256": "91cddf2d3b39cb7959df8ddaac91788bd376d0023fe3ac303a652f418b3039bb"
+        },
+        "model/embeddings.py": {
+          "bytes": 868,
+          "sha256": "bd8e7de29713f7df7d89b9ed330677a49523fd5d515f65833ba8c26c7d444c42"
+        },
+        "model/transformer.py": {
+          "bytes": 2624,
+          "sha256": "86dff10c173a799513fabcf510b571bb562a6e8759383e198848e0959c45f35b"
+        },
+        "tokenizer/vocab/tokenizer.model": {
+          "bytes": 775576,
+          "sha256": "63e6bfbc754da34582c5c3bf86d3d02027f0b0b4cf2a266b2aa424ca78c092d2"
+        }
+      }
+    }
+  },
+  "python": "3.10.19"
+}

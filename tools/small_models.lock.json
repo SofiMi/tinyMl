@@ -1,0 +1,131 @@
+{
+  "vagh": {
+    "repo": "Heet24/model42M-v1",
+    "revision": "5c7f9877907cf852099fde00c9cc1685e9b2c30b",
+    "files": [
+      {
+        "rfilename": "LICENSE",
+        "blobId": "1612cc3c4e3a50ff443dc2e7ed08bb360a223e61",
+        "size": 1066
+      },
+      {
+        "rfilename": "README.md",
+        "blobId": "f271c54c0793f2a4515127e71c09623a0fcae395",
+        "size": 12235
+      },
+      {
+        "rfilename": "checkpoints/best_checkpoint.pt",
+        "blobId": "a5b73facb530c72f4580799602bc375c6f38d82f",
+        "size": 511474827,
+        "lfs": {
+          "sha256": "e17e11e0917760f21b002b35e802ba46ce02a2ae48b09b972030f187e1f01b06",
+          "size": 511474827,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "inference/generate.py",
+        "blobId": "fec3deac4a89c7544eed606f1997a9e3633a0056",
+        "size": 4672
+      },
+      {
+        "rfilename": "model/__init__.py",
+        "blobId": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "size": 0
+      },
+      {
+        "rfilename": "model/attention.py",
+        "blobId": "6e75b2a1f2e7c8ae22b75d46ef6bc475c2235785",
+        "size": 1432
+      },
+      {
+        "rfilename": "model/config.py",
+        "blobId": "62ab49a425fd3a75df9da4e1016f2665ef784bef",
+        "size": 956
+      },
+      {
+        "rfilename": "model/embeddings.py",
+        "blobId": "fd6d65cf40a42be49e63bf92d54d0ad52bee2227",
+        "size": 868
+      },
+      {
+        "rfilename": "model/transformer.py",
+        "blobId": "874292855e48f0bfeb0861b5204352300b64ef2c",
+        "size": 2624
+      },
+      {
+        "rfilename": "tokenizer/vocab/tokenizer.model",
+        "blobId": "68d616e6b1dc21a86f282945d5386d525f737ae5",
+        "size": 775576,
+        "lfs": {
+          "sha256": "63e6bfbc754da34582c5c3bf86d3d02027f0b0b4cf2a266b2aa424ca78c092d2",
+          "size": 775576,
+          "pointerSize": 131
+        }
+      }
+    ]
+  },
+  "stories": {
+    "repo": "mradermacher/llama2.c-stories42M-GGUF",
+    "revision": "2e358f492b302e20c9546c162a903d97801b9a2b",
+    "files": [
+      {
+        "rfilename": "README.md",
+        "blobId": "60b7c41f294d975d68f1419b9e2f641b47fe45ab",
+        "size": 3399
+      },
+      {
+        "rfilename": "llama2.c-stories42M.Q4_K_M.gguf",
+        "blobId": "e6d3c4f8cc52a4e01b61d8354d63feb900767d94",
+        "size": 39680864,
+        "lfs": {
+          "sha256": "5f7ce1dbce9408cc06047099130434e9b1a221fc55bbc0e20af8d735ef9cd332",
+          "size": 39680864,
+          "pointerSize": 133
+        }
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "8901e8a6b64fec15db7f134abcd12035247a116f",
+        "size": 1842767,
+        "repo": "Xenova/llama2.c-stories42M",
+        "revision": "be9e05cce52ef2a4615026726bddb12639d541f5"
+      }
+    ]
+  },
+  "stentor": {
+    "repo": "mradermacher/Stentor-30M-Instruct-GGUF",
+    "revision": "843faf95a645f2775f20247b616011e79069d732",
+    "files": [
+      {
+        "rfilename": "README.md",
+        "blobId": "ac22d12e21b8a96d66e12324394d32fe4cf2e66c",
+        "size": 4058
+      },
+      {
+        "rfilename": "Stentor-30M-Instruct.Q4_K_M.gguf",
+        "blobId": "d08ee4fc28bf95101d76eccaab08553bacee2b2b",
+        "size": 20913792,
+        "lfs": {
+          "sha256": "9dcb3035dab347233f03c3e85d8235adadbfec5d6495acbd19b380002c1a4339",
+          "size": 20913792,
+          "pointerSize": 133
+        }
+      },
+      {
+        "rfilename": "chat_template.jinja",
+        "blobId": "0bab084a418ae72c8de3286f317f8b659aea7c53",
+        "size": 3959,
+        "repo": "StentorLabs/Stentor-30M-Instruct",
+        "revision": "25746d4ee9ce83dc7296f8757f02b5663c112f0f"
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "2e5f2aa1803d9fed8036b1d4faccd9ab31392ee7",
+        "size": 3671968,
+        "repo": "StentorLabs/Stentor-30M-Instruct",
+        "revision": "25746d4ee9ce83dc7296f8757f02b5663c112f0f"
+      }
+    ]
+  }
+}

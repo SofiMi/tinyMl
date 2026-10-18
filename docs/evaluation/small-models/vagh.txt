@@ -1,0 +1,8 @@
+vagh: 42,615,808 parameters, FP32, CPU; context 2048 tokens
+Published best_checkpoint.pt, FP32. The advertised finetuned_v2_best.pt is unavailable.
+Independent inputs; no Ember persona.
+You> vagh> I am Sofian and my mom are the people that come from Bulgaria, Romania, France, Spain, Germany, Italy, Turkey, Ukraine, Switzerland, and the United States. They all live in a village called  ⁇ eskova which means "to feed on the food of every person". And they have their
+You> {"backend": "torch", "version": "2.14.1", "dtype": "float32", "device": "cpu", "parameters": 42615808, "checkpoint": "best_checkpoint.pt", "context": 2048, "step": 44000, "loss": 1.991916732788086} history_turns=0
+You> New conversation.
+You> vagh> The grass is a plant that has the highest concentration of carbon dioxide in the atmosphere. Grass is a complex and diverse ecosystem, including many plants that grow on soil, waterways and other habitats such as the Gulf Coast and parts of California’s Central Valley. The grass can be divided into four main categories: grass (
+You>
