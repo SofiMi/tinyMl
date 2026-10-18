@@ -14,3 +14,4 @@ __pycache__/
 !components/esp32ai/assets/*.bin
 
 sdkconfig.before-uart0-*
+sdkconfig.before-usb-*

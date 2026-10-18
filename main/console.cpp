@@ -15,6 +15,7 @@
 #include "esp_partition.h"
 #include "esp_random.h"
 #include "esp_timer.h"
+#include "esp_stdio.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #endif
@@ -31,6 +32,10 @@ static void yield_cpu() {
     vTaskDelay(1);
 #endif
 }
+
+#if defined(ESP_PLATFORM) && CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG && !CONFIG_VFS_SUPPORT_IO
+#error "Interactive USB console requires CONFIG_VFS_SUPPORT_IO=y"
+#endif
 
 #define LLM_PROFILE 1
 #define LLM_PROFILE_NOW() micros()
@@ -182,7 +187,9 @@ static void stats() {
            sram_used, STATIC_SRAM_BYTES, psram_used);
     printf("[config] int8=1 dual_core=%d profile=1 display_present=%d\n",
            dual_core_active, display_is_present());
-#ifdef CONFIG_ESP_CONSOLE_SECONDARY_USB_SERIAL_JTAG
+#if CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG
+    puts("[console] input=USB_SERIAL_JTAG output=USB_SERIAL_JTAG");
+#elif CONFIG_ESP_CONSOLE_SECONDARY_USB_SERIAL_JTAG
     puts("[console] input=UART0 output=UART0+USB_SERIAL_JTAG");
 #endif
 #ifdef ESP_PLATFORM
@@ -351,8 +358,9 @@ static bool read_line(std::string& line) {
 
 
 static bool run_console(const uint8_t* weights, size_t weights_size) {
+    setvbuf(stdin, nullptr, _IONBF, 0);
     setvbuf(stdout, nullptr, _IONBF, 0);
-    puts("\nPLE TinyStories 28.9M / ESP32-S3 N16R8 / USB-UART console");
+    puts("\nPLE TinyStories 28.9M / ESP32-S3 N16R8 / USB console");
     // Check the known image before calling upstream's pointer-only loader.
     if (weights_size < kModelBytes) {
         puts("[FATAL] Model partition/file is too small.");
@@ -430,6 +438,15 @@ static bool run_console(const uint8_t* weights, size_t weights_size) {
 
 #ifdef ESP_PLATFORM
 extern "C" void app_main() {
+#if CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG
+    // Interrupt-driven USB I/O flushes short prompts without waiting for a
+    // newline/full hardware FIFO, and lets getchar() sleep while awaiting input.
+    const esp_err_t io_error = esp_stdio_install_io_driver();
+    if (io_error != ESP_OK) {
+        printf("[FATAL] USB console driver: %s\n", esp_err_to_name(io_error));
+        return;
+    }
+#endif
     if (esp_psram_get_size() < 8 * 1024 * 1024) {
         puts("[FATAL] Expected 8 MB PSRAM. Check N16R8 / Octal PSRAM settings.");
         return;

@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-18",
+  "platform": "macOS arm64",
+  "idf_version": "v6.1",
+  "change": "Native USB primary for user-confirmed 303a:1001",
+  "hardware_chat_tested": false,
+  "previous_errno71_cause_known": false,
+  "config": {
+    "config/sdkconfig.h": [
+      "CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG 1",
+      "CONFIG_ESP_CONSOLE_SECONDARY_NONE 1",
+      "CONFIG_VFS_SUPPORT_IO 1"
+    ],
+    "bootloader/config/sdkconfig.h": [
+      "CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG 1",
+      "CONFIG_ESP_CONSOLE_SECONDARY_NONE 1"
+    ]
+  },
+  "artifacts": {
+    "tinyml.bin": {
+      "bytes": 662944,
+      "sha256": "19e269742d9cdec37f5b237038695558d94ea09fcc5449cb0e271119bfa0a837"
+    },
+    "partition_table/partition-table.bin": {
+      "bytes": 3072,
+      "sha256": "4cca7d6f3facc4c1595216c23c274922e38d035316cd0dff736fe9b41f7085a2"
+    },
+    "bootloader/bootloader.bin": {
+      "bytes": 22608,
+      "sha256": "dc5c830b9a4ca8bc7fb7bae1b160a283a4ecb6753e98eda9a0d9fd6340cd6b19"
+    }
+  },
+  "flash_files": {
+    "0x0": "bootloader/bootloader.bin",
+    "0x8000": "partition_table/partition-table.bin",
+    "0x110000": "../../components/esp32ai/assets/model.bin",
+    "0x10000": "tinyml.bin"
+  },
+  "elf_verified": [
+    "esp_stdio_install_io_driver",
+    "usb_serial_jtag_driver_install",
+    "usb_serial_jtag_vfs_dev_port_init",
+    "usbjtag_rx_char_via_driver",
+    "usbjtag_tx_char_via_driver",
+    "esp_stdio_register"
+  ]
+}

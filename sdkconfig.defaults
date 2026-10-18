@@ -14,11 +14,12 @@ CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
 CONFIG_COMPILER_OPTIMIZATION_PERF=y
 CONFIG_ESP_MAIN_TASK_STACK_SIZE=12288
 CONFIG_FREERTOS_HZ=1000
-# The board's USB connector uses a QinHeng CH343 bridge (1a86:55d3).
-# Its /dev/ttyACM* port is UART0, not the ESP32-S3 native USB controller.
-CONFIG_ESP_CONSOLE_UART_DEFAULT=y
-CONFIG_ESP_CONSOLE_UART_BAUDRATE=115200
-# CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG is not set
-# Mirror output on native USB as in phase0-uart0-console.patch; input stays UART0.
-# CONFIG_ESP_CONSOLE_SECONDARY_NONE is not set
-CONFIG_ESP_CONSOLE_SECONDARY_USB_SERIAL_JTAG=y
+# Confirmed by the user's 2026-10-18 log: Espressif 303a:1001, cdc_acm.
+# Native USB must be PRIMARY for both input and output; secondary is output-only.
+# For a CH343/other USB-UART bridge use tools/configure_console.py --interface uart0.
+# CONFIG_ESP_CONSOLE_UART_DEFAULT is not set
+CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
+CONFIG_ESP_CONSOLE_SECONDARY_NONE=y
+# CONFIG_ESP_CONSOLE_SECONDARY_USB_SERIAL_JTAG is not set
+# Required by the interrupt-driven interactive USB console.
+CONFIG_VFS_SUPPORT_IO=y
